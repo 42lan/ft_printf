@@ -1,0 +1,21 @@
+# Object files
+*.o
+
+# Libraries
+*.a
+
+# Executable
+*.out
+
+# Debug files
+*.dSYM
+
+# Swp files
+*.swp
+*.swo
+
+# Precompiled header
+*.h.gch
+
+# .DS_Store folders
+.DS_Store
