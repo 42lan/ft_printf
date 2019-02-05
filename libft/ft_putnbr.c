@@ -1,17 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/05 23:54:00 by amalsago         ###   ########.fr       */
+/*   Created: 2018/11/19 15:04:24 by amalsago          #+#    #+#             */
+/*   Updated: 2018/11/24 10:59:18 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *restrict format, ...);
-int		parsing(va_list ap, const char *restrict format);
+void	ft_putnbr(int n)
+{
+	if (n == INT_MIN)
+		ft_putstr("-2147483648");
+	else if (n < 0)
+	{
+		ft_putchar('-');
+		ft_putnbr(n * (-1));
+	}
+	else if (n >= 0 && n < 10)
+		ft_putchar(n + '0');
+	else
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
+}

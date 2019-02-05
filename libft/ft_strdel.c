@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/05 23:54:00 by amalsago         ###   ########.fr       */
+/*   Created: 2018/11/17 09:10:39 by amalsago          #+#    #+#             */
+/*   Updated: 2018/11/24 11:05:18 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *restrict format, ...);
-int		parsing(va_list ap, const char *restrict format);
+void	ft_strdel(char **as)
+{
+	if (as && *as)
+	{
+		ft_memdel((void **)as);
+		*as = NULL;
+	}
+}

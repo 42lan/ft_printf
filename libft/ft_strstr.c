@@ -1,17 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/05 23:54:00 by amalsago         ###   ########.fr       */
+/*   Created: 2018/11/15 12:45:02 by amalsago          #+#    #+#             */
+/*   Updated: 2018/11/22 19:48:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *restrict format, ...);
-int		parsing(va_list ap, const char *restrict format);
+char	*ft_strstr(const char *haystack, const char *needle)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	if (!*needle)
+		return ((char *)haystack);
+	while (haystack[i] != '\0')
+	{
+		j = 0;
+		if (haystack[i] == needle[j])
+		{
+			while (haystack[i + j] == needle[j] && needle[j] != '\0')
+				j++;
+			if (needle[j] == '\0')
+				return ((char *)haystack + i);
+		}
+		i++;
+	}
+	return (NULL);
+}

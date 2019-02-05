@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/05 23:54:00 by amalsago         ###   ########.fr       */
+/*   Created: 2018/11/19 08:38:02 by amalsago          #+#    #+#             */
+/*   Updated: 2018/11/24 10:59:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *restrict format, ...);
-int		parsing(va_list ap, const char *restrict format);
+void	ft_putstr_fd(char const *s, int fd)
+{
+	if (s && fd)
+		while (*s != '\0')
+			ft_putchar_fd(*s++, fd);
+}

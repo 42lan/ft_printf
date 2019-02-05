@@ -1,17 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_cntwords.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/05 23:54:00 by amalsago         ###   ########.fr       */
+/*   Created: 2018/11/20 14:18:21 by amalsago          #+#    #+#             */
+/*   Updated: 2018/11/21 12:20:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *restrict format, ...);
-int		parsing(va_list ap, const char *restrict format);
+int		ft_cntwords(char const *s, char c)
+{
+	int		i;
+	int		words;
+
+	i = 0;
+	words = 0;
+	while (s[i] != '\0')
+	{
+		if (!ft_isseparator(s[i], c))
+		{
+			words++;
+			while (!ft_isseparator(s[i], c) && s[i] != '\0')
+				i++;
+		}
+		i++;
+	}
+	return (words);
+}
