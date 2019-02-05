@@ -6,11 +6,11 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/05 23:39:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/05 23:51:14 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "../libft/libft.h"
 
-int		ft_printf(const char *format, ...);
+int		ft_printf(const char *restrict format, ...);
