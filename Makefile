@@ -6,20 +6,23 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/02/06 00:01:25 by amalsago         ###   ########.fr        #
+#    Updated: 2019/02/06 02:04:36 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
 # General
-NAME		= ft_printf
+#NAME		= ft_printf
+NAME		= libftprintf.a
 CPPFLAGS	= -I $(INCDIR)
 LIBNAME		= libft.a
 
 # **************************************************************************** #
 # System commands
 CC			= /usr/bin/clang -Wall -Wextra -Werror
+AR			= /usr/bin/ar -rc
 MAKE		= /usr/bin/make -C
+RANLIB		= /usr/bin/ranlib
 NORMINETTE	= /usr/bin/norminette
 MKDIR		= /bin/mkdir -p
 RM			= /bin/rm -rf
@@ -47,9 +50,12 @@ LIB			= $(addprefix $(LIBDIR)/, $(LIBNAME))
 # Rules
 
 all: $(NAME)
+	$(CC) $(NAME)
 
 $(NAME): $(LIB) $(OBJ)
-	$(CC) $^ -o $@
+	#$(CC) $^ -o $@
+	$(AR) $(NAME) $(OBJ)
+	$(RANLIB) $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(MKDIR) $(OBJDIR)
