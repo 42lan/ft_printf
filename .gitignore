@@ -6,7 +6,6 @@
 
 # Executable
 *.out
-ft_printf
 
 # Debug files
 *.dSYM
