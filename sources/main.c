@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:31:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/06 02:22:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/06 06:25:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int			main(int ac, char **av)
 	(void)av;
 	char	*world = "World";
 	char	exclam = '!';
+	int		nb = 42;
 
-	printf("Hello, %s%c Ingore following %%\n", world, exclam);
-	ft_printf("Hello, %s%c Ingore following %%\n", world, exclam);
+	printf("Hello, %s%c Ingore following % d%%\n", world, exclam, nb);
+	ft_printf("Hello, %s%c Ingore following % d%%\n", world, exclam, nb);
 	return (0);
 }
