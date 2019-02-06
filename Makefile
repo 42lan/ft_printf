@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/02/06 02:04:36 by amalsago         ###   ########.fr        #
+#    Updated: 2019/02/06 02:37:19 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,13 +49,13 @@ LIB			= $(addprefix $(LIBDIR)/, $(LIBNAME))
 # **************************************************************************** #
 # Rules
 
-all: $(NAME)
-	$(CC) $(NAME)
+all: $(NAME) $(LIB)
+	@$(CC) $(NAME) $(LIB)
 
 $(NAME): $(LIB) $(OBJ)
 	#$(CC) $^ -o $@
-	$(AR) $(NAME) $(OBJ)
-	$(RANLIB) $(NAME)
+	@$(AR) $(NAME) $(OBJ)
+	@$(RANLIB) $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(MKDIR) $(OBJDIR)
