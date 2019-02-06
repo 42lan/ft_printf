@@ -6,13 +6,12 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/02/06 02:37:19 by amalsago         ###   ########.fr        #
+#    Updated: 2019/02/06 04:42:47 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
 # General
-#NAME		= ft_printf
 NAME		= libftprintf.a
 CPPFLAGS	= -I $(INCDIR)
 LIBNAME		= libft.a
@@ -49,13 +48,14 @@ LIB			= $(addprefix $(LIBDIR)/, $(LIBNAME))
 # **************************************************************************** #
 # Rules
 
+.SILENT:
+
 all: $(NAME) $(LIB)
-	@$(CC) $(NAME) $(LIB)
+	$(CC) $(NAME) $(LIB)
 
 $(NAME): $(LIB) $(OBJ)
-	#$(CC) $^ -o $@
-	@$(AR) $(NAME) $(OBJ)
-	@$(RANLIB) $(NAME)
+	$(AR) $(NAME) $(OBJ)
+	$(RANLIB) $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(MKDIR) $(OBJDIR)
