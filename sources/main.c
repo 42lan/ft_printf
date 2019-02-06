@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:31:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/06 00:10:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/06 02:22:02 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 int			main(int ac, char **av)
 {
-	int		i;
+	(void)ac;
+	(void)av;
+	char	*world = "World";
+	char	exclam = '!';
 
-	if (ac < 2)
-		return (1);
-	i = 1;
-	while (av[i])
-	{
-		if (ft_printf(av[i]) > 0)
-			i++;
-		else
-			ft_putstr("ft_printf() return a negative value");
-	}
+	printf("Hello, %s%c Ingore following %%\n", world, exclam);
+	ft_printf("Hello, %s%c Ingore following %%\n", world, exclam);
 	return (0);
 }
