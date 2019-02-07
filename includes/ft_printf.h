@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/06 23:28:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/07 04:48:02 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,4 @@
 #include "../libft/libft.h"
 
 int		ft_printf(const char *restrict format, ...);
-int		parsing(va_list ap, const char *restrict str);
+int		parsing(va_list arg, const char *restrict str);
