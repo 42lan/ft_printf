@@ -31,7 +31,7 @@ typedef struct	s_flags
 typedef struct	s_spec
 {
 	int			parameter;
-	t_flags		*flag;
+	t_flags		*flags;
 	int			width;
 	int			precision;
 	char		*length;
