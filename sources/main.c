@@ -26,7 +26,7 @@ int			main(int ac, char **av)
 	if (!(x->flags = (t_flags *)malloc(sizeof(t_flags))))
 		return (1);
 	x->flags->minus = 1;
-	printf("%d\n\n", x->flags->minus);
+	printf("%lu\n\n", sizeof(x->flags));
 	printf("Hello, %s%c Ingore following % d%%\n", world, exclam, nb);
 	ft_printf("Hello, %s%c Ingore following % d%%\n", world, exclam, nb);
 	return (0);
