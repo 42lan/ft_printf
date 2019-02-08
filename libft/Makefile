@@ -92,7 +92,9 @@ SRCNAME		= ft_memset.c			\
 			  ft_cntwords.c			\
 			  ft_isseparator.c		\
 			  ft_strnew2d.c			\
-			  ft_swap.c
+			  ft_swap.c				\
+			  ft_islower.c			\
+			  ft_isupper.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of source and object files
