@@ -19,7 +19,7 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 
-# define BUFF_SIZE 32
+# define BUFF_SIZE 5
 
 typedef struct	s_flags
 {
