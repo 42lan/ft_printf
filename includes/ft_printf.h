@@ -21,6 +21,12 @@
 
 # define BUFF_SIZE 5
 
+/*
+** Bit field
+** Following group of fields will never exceed a limit. They can be only 0 or 1
+** This aproach allow to optimize usage of memory 
+*/
+
 typedef struct	s_flags
 {
 	unsigned	minus	: 1;
@@ -30,6 +36,10 @@ typedef struct	s_flags
 	unsigned	hash	: 1;
 }				t_flags;
 
+/*
+** Structure of the syntax for a format fields
+*/
+
 typedef struct	s_spec
 {
 	int			parameter;
@@ -38,6 +48,10 @@ typedef struct	s_spec
 	int			precision;
 	char		*length;
 }				t_spec;
+
+/*
+** Structure of the syntax for a format placeholder
+*/
 
 typedef struct	s_type
 {
