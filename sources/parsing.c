@@ -26,11 +26,11 @@ int			parsing(va_list arg, const char *restrict str)
 	{
 		if (*str == '%')
 		{
-			isintconversion(*str)
-			isfloatconversion(*str)
+			/*isintconversion(*str)
+			isfloatconversion(*str)*/
 		}
-		while (ft_isalnum(*str))
-			buffer[++i] = *str;
+		/*while (ft_isalnum(*str))
+			buffer[++i] = *str;*/
 			
 		while (*str && *str != '%')
 		{
