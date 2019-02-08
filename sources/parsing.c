@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 00:02:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/08 05:25:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/07 23:08:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			parsing(va_list arg, const char *restrict str)
 {
-	//		ft_printf("Hello, %s%c Ingore following %d%%\n", world, exclam, nb);
+	//		ft_printf("Hello, %s%c Ingore following %	d%%\n", world, exclam, nb);
 	(void)arg;
 	int		i;
 	char	buffer[BUFF_SIZE];
@@ -24,6 +24,14 @@ int			parsing(va_list arg, const char *restrict str)
 		return (-1);
 	while (*str)
 	{
+		if (*str == '%')
+		{
+			isintconversion(*str)
+			isfloatconversion(*str)
+		}
+		while (ft_isalnum(*str))
+			buffer[++i] = *str;
+			
 		while (*str && *str != '%')
 		{
 			if (i < BUFF_SIZE)
