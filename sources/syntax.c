@@ -12,21 +12,36 @@
 
 #include "ft_printf.h"
 
-void		*check_syntax(const char *str)
+int			check_syntax(const char *str, t_type *type)
 {
 	/*	%[parameter][flags][width][.precision][length]type	*/
-	t_spec	*spec;
 	
-	if (!(spec = (t_spec *)ft_memalloc(sizeof(t_spec))))
-		return (NULL);
-	if (!(spec->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
-		return (NULL);
-	check_flags(str, spec->flags);
+	check_flags(str, type->specifiers->flags);
+	check_type(str, type);
+	return (1);
+}
+
+void		reset_flags(t_flags *flags)
+{
+	flags->minus = 0;
+	flags->plus = 0;
+	flags->space = 0;
+	flags->zero = 0;
+	flags->hash = 0;
+}
+
+int			isflag(const char c)
+{
+	return (c == '-' || c == '+' || c == ' ' || c == '0' || c == '#');
 }
 
 int			check_flags(const char *str, t_flags *flags)
 {
-	while (*str)
+	reset_flags(flags);
+	//	printf("%-#10x \n", number)		Correct
+	//	printf("%-*10x \n", number)		Incorrect
+	//	"+f \n"							Correct TEST
+	while (isflag(*str))
 	{
 		if (*str == '-')
 			flags->minus = 1;
@@ -38,6 +53,17 @@ int			check_flags(const char *str, t_flags *flags)
 			flags->zero = 1;
 		else if (*str == '#')
 			flags->hash = 1;
+		else
+		{
+			reset_flags(flags);
+			return (0);
+		}		
 		str++;
 	}
+	return (1);
+}
+
+int			check_type(const char *str, t_type *type)
+{
+	if (*str)
 }
