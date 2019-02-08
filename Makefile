@@ -37,8 +37,7 @@ LIBDIR		= ./libft
 # List of source files
 SRCNAME		= main.c		\
 			  ft_printf.c	\
-			  parsing.c		\
-			  conversions.c
+			  parsing.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
