@@ -17,34 +17,29 @@ int			parsing(va_list arg, const char *restrict str)
 	//		ft_printf("Hello, %s%c Ingore following %	d%%\n", world, exclam, nb);
 	(void)arg;
 	int		i;
-	char	buffer[BUFF_SIZE];
+	t_type	*type;
+	//char	buffer[BUFF_SIZE];
 
 	i = -1;
 	if (!str)
 		return (-1);
+	if (!(type = (t_type *)ft_memalloc(sizeof(t_type))))
+		return (0);
+	if (!(type->specifiers = (t_spec *)ft_memalloc(sizeof(t_spec))))
+		return (0);
+	if (!(type->specifiers->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
+		return (0);
 	while (*str)
 	{
-		if (*str == '%')
+		if (*str == '%' && *(str + 1) != '%')
 		{
-			/*isintconversion(*str)
-			isfloatconversion(*str)*/
-		}
-		/*while (ft_isalnum(*str))
-			buffer[++i] = *str;*/
-			
-		while (*str && *str != '%')
-		{
-			if (i < BUFF_SIZE)
-				buffer[++i] = *str;
-			else
-			{
-				ft_putendl(buffer);
-				i = -1;
-			}
 			str++;
+			if (check_syntax(str, type))
+			{
+				ft_putendl("OK");
+			}
 		}
-		if (*str == '%' && *(str + 1) == '%')
-			ft_putchar(*str);
+		
 		str++;
 	}
 	/*char	*s;
