@@ -14,8 +14,24 @@
 
 int			parsing(va_list arg, const char *restrict str)
 {
+	//		ft_printf("Hello, %s%c Ingore following %d%%\n", world, exclam, nb);
 	(void)arg;
-	char	*s;
+	int		i;
+	char	buffer[BUFF_SIZE];
+
+	i = -1;
+	if (!str)
+		return (-1);
+	while (*str)
+	{
+		while (*str && *str != '%')
+		{
+			if (i != 32)
+				buffer[++i] = *str;
+		}
+		str++;
+	}
+	/*char	*s;
 	int		c;
 	int		d;
 
@@ -40,6 +56,6 @@ int			parsing(va_list arg, const char *restrict str)
 			}
 		}
 		str++;
-	}
+	}*/
 	return (1);
 }
