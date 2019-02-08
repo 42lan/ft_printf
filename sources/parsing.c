@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 00:02:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/07 23:08:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/08 05:25:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,17 @@ int			parsing(va_list arg, const char *restrict str)
 	{
 		while (*str && *str != '%')
 		{
-			if (i != 32)
+			if (i < BUFF_SIZE)
 				buffer[++i] = *str;
+			else
+			{
+				ft_putendl(buffer);
+				i = -1;
+			}
+			str++;
 		}
+		if (*str == '%' && *(str + 1) == '%')
+			ft_putchar(*str);
 		str++;
 	}
 	/*char	*s;
