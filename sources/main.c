@@ -23,10 +23,10 @@ int			main(int ac, char **av)
 	
 	if (!(x = (t_spec *)malloc(sizeof(t_spec))))
 		return (1);
-	if (!(x->flag = (t_flags *)malloc(sizeof(t_flags))))
+	if (!(x->flags = (t_flags *)malloc(sizeof(t_flags))))
 		return (1);
-	x->flag->minus = 1;
-	printf("%d\n\n", x->flag->minus);
+	x->flags->minus = 1;
+	printf("%d\n\n", x->flags->minus);
 	printf("Hello, %s%c Ingore following % d%%\n", world, exclam, nb);
 	ft_printf("Hello, %s%c Ingore following % d%%\n", world, exclam, nb);
 	return (0);
