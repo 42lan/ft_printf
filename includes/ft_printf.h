@@ -19,6 +19,8 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 
+# define BUFF_SIZE 32
+
 typedef struct	s_flags
 {
 	unsigned	minus	: 1;
@@ -39,8 +41,8 @@ typedef struct	s_spec
 
 typedef struct	s_type
 {
-	char		type;
 	t_spec		*specifiers;
+	char		type;
 }				t_type;
 
 int				ft_printf(const char *restrict format, ...);
