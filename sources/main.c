@@ -16,12 +16,15 @@ int			main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
-	char	*world = "World";
-	char	exclam = '!';
+	//char	*world = "World";
+	//char	exclam = '!';
 	float	nb = 42.68;
 
-	printf("Hello, %s%c %+.2f%%\n", world, exclam, nb);
-	if (ft_printf("Hello, %s%c %+.2f%%\n", world, exclam, nb) < 0)
+	printf("%+f \n", nb);
+	if (ft_printf("%-+f \n", nb) < 0)
 		return (1);
+	//printf("Hello, %s%c %+.2f%%\n", world, exclam, nb);
+	//if (ft_printf("Hello, %s%c %+.2f%%\n", world, exclam, nb) < 0)
+	//	return (1);
 	return (0);
 }
