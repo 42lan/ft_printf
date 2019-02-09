@@ -29,17 +29,26 @@ int			parsing(va_list arg, const char *restrict str)
 		return (0);
 	if (!(type->specifiers->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
 		return (0);
+	reset_flags(type->specifiers->flags);
 	while (*str)
 	{
 		if (*str == '%' && *(str + 1) != '%')
 		{
 			str++;
-			if (check_syntax(str, type))
+			while (!ft_isalpha(*str))
 			{
-				ft_putendl("OK");
+				if (check_syntax(*str, type))
+				{
+					ft_putendl("OK");
+				}
+				str++;
 			}
+			ft_putnbr(type->specifiers->flags->minus);
+			ft_putnbr(type->specifiers->flags->plus);
+			ft_putnbr(type->specifiers->flags->space);
+			ft_putnbr(type->specifiers->flags->zero);
+			ft_putnbr(type->specifiers->flags->hash);
 		}
-		
 		str++;
 	}
 	/*char	*s;
