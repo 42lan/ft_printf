@@ -20,3 +20,4 @@
 # Folders
 .DS_Store/
 objects/
+.vscode/
