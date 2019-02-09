@@ -43,6 +43,7 @@ int			parsing(va_list arg, const char *restrict str)
 				}
 				str++;
 			}
+			ft_putchar(*str);
 			ft_putnbr(type->specifiers->flags->minus);
 			ft_putnbr(type->specifiers->flags->plus);
 			ft_putnbr(type->specifiers->flags->space);
