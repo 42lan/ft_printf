@@ -12,6 +12,10 @@
 
 #include "ft_printf.h"
 
+/*
+** check_syntax() call other functions to check specifiers and type
+*/
+
 int			check_syntax(const char c, t_type *type)
 {
 	/* %[parameter][flags][width][.precision][length]type */
@@ -29,6 +33,10 @@ int			check_syntax(const char c, t_type *type)
 	return (0);
 }
 
+/*
+** Setting up all fields of t_flags structure to 0
+*/
+
 void		reset_flags(t_flags *flags)
 {
 	flags->minus = 0;
@@ -38,10 +46,19 @@ void		reset_flags(t_flags *flags)
 	flags->hash = 0;
 }
 
+/*
+** Checking if given char is one of the flags
+*/
+
 int			isflag(const char c)
 {
 	return (c == '-' || c == '+' || c == ' ' || c == '0' || c == '#');
 }
+
+/*
+** Checking if passed character in argument is one of the flags and
+** setting up the corresponding bit to 1
+*/
 
 int			check_flags(const char c, t_flags *flags)
 {
@@ -66,6 +83,11 @@ int			check_flags(const char c, t_flags *flags)
 	}
 	return (0);
 }
+
+/*
+** check_type() determin data type and make call other functions to convert
+** one data type to another
+*/
 
 int			check_type(const char c, t_type *type)
 {
