@@ -12,6 +12,10 @@
 
 #include "ft_printf.h"
 
+/*
+** Declaration of va_list and initialisation with va_start()
+*/
+
 int				ft_printf(const char *restrict format, ...)
 {
 	va_list		arg;
