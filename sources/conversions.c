@@ -18,7 +18,7 @@
 ** of those function return 0
 */
 
-int		check_conversion_type(const char c)
+int		conversion_type(const char c)
 {
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'u' || c == 'x' || c == 'X')
 		return (1);
