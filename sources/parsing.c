@@ -30,16 +30,17 @@ int			parsing(va_list arg, const char *restrict str)
 	int		i;
 	t_type	*type;
 
-	i = -1;
 	if (!str)
 		return (-1);
+	i = -1;
+	type = NULL;
 	type = initialize_type(type);
 	while (*str)
 	{
 		if (*str == '%' && *(str + 1) != '%')
 		{
 			str++;
-			while (!ft_isalpha(*str))
+			while (!conversion_type(*str))
 			{
 				if (check_syntax(*str, type))
 					ft_putendl("OK");
