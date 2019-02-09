@@ -27,6 +27,11 @@ int		conversion_type(const char c)
 	return (0);
 }
 
+/*
+** Depending what type is given argument integer_conversion() sets up
+** type field of t_type structure 
+*/
+
 void	integer_conversion(const char c, t_type *type)
 {
 	if (c == 'd' || c == 'i')
