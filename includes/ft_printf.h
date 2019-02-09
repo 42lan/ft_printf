@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/08 00:40:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/09 03:28:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 /*
 ** Bit field
 ** Following group of fields will never exceed a limit. They can be only 0 or 1
-** This aproach allow to optimize usage of memory 
+** This aproach allow to optimize usage of memory
 */
 
 typedef struct	s_flags

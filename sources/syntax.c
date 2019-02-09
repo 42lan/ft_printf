@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 22:09:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/08 22:09:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/09 03:40:43 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int			check_syntax(const char c, t_type *type)
 {
-	/*	%[parameter][flags][width][.precision][length]type	*/
-	
+	/* %[parameter][flags][width][.precision][length]type */
+
 	if (c && type)
 	{
 		//check_parameter();
@@ -31,11 +31,11 @@ int			check_syntax(const char c, t_type *type)
 
 void		reset_flags(t_flags *flags)
 {
-	flags->minus	= 0;
-	flags->plus		= 0;
-	flags->space	= 0;
-	flags->zero		= 0;
-	flags->hash		= 0;
+	flags->minus = 0;
+	flags->plus = 0;
+	flags->space = 0;
+	flags->zero = 0;
+	flags->hash = 0;
 }
 
 int			isflag(const char c)
@@ -45,9 +45,6 @@ int			isflag(const char c)
 
 int			check_flags(const char c, t_flags *flags)
 {
-	//	printf("%-#10x \n", number)		Correct
-	//	printf("%-*10x \n", number)		Incorrect
-	//	"+f \n"							Correct TEST
 	while (isflag(c))
 	{
 		if (c == '-')
@@ -90,11 +87,10 @@ int			check_type(const char c, t_type *type)
 	{
 		if (check_conversion_type(c) == 1)
 		{
-			integer_conversion(c, type);
+			//integer_conversion(c, type);
 		}
 		/*else if (conversion_type(c) == 2)
 		{
-
 		}*/
 		else
 			return (0);
