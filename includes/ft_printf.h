@@ -68,8 +68,8 @@ int				check_flags(const char c, t_flags *flags);
 int				isflag(const char c);
 void			reset_flags(t_flags *flags);
 
-int				check_type(const char *str, t_type *type);
+int				check_type(const char c, t_type *type);
 
-int				conversion_type(const char c);
+int				check_conversion_type(const char c);
 
 #endif
