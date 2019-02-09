@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 22:09:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/09 03:40:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/09 04:31:48 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,38 +45,24 @@ int			isflag(const char c)
 
 int			check_flags(const char c, t_flags *flags)
 {
-	while (isflag(c))
+	if (isflag(c) && flags)
 	{
 		if (c == '-')
-		{
 			flags->minus = 1;
-			return (1);
-		}
 		else if (c == '+')
-		{
 			flags->plus = 1;
-			return (1);
-		}
 		else if (c == ' ')
-		{
 			flags->space = 1;
-			return (1);
-		}
 		else if (c == '0')
-		{
 			flags->zero = 1;
-			return (1);
-		}
 		else if (c == '#')
-		{
 			flags->hash = 1;
-			return (1);
-		}
 		else
 		{
 			reset_flags(flags);
 			return (0);
 		}
+		return (1);
 	}
 	return (0);
 }
@@ -85,7 +71,7 @@ int			check_type(const char c, t_type *type)
 {
 	if (c && type)
 	{
-		if (check_conversion_type(c) == 1)
+		if (conversion_type(c) == 1)
 		{
 			//integer_conversion(c, type);
 		}
