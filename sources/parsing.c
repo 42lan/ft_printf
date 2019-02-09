@@ -12,6 +12,10 @@
 
 #include "ft_printf.h"
 
+/*
+** Initialization of type pointer to t_type structure
+*/
+
 t_type		*initialize_type(t_type *type)
 {
 	if (!(type = (t_type *)ft_memalloc(sizeof(t_type))))
@@ -23,6 +27,10 @@ t_type		*initialize_type(t_type *type)
 	reset_flags(type->specifiers->flags);
 	return (type);
 }
+
+/*
+** Parsing function to set up fields of t_type structure
+*/
 
 int			parsing(va_list arg, const char *restrict str)
 {
