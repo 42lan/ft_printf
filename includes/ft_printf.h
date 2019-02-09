@@ -61,8 +61,15 @@ typedef struct	s_type
 
 int				ft_printf(const char *restrict format, ...);
 int				parsing(va_list arg, const char *restrict str);
-int				check_syntax(const char *str, t_type *type);
-int				check_flags(const char *str, t_flags *flags);
+
+int				check_syntax(const char c, t_type *type);
+
+int				check_flags(const char c, t_flags *flags);
 int				isflag(const char c);
+void			reset_flags(t_flags *flags);
+
+int				check_type(const char *str, t_type *type);
+
+int				conversion_type(const char c);
 
 #endif
