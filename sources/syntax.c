@@ -85,13 +85,15 @@ int			check_flags(const char c, t_flags *flags)
 
 int			check_type(const char c, t_type *type)
 {
+	(void)type;
 	if (conversion_type(c) == 1)
 	{
 		//integer_conversion(c, type);
 	}
-	/*else if (conversion_type(c) == 2)
+	else if (conversion_type(c) == 2)
 	{
-	}*/
+		//floating_point_conversion(c, type);
+	}
 	else
 		return (0);
 	return (1);
