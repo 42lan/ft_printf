@@ -39,25 +39,18 @@ int			is_flag(const char c)
 ** setting up the corresponding bit to 1
 */
 
-/*
-? void ?????
-  |
-  V       */
-int			check_flags(const char c, t_flags *flags)
+void		set_flag(const char c, t_flags *flags)
 {
-	if (c == '-')
-		flags->minus = 1;
-	else if (c == '+')
-		flags->plus = 1;
-	else if (c == ' ')
-		flags->space = 1;
-	else if (c == '0')
-		flags->zero = 1;
+	if (c == ' ')
+		set_space(flags);
 	else if (c == '#')
-		flags->hash = 1;
-	else
-		return (0);
-	return (1);
+		set_hash(flags);
+	else if (c == '+')
+		set_plus(flags);
+	else if (c == '-')
+		set_minus(flags);
+	else if (c == '0')
+		set_zero(flags);
 }
 
 
