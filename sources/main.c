@@ -20,8 +20,8 @@ int			main(int ac, char **av)
 	char	exclam = '!';*/
 	float	nb = 42.68;
 
-	printf("%+f \n", nb);
-	if (ft_printf("%-+f \n", nb) < 0)
+	printf("%% %+f \n", nb);
+	if (ft_printf("%% %-+f \n", nb) < 0)
 		return (1);
 	/*printf("Hello, %s%c %+.2f%%\n", world, exclam, nb);
 	if (ft_printf("Hello, %s%c %+.2f%%\n", world, exclam, nb) < 0)
