@@ -43,11 +43,11 @@ int			check_syntax(const char c, t_type *type)
 
 void		initialize_flags(t_flags *flags)
 {
-	flags->minus = 0;
-	flags->plus = 0;
 	flags->space = 0;
-	flags->zero = 0;
 	flags->hash = 0;
+	flags->plus = 0;
+	flags->minus = 0;
+	flags->zero = 0;
 }
 
 /*
@@ -56,7 +56,7 @@ void		initialize_flags(t_flags *flags)
 
 int			is_flag(const char c)
 {
-	return (c == '-' || c == '+' || c == ' ' || c == '0' || c == '#');
+	return (c == ' ' || c == '#' || c == '+' || c == '-' || c == '0');
 }
 
 /*
@@ -84,6 +84,39 @@ int			check_flags(const char c, t_flags *flags)
 		return (0);
 	return (1);
 }
+
+
+void		set_space(t_flags *flags)
+{
+	flags->space = 1;
+}
+
+void		set_hash(t_flags *flags)
+{
+	flags->hash = 1;
+}
+
+void		set_plus(t_flags *flags)
+{
+	flags->plus = 1;
+}
+
+void		set_minus(t_flags *flags)
+{
+	flags->minus = 1;
+}
+
+void		set_zero(t_flags *flags)
+{
+	flags->zero = 1;
+}
+
+void		(*set_flag[5])(t_flags *) = {set_space, set_hash, set_plus,
+										set_minus, set_zero}
+{
+	
+}
+
 
 /*
 ** check_type() determin data type and make call other functions to convert
