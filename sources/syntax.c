@@ -24,11 +24,14 @@ int			check_syntax(const char c, t_type *type)
 	{
 		//check_parameter();
 		if (is_flag(c))
-			check_flags(c, type->specifiers->flags);
+			if (check_flags(c, type->specifiers->flags))
+				return (1);
 		//check_width();
 		//check_precision();
 		//check_length();
-		check_type(c, type);
+		ft_putendl("HERE");
+		if (conversion_type(c) > 0)
+			check_type(c, type);
 		return (1);
 	}
 	return (0);
@@ -61,6 +64,10 @@ int			is_flag(const char c)
 ** setting up the corresponding bit to 1
 */
 
+/*
+? void ?????
+  |
+  V       */
 int			check_flags(const char c, t_flags *flags)
 {
 	if (c == '-')
@@ -86,13 +93,16 @@ int			check_flags(const char c, t_flags *flags)
 int			check_type(const char c, t_type *type)
 {
 	(void)type;
+	ft_putendl("----");
 	if (conversion_type(c) == 1)
 	{
 		//integer_conversion(c, type);
+		ft_putendl("integer_conversion");
 	}
 	else if (conversion_type(c) == 2)
 	{
 		//floating_point_conversion(c, type);
+		ft_putendl("floating_point_conversion");
 	}
 	else
 		return (0);
