@@ -18,23 +18,20 @@
 
 int			check_syntax(const char c, t_type *type)
 {
-	/* %[parameter][flags][width][.precision][length]type */
+	/* 		%[parameter][flags][width][.precision][length]type 		*/
 
-	if (c && type)
+	//check_parameter();
+	if (is_flag(c))
 	{
-		//check_parameter();
-		if (is_flag(c))
-			if (check_flags(c, type->specifiers->flags))
-				return (1);
-		//check_width();
-		//check_precision();
-		//check_length();
-		ft_putendl("HERE");
-		if (conversion_type(c) > 0)
-			check_type(c, type);
+		set_flag(c, type->specifiers->flags);
 		return (1);
+	//check_width();
+	//check_precision();
+	//check_length();
 	}
-	return (0);
+	else if (conversion_type(c) > 0)
+		check_type(c, type);
+			return (1);
 }
 
 
