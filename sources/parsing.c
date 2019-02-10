@@ -31,6 +31,22 @@ t_type		*initialize_type(void)
 }
 
 /*
+** Deallocation of allocated memory
+*/
+
+void		deallocate_type(t_type *type)
+{
+	free(type->specifiers->flags);
+	type->specifiers->flags = NULL;
+	free(type->specifiers);
+	type->specifiers = NULL;
+	free(type);
+	type = NULL;
+	//ft_memdel((void *)type->specifiers->flags);
+	//ft_memdel((void *)type->specifiers);
+	//ft_memdel((void *)type);
+}
+/*
 ** Parsing function to set up fields of t_type structure
 */
 
@@ -63,6 +79,7 @@ int			parsing(va_list arg, const char *restrict str)
 	ft_putnbr(type->specifiers->flags->space);
 	ft_putnbr(type->specifiers->flags->zero);
 	ft_putnbr(type->specifiers->flags->hash);
+	deallocate_type(type);
 	return (1);
 }
 
