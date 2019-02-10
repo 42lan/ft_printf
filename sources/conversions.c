@@ -21,9 +21,16 @@
 int		conversion_type(const char c)
 {
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'u' || c == 'x' || c == 'X')
+	{
+		ft_putendl("\n111");
 		return (1);
+	}
 	else if (c == 'e' || c == 'E' || c == 'f' || c == 'g' || c == 'G')
+	{
+		ft_putendl("\n222");
 		return (2);
+	}
+	ft_putendl("\n000");
 	return (0);
 }
 
