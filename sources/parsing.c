@@ -86,7 +86,6 @@ int			parsing(va_list arg, const char *restrict str)
 				buffer[i] = *str;
 		str++;
 	}
-	ft_putendl(buffer);
 	deallocate_type(type);
 	return (1);
 }
