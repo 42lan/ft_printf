@@ -21,11 +21,11 @@ t_type		*initialize_type(void)
 	t_type	*type;
 
 	if (!(type = (t_type *)ft_memalloc(sizeof(t_type))))
-		return (0);
+		return (NULL);
 	if (!(type->specifiers = (t_spec *)ft_memalloc(sizeof(t_spec))))
-		return (0);
+		return (NULL);
 	if (!(type->specifiers->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
-		return (0);
+		return (NULL);
 	initialize_flags(type->specifiers->flags);
 	return (type);
 }
@@ -59,20 +59,22 @@ int			parsing(va_list arg, const char *restrict str)
 	char	buffer[BUFF_SIZE];
 
 	if (!str)
-		return (-1);
+		return (0);
 	i = -1;
-	type = initialize_type();
+	if (!(type = initialize_type()))
+		return (0);
 	while (*str)
 	{
 		if (*str == '%' && *(str + 1) == '%')
-			buffer[++i] = *str;
-		if (*str == '%' && *(str + 1) != '%')
+			if (++i < BUFF_SIZE)
+				buffer[i] = *str;
+		if (*str == '%' && is_flag(*(str + 1)))
 		{
 			str++;
 			while (!conversion_type(*str))
 			{
 				if (check_syntax(*str, type))
-					ft_putendl("OK");
+					//ft_putendl("OK");
 				str++;
 			}
 		}
