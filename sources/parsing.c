@@ -66,21 +66,27 @@ int			parsing(va_list arg, const char *restrict str)
 	while (*str)
 	{
 		if (*str == '%' && *(str + 1) == '%')
+		{
+			str++;
 			if (++i < BUFF_SIZE)
 				buffer[i] = *str;
-		if (*str == '%' && is_flag(*(str + 1)))
+		}
+		else if (*str == '%' && is_flag(*(str + 1)))
 		{
 			str++;
 			while (!conversion_type(*str))
 			{
 				if (check_syntax(*str, type))
-					//ft_putendl("OK");
+					ft_putchar(*str);
 				str++;
 			}
 		}
-		ft_putchar(buffer[i++]);
+		else
+			if (++i < BUFF_SIZE)
+				buffer[i] = *str;
 		str++;
 	}
+	ft_putendl(buffer);
 	deallocate_type(type);
 	return (1);
 }
