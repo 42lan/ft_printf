@@ -29,11 +29,11 @@
 
 typedef struct	s_flags
 {
-	unsigned	minus	: 1;
-	unsigned	plus	: 1;
 	unsigned	space	: 1;
-	unsigned	zero	: 1;
 	unsigned	hash	: 1;
+	unsigned	plus	: 1;
+	unsigned	minus	: 1;
+	unsigned	zero	: 1;
 }				t_flags;
 
 /*
@@ -64,12 +64,23 @@ int				parsing(va_list arg, const char *restrict str);
 
 int				check_syntax(const char c, t_type *type);
 
-int				check_flags(const char c, t_flags *flags);
+void			set_flag(const char c, t_flags *flags);
 int				is_flag(const char c);
 void			initialize_flags(t_flags *flags);
 
 int				check_type(const char c, t_type *type);
 
 int				conversion_type(const char c);
+
+
+void			set_space(t_flags *flags);
+void			set_hash(t_flags *flags);
+void			set_plus(t_flags *flags);
+void			set_minus(t_flags *flags);
+void			set_zero(t_flags *flags);
+/*void			g_set_flag()
+{
+
+}*/
 
 #endif
