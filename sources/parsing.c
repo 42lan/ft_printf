@@ -16,15 +16,17 @@
 ** Initialization of type pointer to t_type structure
 */
 
-t_type		*initialize_type(t_type *type)
+t_type		*initialize_type(void)
 {
+	t_type	*type;
+
 	if (!(type = (t_type *)ft_memalloc(sizeof(t_type))))
 		return (0);
 	if (!(type->specifiers = (t_spec *)ft_memalloc(sizeof(t_spec))))
 		return (0);
 	if (!(type->specifiers->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
 		return (0);
-	reset_flags(type->specifiers->flags);
+	initialize_flags(type->specifiers->flags);
 	return (type);
 }
 
@@ -41,8 +43,7 @@ int			parsing(va_list arg, const char *restrict str)
 	if (!str)
 		return (-1);
 	i = -1;
-	type = NULL;
-	type = initialize_type(type);
+	type = initialize_type();
 	while (*str)
 	{
 		if (*str == '%' && *(str + 1) != '%')
@@ -57,6 +58,11 @@ int			parsing(va_list arg, const char *restrict str)
 		}
 		str++;
 	}
+	ft_putnbr(type->specifiers->flags->minus);
+	ft_putnbr(type->specifiers->flags->plus);
+	ft_putnbr(type->specifiers->flags->space);
+	ft_putnbr(type->specifiers->flags->zero);
+	ft_putnbr(type->specifiers->flags->hash);
 	return (1);
 }
 
