@@ -23,7 +23,8 @@ int			check_syntax(const char c, t_type *type)
 	if (c && type)
 	{
 		//check_parameter();
-		check_flags(c, type->specifiers->flags);
+		if (is_flag(c))
+			check_flags(c, type->specifiers->flags);
 		//check_width();
 		//check_precision();
 		//check_length();
@@ -62,26 +63,19 @@ int			is_flag(const char c)
 
 int			check_flags(const char c, t_flags *flags)
 {
-	if (is_flag(c) && flags)
-	{
-		if (c == '-')
-			flags->minus = 1;
-		else if (c == '+')
-			flags->plus = 1;
-		else if (c == ' ')
-			flags->space = 1;
-		else if (c == '0')
-			flags->zero = 1;
-		else if (c == '#')
-			flags->hash = 1;
-		else
-		{
-			initialize_flags(flags);
-			return (0);
-		}
-		return (1);
-	}
-	return (0);
+	if (c == '-')
+		flags->minus = 1;
+	else if (c == '+')
+		flags->plus = 1;
+	else if (c == ' ')
+		flags->space = 1;
+	else if (c == '0')
+		flags->zero = 1;
+	else if (c == '#')
+		flags->hash = 1;
+	else
+		return (0);
+	return (1);
 }
 
 /*
@@ -91,18 +85,14 @@ int			check_flags(const char c, t_flags *flags)
 
 int			check_type(const char c, t_type *type)
 {
-	if (c && type)
+	if (conversion_type(c) == 1)
 	{
-		if (conversion_type(c) == 1)
-		{
-			//integer_conversion(c, type);
-		}
-		/*else if (conversion_type(c) == 2)
-		{
-		}*/
-		else
-			return (0);
-		return (1);
+		//integer_conversion(c, type);
 	}
-	return (0);
+	/*else if (conversion_type(c) == 2)
+	{
+	}*/
+	else
+		return (0);
+	return (1);
 }
