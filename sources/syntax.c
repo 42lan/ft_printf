@@ -37,7 +37,7 @@ int			check_syntax(const char c, t_type *type)
 ** Setting up all fields of t_flags structure to 0
 */
 
-void		reset_flags(t_flags *flags)
+void		initialize_flags(t_flags *flags)
 {
 	flags->minus = 0;
 	flags->plus = 0;
@@ -76,7 +76,7 @@ int			check_flags(const char c, t_flags *flags)
 			flags->hash = 1;
 		else
 		{
-			reset_flags(flags);
+			initialize_flags(flags);
 			return (0);
 		}
 		return (1);
