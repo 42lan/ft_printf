@@ -50,7 +50,7 @@ void		initialize_flags(t_flags *flags)
 ** Checking if given char is one of the flags
 */
 
-int			isflag(const char c)
+int			is_flag(const char c)
 {
 	return (c == '-' || c == '+' || c == ' ' || c == '0' || c == '#');
 }
@@ -62,7 +62,7 @@ int			isflag(const char c)
 
 int			check_flags(const char c, t_flags *flags)
 {
-	if (isflag(c) && flags)
+	if (is_flag(c) && flags)
 	{
 		if (c == '-')
 			flags->minus = 1;
