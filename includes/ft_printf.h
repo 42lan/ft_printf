@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/09 03:28:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/10 01:38:46 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int				check_syntax(const char c, t_type *type);
 
 int				check_flags(const char c, t_flags *flags);
 int				isflag(const char c);
-void			reset_flags(t_flags *flags);
+void			initialize_flags(t_flags *flags);
 
 int				check_type(const char c, t_type *type);
 
