@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/02/08 05:09:26 by amalsago         ###   ########.fr        #
+#    Updated: 2019/02/10 22:43:09 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRCNAME		= main.c		\
 			  ft_printf.c	\
 			  parsing.c		\
 			  syntax.c		\
-			  conversions.c
+			  conversions.c	\
+			  flags.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
