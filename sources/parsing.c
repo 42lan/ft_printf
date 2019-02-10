@@ -31,7 +31,7 @@ t_type		*initialize_type(void)
 }
 
 /*
-** Deallocation of allocated memory
+** Deallocation of allocated memory for flags, specifiers and type
 */
 
 void		deallocate_type(t_type *type)
@@ -42,10 +42,11 @@ void		deallocate_type(t_type *type)
 	type->specifiers = NULL;
 	free(type);
 	type = NULL;
-	//ft_memdel((void *)type->specifiers->flags);
-	//ft_memdel((void *)type->specifiers);
-	//ft_memdel((void *)type);
+	//ft_memdel(type->specifiers->flags);
+	//ft_memdel(type->specifiers);
+	//ft_memdel(type);
 }
+
 /*
 ** Parsing function to set up fields of t_type structure
 */
@@ -55,6 +56,7 @@ int			parsing(va_list arg, const char *restrict str)
 	(void)arg;
 	int		i;
 	t_type	*type;
+	char	buffer[BUFF_SIZE];
 
 	if (!str)
 		return (-1);
@@ -62,6 +64,8 @@ int			parsing(va_list arg, const char *restrict str)
 	type = initialize_type();
 	while (*str)
 	{
+		if (*str == '%' && *(str + 1) == '%')
+			buffer[++i] = *str;
 		if (*str == '%' && *(str + 1) != '%')
 		{
 			str++;
@@ -72,13 +76,9 @@ int			parsing(va_list arg, const char *restrict str)
 				str++;
 			}
 		}
+		ft_putchar(buffer[i++]);
 		str++;
 	}
-	ft_putnbr(type->specifiers->flags->minus);
-	ft_putnbr(type->specifiers->flags->plus);
-	ft_putnbr(type->specifiers->flags->space);
-	ft_putnbr(type->specifiers->flags->zero);
-	ft_putnbr(type->specifiers->flags->hash);
 	deallocate_type(type);
 	return (1);
 }
