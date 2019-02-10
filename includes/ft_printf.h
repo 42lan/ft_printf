@@ -65,7 +65,7 @@ int				parsing(va_list arg, const char *restrict str);
 int				check_syntax(const char c, t_type *type);
 
 int				check_flags(const char c, t_flags *flags);
-int				isflag(const char c);
+int				is_flag(const char c);
 void			initialize_flags(t_flags *flags);
 
 int				check_type(const char c, t_type *type);
