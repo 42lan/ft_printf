@@ -62,16 +62,17 @@ typedef struct	s_placeholder
 int				ft_printf(const char *restrict format, ...);
 int				parsing(va_list arg, const char *restrict str);
 
-int				check_syntax(const char c, t_placeholder *type);
+int				check_syntax(const char c, t_placeholder *placeholder);
 
 void			set_flag(const char c, t_flags *flags);
 int				is_flag(const char c);
 void			initialize_flags(t_flags *flags);
 
-int				check_type(unsigned n_type, t_placeholder *type);
+int				check_type(unsigned n_type, t_placeholder *placeholder);
 
 int				conversion_type(const char c);
-void			floating_point_conversion(t_placeholder *type);
+void			integer_conversion(t_placeholder *placeholder);
+void			floating_point_conversion(t_placeholder *placeholder);
 
 void			set_space(t_flags *flags);
 void			set_hash(t_flags *flags);
@@ -82,5 +83,7 @@ void			set_zero(t_flags *flags);
 {
 
 }*/
+
+void			print_placeholder(t_placeholder *placeholder);
 
 #endif
