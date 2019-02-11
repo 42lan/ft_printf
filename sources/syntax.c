@@ -16,7 +16,7 @@
 ** check_syntax() call other functions to check specifiers and type
 */
 
-int			check_syntax(const char c, t_type *type)
+int			check_syntax(const char c, t_placeholder *type)
 {
 	/* 		%[parameter][flags][width][.precision][length]type 		*/
 
@@ -44,8 +44,8 @@ int			check_syntax(const char c, t_type *type)
 ** one data type to another
 */
 
-//int			check_type(const char c, t_type *type)
-int			check_type(unsigned n_type, t_type *type)
+//int			check_type(const char c, t_placeholder *type)
+int			check_type(unsigned n_type, t_placeholder *type)
 {
 	if (n_type == 1)
 	{
@@ -60,7 +60,7 @@ int			check_type(unsigned n_type, t_type *type)
 	return (1);
 }
 
-void		floating_point_conversion(t_type *type)
+void		floating_point_conversion(t_placeholder *type)
 {
 	type->type = 'f';
 }
