@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 22:09:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/09 04:31:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/11 03:57:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 
 int			check_syntax(const char c, t_placeholder *placeholder)
 {
-	/* 		%[parameter][flags][width][.precision][length]type 		*/
-
-	//check_parameter();
+	//if (is_parameter(c)){}
 	if (is_flag(c))
 	{
 		set_flag(c, placeholder->specifiers->flags);
@@ -36,8 +34,6 @@ int			check_syntax(const char c, t_placeholder *placeholder)
 			return (1);
 	return (0);
 }
-
-
 
 /*
 ** check_type() determin data type and make call other functions to convert

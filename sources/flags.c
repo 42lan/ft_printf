@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 22:42:43 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/10 22:42:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/11 03:51:30 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void		set_flag(const char c, t_flags *flags)
 	else if (c == '0')
 		set_zero(flags);
 }
-
 
 void		set_space(t_flags *flags)
 {

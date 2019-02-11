@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 00:02:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/11 03:48:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/11 03:54:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,9 @@ int					parsing(va_list arg, const char *restrict str)
 			}
 			if (conversion_type(*str))
 				check_syntax(*str, placeholder);
-			/*while (is_width)
-			{
-
-			}*/
+			/*
+			while (is_width){}
+			*/
 		}
 		else
 			if (++i < BUFF_SIZE)

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 05:08:44 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/11 03:48:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/11 03:50:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		conversion_type(const char c)
 
 /*
 ** Depending what type is given argument integer_conversion() sets up
-** type field of t_placeholder structure 
+** type field of t_placeholder structure
 */
 
 void	integer_conversion(const char c, t_placeholder *placeholder)
