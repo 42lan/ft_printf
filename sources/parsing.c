@@ -101,7 +101,7 @@ int					parsing(va_list arg, const char *restrict str)
 				buffer[i] = *str;
 		str++;
 	}
-	ft_putstr("\nSpecifiers:\n%[");
+	ft_putstr("\nPlaceholder:\n%[");
 	ft_putnbr(placeholder->specifiers->parameter);
 	ft_putstr("][");
 	ft_putnbr(placeholder->specifiers->flags->space);
