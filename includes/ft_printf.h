@@ -55,7 +55,7 @@ typedef struct	s_spec
 
 typedef struct	s_placeholder
 {
-	t_spec		*specifiers;
+	t_spec		*specs;
 	char		type;
 }				t_placeholder;
 
@@ -68,11 +68,15 @@ void			set_flag(const char c, t_flags *flags);
 int				is_flag(const char c);
 void			initialize_flags(t_flags *flags);
 
-int				check_type(unsigned n_type, t_placeholder *placeholder);
+t_placeholder	*initialize_placeholder(void);
+void			initialize_specifiers(t_spec *specs);
+void			deallocate_placeholder(t_placeholder *placeholder);
+
+int				check_type(const char c, t_placeholder *placeholder);
 
 int				conversion_type(const char c);
-void			integer_conversion(t_placeholder *placeholder);
-void			floating_point_conversion(t_placeholder *placeholder);
+void			integer_conversion(const char c, t_placeholder *placeholder);
+void			floating_point_conversion(const char c, t_placeholder *placeholder);
 
 void			set_space(t_flags *flags);
 void			set_hash(t_flags *flags);
