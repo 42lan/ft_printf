@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 00:02:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/09 03:38:06 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/11 03:48:46 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int					parsing(va_list arg, const char *restrict str)
 	return (1);
 }
 
-void			print_placeholder(t_placeholder *placeholder)
+void				print_placeholder(t_placeholder *placeholder)
 {
 	ft_putstr("%[");
 	ft_putnbr(placeholder->specs->parameter);
