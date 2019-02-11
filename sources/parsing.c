@@ -13,50 +13,6 @@
 #include "ft_printf.h"
 
 /*
-** Initialization of type pointer to t_placeholder structure
-*/
-
-void				initialize_specifiers(t_spec *specifiers)
-{
-	specifiers->parameter = 0;
-	specifiers->width = 0;
-	specifiers->precision = 6;
-	specifiers->length = NULL;
-}
-
-t_placeholder		*initialize_placeholder(void)
-{
-	t_placeholder	*placeholder;
-
-	if (!(placeholder = (t_placeholder *)ft_memalloc(sizeof(t_placeholder))))
-		return (NULL);
-	if (!(placeholder->specifiers = (t_spec *)ft_memalloc(sizeof(t_spec))))
-		return (NULL);
-	initialize_specifiers(placeholder->specifiers);
-	if (!(placeholder->specifiers->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
-		return (NULL);
-	initialize_flags(placeholder->specifiers->flags);
-	return (placeholder);
-}
-
-/*
-** Deallocation of allocated memory for flags, specifiers and type
-*/
-
-void				deallocate_placeholder(t_placeholder *placeholder)
-{
-	free(placeholder->specifiers->flags);
-	placeholder->specifiers->flags = NULL;
-	free(placeholder->specifiers);
-	placeholder->specifiers = NULL;
-	free(placeholder);
-	placeholder = NULL;
-	//ft_memdel(placeholder->specifiers->flags);
-	//ft_memdel(placeholder->specifiers);
-	//ft_memdel(placeholder);
-}
-
-/*
 ** Parsing function to set up fields of t_placeholder structure
 */
 
@@ -101,7 +57,7 @@ int					parsing(va_list arg, const char *restrict str)
 				buffer[i] = *str;
 		str++;
 	}
-	//print_placeholder(placeholder);
+	print_placeholder(placeholder);
 	deallocate_placeholder(placeholder);
 	return (1);
 }
@@ -109,19 +65,19 @@ int					parsing(va_list arg, const char *restrict str)
 void			print_placeholder(t_placeholder *placeholder)
 {
 	ft_putstr("%[");
-	ft_putnbr(placeholder->specifiers->parameter);
+	ft_putnbr(placeholder->specs->parameter);
 	ft_putstr("][");
-	ft_putnbr(placeholder->specifiers->flags->space);
-	ft_putnbr(placeholder->specifiers->flags->hash);
-	ft_putnbr(placeholder->specifiers->flags->plus);
-	ft_putnbr(placeholder->specifiers->flags->minus);
-	ft_putnbr(placeholder->specifiers->flags->zero);
+	ft_putnbr(placeholder->specs->flags->space);
+	ft_putnbr(placeholder->specs->flags->hash);
+	ft_putnbr(placeholder->specs->flags->plus);
+	ft_putnbr(placeholder->specs->flags->minus);
+	ft_putnbr(placeholder->specs->flags->zero);
 	ft_putstr("][");
-	ft_putnbr(placeholder->specifiers->width);
+	ft_putnbr(placeholder->specs->width);
 	ft_putstr("].[");
-	ft_putnbr(placeholder->specifiers->precision);
+	ft_putnbr(placeholder->specs->precision);
 	ft_putstr("][");
-	printf("%s]%c\n", placeholder->specifiers->length, placeholder->type);
+	printf("%s]%c\n", placeholder->specs->length, placeholder->type);
 }
 
 /*
