@@ -22,7 +22,7 @@ int			main(int ac, char **av)
 
 	/* 		%[parameter][flags][width][.precision][length]type 		*/
 	//printf("%%_%+f ", nb);
-	if (ft_printf("%%_%0+.f= %d", nb) < 0)
+	if (ft_printf("%%_%0+.f= %d", nb, nb/2) < 0)
 		return (1);
 	/*printf("Hello, %s%c %+.2f%%\n", world, exclam, nb);
 	if (ft_printf("Hello, %s%c %+.2f%%\n", world, exclam, nb) < 0)
