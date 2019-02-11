@@ -32,7 +32,7 @@ int			check_syntax(const char c, t_placeholder *placeholder)
 	else if (is_length(c)){}
 	*/
 	else if (conversion_type(c) > 0)
-		check_type(conversion_type(c), placeholder);
+		check_type(c, placeholder);
 			return (1);
 	return (0);
 }
@@ -44,28 +44,20 @@ int			check_syntax(const char c, t_placeholder *placeholder)
 ** one data type to another
 */
 
-//int			check_type(const char c, t_placeholder *type)
-int			check_type(unsigned n_type, t_placeholder *placeholder)
+int			check_type(const char c, t_placeholder *placeholder)
 {
+	int		n_type;
+
+	n_type = conversion_type(c);
 	if (n_type == 1)
 	{
-		integer_conversion(placeholder);
+		integer_conversion(c, placeholder);
 		//ft_putendl("integer_conversion");
 	}
 	else if (n_type == 2)
 	{
-		floating_point_conversion(placeholder);
+		floating_point_conversion(c, placeholder);
 		//ft_putendl("floating_point_conversion");
 	}
 	return (1);
-}
-
-void		integer_conversion(t_placeholder *placeholder)
-{
-	placeholder->type = 'd';
-}
-
-void		floating_point_conversion(t_placeholder *placeholder)
-{
-	placeholder->type = 'f';
 }
