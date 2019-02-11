@@ -101,7 +101,14 @@ int					parsing(va_list arg, const char *restrict str)
 				buffer[i] = *str;
 		str++;
 	}
-	ft_putstr("\nPlaceholder:\n%[");
+	//print_placeholder(placeholder);
+	deallocate_placeholder(placeholder);
+	return (1);
+}
+
+void			print_placeholder(t_placeholder *placeholder)
+{
+	ft_putstr("%[");
 	ft_putnbr(placeholder->specifiers->parameter);
 	ft_putstr("][");
 	ft_putnbr(placeholder->specifiers->flags->space);
@@ -114,13 +121,7 @@ int					parsing(va_list arg, const char *restrict str)
 	ft_putstr("].[");
 	ft_putnbr(placeholder->specifiers->precision);
 	ft_putstr("][");
-	printf("%s", placeholder->specifiers->length);
-	ft_putchar(']');
-	ft_putchar(placeholder->type);
-	//ft_putstr("\nbuffer[BUFF_SIZE] -> ");
-	//printf("|%s|\n", buffer);
-	deallocate_placeholder(placeholder);
-	return (1);
+	printf("%s]%c\n", placeholder->specifiers->length, placeholder->type);
 }
 
 /*
