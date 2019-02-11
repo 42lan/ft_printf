@@ -13,55 +13,64 @@
 #include "ft_printf.h"
 
 /*
-** Initialization of type pointer to t_type structure
+** Initialization of type pointer to t_placeholder structure
 */
 
-t_type		*initialize_type(void)
+void				initialize_specifiers(t_spec *specifiers)
 {
-	t_type	*type;
+	specifiers->parameter = 0;
+	specifiers->width = 0;
+	specifiers->precision = 6;
+	specifiers->length = NULL;
+}
 
-	if (!(type = (t_type *)ft_memalloc(sizeof(t_type))))
+t_placeholder		*initialize_placeholder(void)
+{
+	t_placeholder	*placeholder;
+
+	if (!(placeholder = (t_placeholder *)ft_memalloc(sizeof(t_placeholder))))
 		return (NULL);
-	if (!(type->specifiers = (t_spec *)ft_memalloc(sizeof(t_spec))))
+	if (!(placeholder->specifiers = (t_spec *)ft_memalloc(sizeof(t_spec))))
 		return (NULL);
-	if (!(type->specifiers->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
+	initialize_specifiers(placeholder->specifiers);
+	if (!(placeholder->specifiers->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
 		return (NULL);
-	initialize_flags(type->specifiers->flags);
-	return (type);
+	initialize_flags(placeholder->specifiers->flags);
+	return (placeholder);
 }
 
 /*
 ** Deallocation of allocated memory for flags, specifiers and type
 */
 
-void		deallocate_type(t_type *type)
+void				deallocate_placeholder(t_placeholder *placeholder)
 {
-	free(type->specifiers->flags);
-	type->specifiers->flags = NULL;
-	free(type->specifiers);
-	type->specifiers = NULL;
-	free(type);
-	type = NULL;
-	//ft_memdel(type->specifiers->flags);
-	//ft_memdel(type->specifiers);
-	//ft_memdel(type);
+	free(placeholder->specifiers->flags);
+	placeholder->specifiers->flags = NULL;
+	free(placeholder->specifiers);
+	placeholder->specifiers = NULL;
+	free(placeholder);
+	placeholder = NULL;
+	//ft_memdel(placeholder->specifiers->flags);
+	//ft_memdel(placeholder->specifiers);
+	//ft_memdel(placeholder);
 }
 
 /*
-** Parsing function to set up fields of t_type structure
+** Parsing function to set up fields of t_placeholder structure
 */
 
-int			parsing(va_list arg, const char *restrict str)
+int					parsing(va_list arg, const char *restrict str)
 {
 	(void)arg;
-	int		i;
-	t_type	*type;
-	char	buffer[BUFF_SIZE];
+	int				i;
+	t_placeholder	*placeholder;
+	char			buffer[BUFF_SIZE];
 
 	if (!str)
 		return (0);
 	i = -1;
-	if (!(type = initialize_type()))
+	if (!(placeholder = initialize_placeholder()))
 		return (0);
 	while (*str)
 	{
@@ -76,17 +85,41 @@ int			parsing(va_list arg, const char *restrict str)
 			str++;
 			while (!conversion_type(*str))
 			{
-				if (check_syntax(*str, type))
-					ft_putchar(*str);
+				if (check_syntax(*str, placeholder))
+					//ft_putchar(*str);
 				str++;
 			}
+			if (conversion_type(*str))
+				check_syntax(*str, placeholder);
+			/*while (is_width)
+			{
+
+			}*/
 		}
 		else
 			if (++i < BUFF_SIZE)
 				buffer[i] = *str;
 		str++;
 	}
-	deallocate_type(type);
+	ft_putstr("\nSpecifiers:\n%[");
+	ft_putnbr(placeholder->specifiers->parameter);
+	ft_putstr("][");
+	ft_putnbr(placeholder->specifiers->flags->space);
+	ft_putnbr(placeholder->specifiers->flags->hash);
+	ft_putnbr(placeholder->specifiers->flags->plus);
+	ft_putnbr(placeholder->specifiers->flags->minus);
+	ft_putnbr(placeholder->specifiers->flags->zero);
+	ft_putstr("][");
+	ft_putnbr(placeholder->specifiers->width);
+	ft_putstr("].[");
+	ft_putnbr(placeholder->specifiers->precision);
+	ft_putstr("][");
+	printf("%s", placeholder->specifiers->length);
+	ft_putchar(']');
+	ft_putchar(placeholder->type);
+	//ft_putstr("\nbuffer[BUFF_SIZE] -> ");
+	//printf("|%s|\n", buffer);
+	deallocate_placeholder(placeholder);
 	return (1);
 }
 
