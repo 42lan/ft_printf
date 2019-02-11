@@ -29,11 +29,11 @@ int		conversion_type(const char c)
 
 /*
 ** Depending what type is given argument integer_conversion() sets up
-** type field of t_type structure 
+** type field of t_placeholder structure 
 */
 
 /*
-void	integer_conversion(const char c, t_type *type)
+void	integer_conversion(const char c, t_placeholder *type)
 {
 	if (c == 'd' || c == 'i')
 		type->type = 'd';
@@ -41,7 +41,7 @@ void	integer_conversion(const char c, t_type *type)
 		type->type = 'u';
 }
 
-void	floating_point_conversion(const char c, t_type *type)
+void	floating_point_conversion(const char c, t_placeholder *type)
 {
 
 }
