@@ -16,14 +16,14 @@
 ** check_syntax() call other functions to check specifiers and type
 */
 
-int			check_syntax(const char c, t_placeholder *type)
+int			check_syntax(const char c, t_placeholder *placeholder)
 {
 	/* 		%[parameter][flags][width][.precision][length]type 		*/
 
 	//check_parameter();
 	if (is_flag(c))
 	{
-		set_flag(c, type->specifiers->flags);
+		set_flag(c, placeholder->specifiers->flags);
 		return (1);
 	}
 	/*
@@ -32,7 +32,7 @@ int			check_syntax(const char c, t_placeholder *type)
 	else if (is_length(c)){}
 	*/
 	else if (conversion_type(c) > 0)
-		check_type(conversion_type(c), type);
+		check_type(conversion_type(c), placeholder);
 			return (1);
 	return (0);
 }
@@ -45,22 +45,27 @@ int			check_syntax(const char c, t_placeholder *type)
 */
 
 //int			check_type(const char c, t_placeholder *type)
-int			check_type(unsigned n_type, t_placeholder *type)
+int			check_type(unsigned n_type, t_placeholder *placeholder)
 {
 	if (n_type == 1)
 	{
-		//integer_conversion(c, type);
-		ft_putendl("integer_conversion");
+		integer_conversion(placeholder);
+		//ft_putendl("integer_conversion");
 	}
 	else if (n_type == 2)
 	{
-		floating_point_conversion(type);
-		ft_putendl("floating_point_conversion");
+		floating_point_conversion(placeholder);
+		//ft_putendl("floating_point_conversion");
 	}
 	return (1);
 }
 
-void		floating_point_conversion(t_placeholder *type)
+void		integer_conversion(t_placeholder *placeholder)
 {
-	type->type = 'f';
+	placeholder->type = 'd';
+}
+
+void		floating_point_conversion(t_placeholder *placeholder)
+{
+	placeholder->type = 'f';
 }
