@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 03:13:21 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/11 03:13:26 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/11 03:32:07 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** Allocation of memory for placeholder and it fields
+*/
 
 t_placeholder		*initialize_placeholder(void)
 {
@@ -18,12 +22,12 @@ t_placeholder		*initialize_placeholder(void)
 
 	if (!(placeholder = (t_placeholder *)ft_memalloc(sizeof(t_placeholder))))
 		return (NULL);
-	if (!(placeholder->specifiers = (t_spec *)ft_memalloc(sizeof(t_spec))))
+	if (!(placeholder->specs = (t_spec *)ft_memalloc(sizeof(t_spec))))
 		return (NULL);
-	initialize_specifiers(placeholder->specifiers);
-	if (!(placeholder->specifiers->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
+	initialize_specifiers(placeholder->specs);
+	if (!(placeholder->specs->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
 		return (NULL);
-	initialize_flags(placeholder->specifiers->flags);
+	initialize_flags(placeholder->specs->flags);
 	return (placeholder);
 }
 
@@ -33,13 +37,13 @@ t_placeholder		*initialize_placeholder(void)
 
 void				deallocate_placeholder(t_placeholder *placeholder)
 {
-	free(placeholder->specifiers->flags);
-	placeholder->specifiers->flags = NULL;
-	free(placeholder->specifiers);
-	placeholder->specifiers = NULL;
+	free(placeholder->specs->flags);
+	placeholder->specs->flags = NULL;
+	free(placeholder->specs);
+	placeholder->specs = NULL;
 	free(placeholder);
 	placeholder = NULL;
-	//ft_memdel(placeholder->specifiers->flags);
-	//ft_memdel(placeholder->specifiers);
+	//ft_memdel(placeholder->specs->flags);
+	//ft_memdel(placeholder->specs);
 	//ft_memdel(placeholder);
 }
