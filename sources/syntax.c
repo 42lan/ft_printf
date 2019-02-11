@@ -25,13 +25,16 @@ int			check_syntax(const char c, t_type *type)
 	{
 		set_flag(c, type->specifiers->flags);
 		return (1);
-	//check_width();
-	//check_precision();
-	//check_length();
 	}
+	/*
+	else if (is_width(c)){}
+	else if (is_precision(c)){}
+	else if (is_length(c)){}
+	*/
 	else if (conversion_type(c) > 0)
-		check_type(c, type);
+		check_type(conversion_type(c), type);
 			return (1);
+	return (0);
 }
 
 
@@ -41,21 +44,23 @@ int			check_syntax(const char c, t_type *type)
 ** one data type to another
 */
 
-int			check_type(const char c, t_type *type)
+//int			check_type(const char c, t_type *type)
+int			check_type(unsigned n_type, t_type *type)
 {
-	(void)type;
-	ft_putendl("----");
-	if (conversion_type(c) == 1)
+	if (n_type == 1)
 	{
 		//integer_conversion(c, type);
 		ft_putendl("integer_conversion");
 	}
-	else if (conversion_type(c) == 2)
+	else if (n_type == 2)
 	{
-		//floating_point_conversion(c, type);
+		floating_point_conversion(type);
 		ft_putendl("floating_point_conversion");
 	}
-	else
-		return (0);
 	return (1);
+}
+
+void		floating_point_conversion(t_type *type)
+{
+	type->type = 'f';
 }
