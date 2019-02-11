@@ -13,19 +13,6 @@
 #include "ft_printf.h"
 
 /*
-** Setting up all fields of t_flags structure to 0
-*/
-
-void		initialize_flags(t_flags *flags)
-{
-	flags->space = 0;
-	flags->hash = 0;
-	flags->plus = 0;
-	flags->minus = 0;
-	flags->zero = 0;
-}
-
-/*
 ** Checking if given char is one of the flags
 */
 
