@@ -21,7 +21,7 @@ int			check_syntax(const char c, t_placeholder *placeholder)
 	//if (is_parameter(c)){}
 	if (is_flag(c))
 	{
-		set_flag(c, placeholder->specifiers->flags);
+		set_flag(c, placeholder->specs->flags);
 		return (1);
 	}
 	/*
