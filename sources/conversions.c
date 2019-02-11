@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 05:08:44 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/09 03:30:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/11 03:31:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ int		conversion_type(const char c)
 ** type field of t_placeholder structure 
 */
 
-/*
-void	integer_conversion(const char c, t_placeholder *type)
+
+void	integer_conversion(const char c, t_placeholder *placeholder)
 {
 	if (c == 'd' || c == 'i')
-		type->type = 'd';
+		placeholder->type = 'd';
 	else if (c == 'o' || c == 'u' || c == 'x' || c == 'X')
-		type->type = 'u';
+		placeholder->type = 'u';
 }
 
-void	floating_point_conversion(const char c, t_placeholder *type)
+void	floating_point_conversion(const char c, t_placeholder *placeholder)
 {
-
+	if (c)
+		placeholder->type = 'f';
 }
-*/
