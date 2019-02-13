@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/10 01:38:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/14 00:17:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int				check_type(const char c, t_placeholder *placeholder);
 
 int				conversion_type(const char c);
 void			integer_conversion(const char c, t_placeholder *placeholder);
-void			floating_point_conversion(const char c, t_placeholder *placeholder);
+void			floating_point_conversion(t_placeholder *placeholder);
 
 void			set_space(t_flags *flags);
 void			set_hash(t_flags *flags);
