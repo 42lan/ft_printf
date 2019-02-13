@@ -47,12 +47,12 @@ int			check_type(const char c, t_placeholder *placeholder)
 	n_type = conversion_type(c);
 	if (n_type == 1)
 	{
-		integer_conversion(c, placeholder);
+		integer_conversion(placeholder);
 		//ft_putendl("integer_conversion");
 	}
 	else if (n_type == 2)
 	{
-		floating_point_conversion(c, placeholder);
+		floating_point_conversion(placeholder);
 		//ft_putendl("floating_point_conversion");
 	}
 	return (1);
