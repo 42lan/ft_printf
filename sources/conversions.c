@@ -40,8 +40,13 @@ void	integer_conversion(const char c, t_placeholder *placeholder)
 		placeholder->type = 'u';
 }
 
-void	floating_point_conversion(const char c, t_placeholder *placeholder)
+void	floating_point_conversion(t_placeholder *placeholder)
 {
-	if (c)
-		placeholder->type = 'f';
+	placeholder->type = 'f';
 }
+
+/*void	integer_conversion(t_placeholder *placeholder)
+{
+	placeholder->type = 'd';
+}*/
+
