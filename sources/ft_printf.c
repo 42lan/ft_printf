@@ -22,7 +22,15 @@ int				ft_printf(const char *restrict format, ...)
 	int			done;
 
 	va_start(arg, format);
-	done = parsing(arg, format);
+	while (*format)
+	{
+		if (*format == '%')
+			parsing(arg, &format);
+		else
+			buffer[i] = *format;
+		format++;
+	//	done = parsing(arg, format);
+	}
 	va_end(arg);
 	return (done);
 }
