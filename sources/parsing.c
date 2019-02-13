@@ -22,7 +22,7 @@ int					parsing(va_list arg, const char *restrict str)
 	int				i;
 	t_placeholder	*placeholder;
 	char			buffer[BUFF_SIZE];
-	double			f;
+	//double			f;
 
 	if (!str)
 		return (0);
@@ -49,10 +49,12 @@ int					parsing(va_list arg, const char *restrict str)
 			if (conversion_type(*str))
 			{
 				check_syntax(*str, placeholder);
-				{
-					f = va_arg(arg, double);
-					ft_putnbr(f);
-				}
+				//{
+				//	f = va_arg(arg, double);
+					//ft_putnbr(f);
+				//}
+				print_placeholder(placeholder);
+				placeholder = initialize_placeholder();
 			}/*
 			while (is_width){}
 			*/
@@ -62,7 +64,6 @@ int					parsing(va_list arg, const char *restrict str)
 				buffer[i] = *str;
 		str++;
 	}
-	print_placeholder(placeholder);
 	deallocate_placeholder(placeholder);
 	return (1);
 }
