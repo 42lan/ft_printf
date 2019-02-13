@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/02/13 04:12:31 by amalsago         ###   ########.fr        #
+#    Updated: 2019/02/14 00:16:24 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,6 @@ LIBDIR		= ./libft
 # List of source files
 SRCNAME		= main.c		\
 			  ft_printf.c	\
-			  ft_vfprintf.c	\
 			  parsing.c		\
 			  syntax.c		\
 			  conversions.c	\
