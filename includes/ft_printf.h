@@ -60,6 +60,7 @@ typedef struct	s_placeholder
 }				t_placeholder;
 
 int				ft_printf(const char *restrict format, ...);
+int				ft_vfprintf(FILE *file, va_list arg, const char *restrict format);
 int				parsing(va_list arg, const char *restrict str);
 
 int				check_syntax(const char c, t_placeholder *placeholder);
