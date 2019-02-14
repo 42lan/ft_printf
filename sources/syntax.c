@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 22:09:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/11 03:57:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/14 00:17:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int			check_type(const char c, t_placeholder *placeholder)
 	n_type = conversion_type(c);
 	if (n_type == 1)
 	{
-		integer_conversion(placeholder);
+		integer_conversion(c, placeholder);
 		//ft_putendl("integer_conversion");
 	}
 	else if (n_type == 2)
