@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:43:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/13 23:45:10 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/14 00:15:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,7 @@ int				ft_printf(const char *restrict format, ...)
 	int			done;
 
 	va_start(arg, format);
-	while (*format)
-	{
-		if (*format == '%')
-			parsing(arg, &format);
-		else
-			buffer[i] = *format;
-		format++;
-	//	done = parsing(arg, format);
-	}
+	done = parsing(arg, format);
 	va_end(arg);
 	return (done);
 }
