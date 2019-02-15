@@ -6,29 +6,24 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:31:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/13 23:45:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/14 04:54:28 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			main(int ac, char **av)
+int			main(void)
 {
-	(void)ac;
-	(void)av;
-	/*char	*world = "World";
-	char	exclam = '!';*/
-	float	nb = 42.68;
+	char	*world = "World[THIS IS GARBAGE]";
+	char	c = '!';
+	int		pos = 99;
+	int		fah = 451;
+	int		neg = -42;
+	float	pi = 3.141592;
 
-	/* 		%[parameter][flags][width][.precision][length]type 		*/
-	//printf("%%_%+f ", nb);
-	if (ft_printf("%%_%0+.f= %d", nb, nb/2) < 0)
-		return (1);
-	// %_
-	/*
-	printf("Hello, %s%c %+.2f%%\n", world, exclam, nb);
-	if (ft_printf("Hello, %s%c %+.2f%%\n", world, exclam, nb) < 0)
-		return (1);
-	*/
+	printf("----------printf----------\n");
+	printf("Hello, %.5s%c\n[% 4d%% ] Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
+	printf("----------ft_printf-------\n");
+	ft_printf("Hello, %.5s%c\n[% 4d%% ] Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
 	return (0);
 }
