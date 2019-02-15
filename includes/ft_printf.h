@@ -70,11 +70,13 @@ typedef struct	s_placeholder
 	char		type;
 }				t_placeholder;
 
-int				ft_printf(const char *restrict format, ...);
+int				ft_printf(const char *format, ...);
 t_buffer		initialize_buffer(void);
 void			print_buffer(t_buffer *buffer);
 int				is_flag(const char c);
 int				check_syntax(const char c, t_placeholder *placeholder);
+int				is_placeholder(const char **format);
+int				is_conversion_type(const char c);
 
 /*int				parsing(va_list arg, const char *restrict str);
 
@@ -88,7 +90,6 @@ void			deallocate_placeholder(t_placeholder *placeholder);
 
 int				check_type(const char c, t_placeholder *placeholder);
 
-int				conversion_type(const char c);
 void			integer_conversion(const char c, t_placeholder *placeholder);
 void			floating_point_conversion(t_placeholder *placeholder);
 
