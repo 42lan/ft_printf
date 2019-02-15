@@ -12,12 +12,6 @@
 
 #include "ft_printf.h"
 
-void			print_buffer(t_buffer *buffer)
-{
-	ft_putstr(buffer->string);
-	buffer->index = 0;
-}
-
 int				ft_printf(const char *format, ...)
 {
 	int			done;
@@ -25,10 +19,7 @@ int				ft_printf(const char *format, ...)
 	t_buffer	buffer;
 
 	done = 0;
-	buffer.index = 0;
-	buffer.length = 0;
-	ft_bzero(buffer.string, BUFF_SIZE);
-	//Ca allege? -> buffer.string[BUFF_SIZE] = '\0';
+	buffer = initialize_buffer();
 	va_start(arg, format);
 	while (*format)
 	{
@@ -42,7 +33,6 @@ int				ft_printf(const char *format, ...)
 		}
 		format++;
 	}
-	//print_buffer(&buffer);
 	va_end(arg);
 	return (done);
 }
