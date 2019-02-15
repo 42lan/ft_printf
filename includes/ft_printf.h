@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/14 00:17:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/14 06:02:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@
 # include "../libft/libft.h"
 
 # define BUFF_SIZE 32
+
+/*
+** Structure to store extracted data
+*/
+
+typedef struct	s_buffer
+{
+	int			index;
+	int			length;
+	char		string[BUFF_SIZE];
+}				t_buffer;
 
 /*
 ** Bit field
@@ -60,8 +71,8 @@ typedef struct	s_placeholder
 }				t_placeholder;
 
 int				ft_printf(const char *restrict format, ...);
-int				ft_vfprintf(FILE *file, va_list arg, const char *restrict format);
-int				parsing(va_list arg, const char *restrict str);
+
+/*int				parsing(va_list arg, const char *restrict str);
 
 int				check_syntax(const char c, t_placeholder *placeholder);
 
@@ -84,7 +95,7 @@ void			set_hash(t_flags *flags);
 void			set_plus(t_flags *flags);
 void			set_minus(t_flags *flags);
 void			set_zero(t_flags *flags);
-/*void			g_set_flag()
+void			g_set_flag()
 {
 
 }*/
