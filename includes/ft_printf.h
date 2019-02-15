@@ -71,6 +71,8 @@ typedef struct	s_placeholder
 }				t_placeholder;
 
 int				ft_printf(const char *restrict format, ...);
+t_buffer		initialize_buffer(void);
+void			print_buffer(t_buffer *buffer);
 
 /*int				parsing(va_list arg, const char *restrict str);
 
