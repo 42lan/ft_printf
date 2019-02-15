@@ -5,24 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/05 23:43:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/14 00:15:56 by amalsago         ###   ########.fr       */
+/*   Created: 2019/02/14 05:20:28 by amalsago          #+#    #+#             */
+/*   Updated: 2019/02/14 06:03:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-** Declaration of va_list and initialisation with va_start()
-*/
-
-int				ft_printf(const char *restrict format, ...)
+void			print_buffer(t_buffer *buffer)
 {
-	va_list		arg;
-	int			done;
+	ft_putstr(buffer->string);
+	buffer->index = 0;
+}
 
+int				ft_printf(const char *format, ...)
+{
+	int			done;
+	va_list		arg;
+	t_buffer	buffer;
+
+	done = 0;
+	buffer.index = 0;
+	buffer.length = 0;
+	ft_bzero(buffer.string, BUFF_SIZE);
+	//Ca allege? -> buffer.string[BUFF_SIZE] = '\0';
 	va_start(arg, format);
-	done = parsing(arg, format);
+	while (*format)
+	{
+		if (buffer.index <= BUFF_SIZE - 1)
+			print_buffer(&buffer);
+		if (*format != '%')
+			buffer.string[buffer.index++] = *format;
+		else
+		{
+			buffer.string[buffer.index++] = *format;
+		}
+		format++;
+	}
+	//print_buffer(&buffer);
 	va_end(arg);
 	return (done);
 }
