@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/02/14 03:19:11 by amalsago         ###   ########.fr        #
+#    Updated: 2019/02/15 04:35:29 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ LIBDIR		= ./libft
 
 # **************************************************************************** #
 # List of source files
-SRCNAME		= main.c
+SRCNAME		= main.c			\
+			ft_printf.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
