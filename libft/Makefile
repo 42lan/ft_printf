@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/02/03 13:40:43 by amalsago         ###   ########.fr        #
+#    Updated: 2019/02/03 13:39:26 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,6 +95,7 @@ SRCNAME		= ft_memset.c			\
 			  ft_swap.c				\
 			  ft_islower.c			\
 			  ft_isupper.c
+
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of source and object files
