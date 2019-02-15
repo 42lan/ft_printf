@@ -73,13 +73,13 @@ typedef struct	s_placeholder
 int				ft_printf(const char *restrict format, ...);
 t_buffer		initialize_buffer(void);
 void			print_buffer(t_buffer *buffer);
+int				is_flag(const char c);
+int				check_syntax(const char c, t_placeholder *placeholder);
 
 /*int				parsing(va_list arg, const char *restrict str);
 
-int				check_syntax(const char c, t_placeholder *placeholder);
 
 void			set_flag(const char c, t_flags *flags);
-int				is_flag(const char c);
 void			initialize_flags(t_flags *flags);
 
 t_placeholder	*initialize_placeholder(void);
