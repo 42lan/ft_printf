@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/14 06:02:06 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/16 04:37:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,33 +75,35 @@ t_buffer		initialize_buffer(void);
 void			print_buffer(t_buffer *buffer);
 int				is_flag(const char c);
 int				check_syntax(const char c, t_placeholder *placeholder);
-int				is_placeholder(const char **format);
+int				is_placeholder(const char **format, t_placeholder *placeholder);
 int				is_conversion_type(const char c);
-
-/*int				parsing(va_list arg, const char *restrict str);
-
-
-void			set_flag(const char c, t_flags *flags);
-void			initialize_flags(t_flags *flags);
 
 t_placeholder	*initialize_placeholder(void);
 void			initialize_specifiers(t_spec *specs);
-void			deallocate_placeholder(t_placeholder *placeholder);
+void			initialize_flags(t_flags *flags);
 
+void			set_flag(const char c, t_flags *flags);
 int				check_type(const char c, t_placeholder *placeholder);
-
-void			integer_conversion(const char c, t_placeholder *placeholder);
-void			floating_point_conversion(t_placeholder *placeholder);
 
 void			set_space(t_flags *flags);
 void			set_hash(t_flags *flags);
 void			set_plus(t_flags *flags);
 void			set_minus(t_flags *flags);
 void			set_zero(t_flags *flags);
+
+void			integer_conversion(const char c, t_placeholder *placeholder);
+void			floating_point_conversion(t_placeholder *placeholder);
+
+
+
+/*
+int				parsing(va_list arg, const char *restrict str);
+void			deallocate_placeholder(t_placeholder *placeholder);
 void			g_set_flag()
 {
 
-}*/
+}
+*/
 
 void			print_placeholder(t_placeholder *placeholder);
 
