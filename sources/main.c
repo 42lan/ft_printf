@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:31:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/15 09:26:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/16 05:39:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			main(void)
 {
-	char	*world = "World[THIS IS GARBAGE]";
+	char	*world = "World[)(*&^$#@!THIS IS GARBAGE!@#$^&*()]";
 	char	c = '!';
 	int		pos = 99;
 	int		fah = 451;
@@ -24,6 +24,7 @@ int			main(void)
 	//printf("----------printf----------\n");
 	//printf("Hello, %.5s%c\n[% 4d%% ] Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
 	//printf("----------ft_printf-------\n");
+	// s c d f d d		%.5s, %c, % 4d, %+3f, %d, %d
 	ft_printf("Hello, %.5s%c\n[% 4d%% ] Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
 	return (0);
 }
