@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 05:08:44 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/16 09:09:28 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/16 09:14:20 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,3 @@ void	floating_point_conversion(t_placeholder *placeholder)
 {
 	placeholder->type = 'd';
 }*/
-
