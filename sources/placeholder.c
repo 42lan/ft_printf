@@ -6,22 +6,25 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 05:50:25 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/15 09:26:27 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/16 05:39:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		is_placeholder(const char **format)
+int		is_placeholder(const char **format, t_placeholder *placeholder)
 {
-	while (**format)
+	if ((**format + 1) == '%')
+		return (0);
+	ft_putchar(**format);
+	(*format)++;
+	while (!is_conversion_type(**format))
 	{
-		if (is_conversion_type(**format))
-		{
-			printf("%c", **format);
-			return (1);
-		}
+		ft_putchar(**format);
+		check_syntax(**format, placeholder);
 		(*format)++;
 	}
+	ft_putchar(**format);
+	ft_putchar('\n');
 	return (1);
 }
