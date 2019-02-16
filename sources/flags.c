@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 05:00:15 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/16 05:41:00 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/16 09:09:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,41 +22,41 @@ int		is_flag(const char c)
 ** setting up the corresponding bit to 1
 */
 
-void		set_flag(const char c, t_flags *flags)
+void		set_s_flag(const char c, t_flags *flags)
 {
 	if (c == ' ')
-		set_space(flags);
+		set_f_space(flags);
 	else if (c == '#')
-		set_hash(flags);
+		set_f_hash(flags);
 	else if (c == '+')
-		set_plus(flags);
+		set_f_plus(flags);
 	else if (c == '-')
-		set_minus(flags);
+		set_f_minus(flags);
 	else if (c == '0')
-		set_zero(flags);
+		set_f_zero(flags);
 }
 
-void		set_space(t_flags *flags)
+void		set_f_space(t_flags *flags)
 {
 	flags->space = 1;
 }
 
-void		set_hash(t_flags *flags)
+void		set_f_hash(t_flags *flags)
 {
 	flags->hash = 1;
 }
 
-void		set_plus(t_flags *flags)
+void		set_f_plus(t_flags *flags)
 {
 	flags->plus = 1;
 }
 
-void		set_minus(t_flags *flags)
+void		set_f_minus(t_flags *flags)
 {
 	flags->minus = 1;
 }
 
-void		set_zero(t_flags *flags)
+void		set_f_zero(t_flags *flags)
 {
 	flags->zero = 1;
 }
