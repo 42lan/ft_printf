@@ -73,27 +73,33 @@ typedef struct	s_placeholder
 int				ft_printf(const char *format, ...);
 t_buffer		initialize_buffer(void);
 void			print_buffer(t_buffer *buffer);
-int				is_flag(const char c);
-int				check_syntax(const char c, t_placeholder *placeholder);
-int				is_placeholder(const char **format, t_placeholder *placeholder);
+int				check_syntax(const char *str, t_placeholder *placeholder);
+int				is_placeholder(const char **format);//, t_placeholder *placeholder);
 int				is_conversion_type(const char c);
 
 t_placeholder	*initialize_placeholder(void);
 void			initialize_specifiers(t_spec *specs);
 void			initialize_flags(t_flags *flags);
 
-void			set_flag(const char c, t_flags *flags);
 int				check_type(const char c, t_placeholder *placeholder);
 
-void			set_space(t_flags *flags);
-void			set_hash(t_flags *flags);
-void			set_plus(t_flags *flags);
-void			set_minus(t_flags *flags);
-void			set_zero(t_flags *flags);
+int				is_flag(const char c);
+int				is_width(const char c);
+
+void			set_s_flag(const char c, t_flags *flags);
+void			set_s_width(const char *str, t_flags *flags);
+
+
+void			set_f_space(t_flags *flags);
+void			set_f_hash(t_flags *flags);
+void			set_f_plus(t_flags *flags);
+void			set_f_minus(t_flags *flags);
+void			set_f_zero(t_flags *flags);
 
 void			integer_conversion(const char c, t_placeholder *placeholder);
 void			floating_point_conversion(t_placeholder *placeholder);
 
+void			print_placeholder(t_placeholder *placeholder);
 
 
 /*
@@ -105,6 +111,5 @@ void			g_set_flag()
 }
 */
 
-void			print_placeholder(t_placeholder *placeholder);
 
 #endif
