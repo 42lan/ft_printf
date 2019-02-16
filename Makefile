@@ -41,6 +41,7 @@ SRCNAME		= main.c			\
 			flags.c				\
 			placeholder.c		\
 			conversions.c		\
+			memory.c			\
 			syntax.c
 
 # **************************************************************************** #
