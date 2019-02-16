@@ -16,7 +16,7 @@
 ** Checking if given char is one of the flags
 */
 
-int			is_flag(const char c)
+int			is_flag_(const char c)
 {
 	return (c == ' ' || c == '#' || c == '+' || c == '-' || c == '0');
 }
@@ -26,7 +26,7 @@ int			is_flag(const char c)
 ** setting up the corresponding bit to 1
 */
 
-void		set_flag(const char c, t_flags *flags)
+void		set_flag_(const char c, t_flags *flags)
 {
 	if (c == ' ')
 		set_space(flags);
@@ -40,27 +40,27 @@ void		set_flag(const char c, t_flags *flags)
 		set_zero(flags);
 }
 
-void		set_space(t_flags *flags)
+void		set_space_(t_flags *flags)
 {
 	flags->space = 1;
 }
 
-void		set_hash(t_flags *flags)
+void		set_hash_(t_flags *flags)
 {
 	flags->hash = 1;
 }
 
-void		set_plus(t_flags *flags)
+void		set_plus_(t_flags *flags)
 {
 	flags->plus = 1;
 }
 
-void		set_minus(t_flags *flags)
+void		set_minus_(t_flags *flags)
 {
 	flags->minus = 1;
 }
 
-void		set_zero(t_flags *flags)
+void		set_zero_(t_flags *flags)
 {
 	flags->zero = 1;
 }
