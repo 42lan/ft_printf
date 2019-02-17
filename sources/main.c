@@ -22,9 +22,9 @@ int			main(void)
 	float	pi = 3.141592;
 
 	//printf("----------printf----------\n");
-	//printf("Hello%%%%, %10.5s%c\n[% 4d%% ] %%.5R Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
+	//printf("Hello%%%%, %13.5s%c\n[% 4d%% ] %%.5R Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
 	//printf("----------ft_printf-------\n");
 	// s c d f d d		%.5s, %c, % 4d, %+3f, %d, %d
-	ft_printf("Hello%%%%, %+-10z.5s%c\n[% 4d%% ] %%.5R Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
+	ft_printf("Hello%%%%, %+#13.5s%c\n[% 4d%% ] %%.5R Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
 	return (0);
 }
