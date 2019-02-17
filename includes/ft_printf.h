@@ -84,17 +84,17 @@ void			initialize_flags(t_flags *flags);
 int				check_type(const char c, t_placeholder *placeholder);
 
 int				is_flag(const char c);
-int				is_width(const char c);
+int				is_width(const char **str);
 
-void			set_s_flag(const char c, t_flags *flags);
-void			set_s_width(const char *str, t_flags *flags);
+void			set_flag(const char c, t_flags *flags);
+void			set_width(const char *str, t_flags *flags);
 
 
-void			set_f_space(t_flags *flags);
-void			set_f_hash(t_flags *flags);
-void			set_f_plus(t_flags *flags);
-void			set_f_minus(t_flags *flags);
-void			set_f_zero(t_flags *flags);
+void			set_space(t_flags *flags);
+void			set_hash(t_flags *flags);
+void			set_plus(t_flags *flags);
+void			set_minus(t_flags *flags);
+void			set_zero(t_flags *flags);
 
 void			integer_conversion(const char c, t_placeholder *placeholder);
 void			floating_point_conversion(t_placeholder *placeholder);
