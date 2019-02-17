@@ -65,3 +65,8 @@ void				set_width(int width, t_spec *specs)
 {
 	specs->width = width;
 }
+
+void				set_precision(int precision, t_spec *specs)
+{
+	specs->precision = precision;
+}
