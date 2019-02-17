@@ -12,51 +12,46 @@
 
 #include "ft_printf.h"
 
-int		is_flag(const char c)
-{
-	return (c == ' ' || c == '#' || c == '+' || c == '-' || c == '0');
-}
-
 /*
 ** Checking if passed character in argument is one of the flags and
 ** setting up the corresponding bit to 1
 */
 
-void		set_s_flag(const char c, t_flags *flags)
+void		set_flag(const char c, t_flags *flags)
 {
 	if (c == ' ')
-		set_f_space(flags);
+		set_space(flags);
 	else if (c == '#')
-		set_f_hash(flags);
+		set_hash(flags);
 	else if (c == '+')
-		set_f_plus(flags);
+		set_plus(flags);
 	else if (c == '-')
-		set_f_minus(flags);
+		set_minus(flags);
 	else if (c == '0')
-		set_f_zero(flags);
+		set_zero(flags);
 }
 
-void		set_f_space(t_flags *flags)
+void		set_space(t_flags *flags)
 {
 	flags->space = 1;
 }
 
-void		set_f_hash(t_flags *flags)
+void		set_hash(t_flags *flags)
 {
 	flags->hash = 1;
 }
 
-void		set_f_plus(t_flags *flags)
+void		set_plus(t_flags *flags)
 {
 	flags->plus = 1;
 }
 
-void		set_f_minus(t_flags *flags)
+void		set_minus(t_flags *flags)
 {
 	flags->minus = 1;
 }
 
-void		set_f_zero(t_flags *flags)
+void		set_zero(t_flags *flags)
 {
 	flags->zero = 1;
 }
