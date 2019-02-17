@@ -25,6 +25,6 @@ int			main(void)
 	//printf("Hello%%%%, %13.5s%c\n[% 4d%% ] %%.5R Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
 	//printf("----------ft_printf-------\n");
 	// s c d f d d		%.5s, %c, % 4d, %+3f, %d, %d
-	ft_printf("Hello%%%%, %+#13.5s%c\n[% 4d%% ] %%.5R Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
+	ft_printf("Hello%%%%, %+#13.598s%c\n[% 4d%% ] %%.5R Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
 	return (0);
 }
