@@ -28,15 +28,18 @@ int					check_syntax(const char *str, t_placeholder *placeholder)
 			//printf("Flag detected [%c]\n", *str);
 			set_flag(*str, placeholder->specs->flags);
 		}
-		else if (is_width(&str))
+		else if (*(str - 1) != '.' && is_width(&str))	// Pas tres propres la premiere expression
 			set_width(ft_atoi(width_position), placeholder->specs);
-		else
-			return (0);
+		else if (*(str - 1) == '.')		// How to catch '.' more properly ?
+		{
+			set_precision(ft_atoi(str), placeholder->specs);
+			while (ft_isdigit(*str))
+				str++;
+		}
 		/*
 		else if (is_precision(c)){}
 		else if (is_length(c)){}
 		*/
-		//ft_putchar(*str);
 		str++;
 	}
 	//ft_putchar(*str);
