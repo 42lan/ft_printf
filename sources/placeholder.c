@@ -12,39 +12,36 @@
 
 #include "ft_printf.h"
 
-int		is_placeholder(const char **format)//, t_placeholder *placeholder)
+int		is_placeholder(const char **format)
 {
-	//placeholder = initialize_placeholder();
 	if ((**format + 1) == '%')
 		return (0);
 	while (**format)
 	{
 		if (is_conversion_type(**format))
-		{
-			//ft_putchar(**format);
-			//ft_putchar('\n');
 			return (1);
-		}
 		(*format)++;
 	}
-	//ft_putchar(**format);
-	//ft_putchar('\n');
-	/*
-	ft_putchar(**format);
-	(*format)++;
-	while (!is_conversion_type(**format))
-	{
-		ft_putchar(**format);
-		check_syntax(**format, placeholder);
-		(*format)++;
-	}
-	ft_putchar(**format);
-	ft_putchar('\n');
-	print_placeholder(placeholder);
-	ft_putchar('\n');
-	*/
 	return (0);
 }
+
+int		is_flag(const char c)
+{
+	return (c == ' ' || c == '#' || c == '+' || c == '-' || c == '0');
+}
+
+int		is_width(const char **str)
+{
+	while (**str && **str != '.') // while (*str && !is_precision(str))
+	{
+		if (ft_isdigit(**str))
+			(*str)++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
 
 void				print_placeholder(t_placeholder *placeholder)
 {
