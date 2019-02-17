@@ -18,7 +18,7 @@ int					ft_printf(const char *format, ...)
 	va_list			arg;
 	t_buffer		buffer;
 	t_placeholder	*placeholder;
-	const char		*start_position;
+	const char		*placeholder_position;
 
 	done = 0;
 	buffer = initialize_buffer();
@@ -29,16 +29,22 @@ int					ft_printf(const char *format, ...)
 		//if (buffer.index == BUFF_SIZE - 1) // last line isn't print because < BUFF_SIZE. Need to be <= BUFF_SIZE?
 		//	print_buffer(&buffer);
 		while (*format == '%' && *(format + 1) == '%')
+		{
+			buffer.string[buffer.index++] = *format;
 			format = format + 2;
-		start_position = format + 1;	// Не очень эффективно, так как каждый раз просто созраняю позицую
+		}
+		placeholder_position = format + 1;	// Не очень эффективно, так как каждый раз просто созраняю позицую
 		if (*format == '%' && is_placeholder(&format))//, placeholder))
 		{
-			check_syntax(start_position, placeholder);
+			check_syntax(placeholder_position, placeholder);
 			print_placeholder(placeholder);
 			return (1);
 		}
 		else
+		{
 			buffer.string[buffer.index++] = *format;
+			//ft_putchar(*format);
+		}
 		format++;
 	}
 	va_end(arg);
