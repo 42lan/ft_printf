@@ -18,21 +18,18 @@
 
 int					check_syntax(const char *str, t_placeholder *placeholder)
 {
-	//const char		*width_start;
+	const char		*width_position;
 
 	while (!is_conversion_type(*str))			// Я здесь блокируюсь. Нужно быть на позиции +1
 	{
+		width_position = str;		// Ахаха очень не красиво
 		if (is_flag(*str))
 		{
-			printf("Flag detected [%c]\n", *str);
+			//printf("Flag detected [%c]\n", *str);
 			set_flag(*str, placeholder->specs->flags);
 		}
 		else if (is_width(&str))
-		{
-			ft_putendl("yes it is width");
-			// width = ft_atoi(width_start);
-			// set_width();
-		}
+			set_width(ft_atoi(width_position), placeholder->specs);
 		else
 			return (0);
 		/*
