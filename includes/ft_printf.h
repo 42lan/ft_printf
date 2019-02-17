@@ -88,6 +88,7 @@ int				is_width(const char **str);
 
 void			set_flag(const char c, t_flags *flags);
 void			set_width(int width, t_spec *specs);
+void			set_precision(int precision, t_spec *specs);
 
 
 void			set_space(t_flags *flags);
