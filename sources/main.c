@@ -14,7 +14,7 @@
 
 int			main(void)
 {
-	char	*world = "World[)(*&^$#@!THIS IS GARBAGE!@#$^&*()]";
+	char	*world = "World[*&.-+^$#@!THIS IS GARBAGE^)*&&*()";
 	char	c = '!';
 	int		pos = 99;
 	int		fah = 451;
