@@ -22,19 +22,20 @@ int					ft_printf(const char *format, ...)
 
 	done = 0;
 	buffer = initialize_buffer();
-	placeholder = initialize_placeholder();
+	placeholder = initialize_placeholder();	// Можно в check_syntax() обявить и инициализировать
 	va_start(arg, format);
 	while (*format)
 	{
 		//if (buffer.index == BUFF_SIZE - 1) // last line isn't print because < BUFF_SIZE. Need to be <= BUFF_SIZE?
 		//	print_buffer(&buffer);
-		if (*format == '%' && *(format + 1) == '%')
+		while (*format == '%' && *(format + 1) == '%')
 			format = format + 2;
-		start_position = format + 1;
+		start_position = format + 1;	// Не очень эффективно, так как каждый раз просто созраняю позицую
 		if (*format == '%' && is_placeholder(&format))//, placeholder))
 		{
 			check_syntax(start_position, placeholder);
 			print_placeholder(placeholder);
+			return (1);
 		}
 		else
 			buffer.string[buffer.index++] = *format;
