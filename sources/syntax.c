@@ -16,12 +16,25 @@
 ** check_syntax() call other functions to check specifiers and type
 */
 
-int			check_syntax(const char *str, t_placeholder *placeholder)
+int					check_syntax(const char *str, t_placeholder *placeholder)
 {
+	//const char		*width_start;
+
 	while (!is_conversion_type(*str))			// Я здесь блокируюсь. Нужно быть на позиции +1
 	{
 		if (is_flag(*str))
-			set_s_flag(*str, placeholder->specs->flags);
+		{
+			printf("Flag detected [%c]\n", *str);
+			set_flag(*str, placeholder->specs->flags);
+		}
+		else if (is_width(&str))
+		{
+			ft_putendl("yes it is width");
+			// width = ft_atoi(width_start);
+			// set_width();
+		}
+		else
+			return (0);
 		/*
 		else if (is_precision(c)){}
 		else if (is_length(c)){}
@@ -53,9 +66,9 @@ int			check_syntax(const char *str, t_placeholder *placeholder)
 ** one data type to another
 */
 
-int			check_type(const char c, t_placeholder *placeholder)
+int					check_type(const char c, t_placeholder *placeholder)
 {
-	int		type;
+	int				type;
 
 	type = is_conversion_type(c);
 	if (type == 1)
