@@ -61,3 +61,7 @@ void				print_placeholder(t_placeholder *placeholder)
 	printf("%s]%c\n", placeholder->specs->length, placeholder->type);
 }
 
+void				set_width(int width, t_spec *specs)
+{
+	specs->width = width;
+}
