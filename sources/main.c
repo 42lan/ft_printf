@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:31:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/17 07:49:50 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/18 08:09:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,19 @@ int			main(void)
 	char	c = '!';
 	int		pos = 99;
 	int		fah = 451;
-	int		neg = -42;
+	int		neg = -232;
 	float	pi = 3.141592;
 
-	//printf("----------printf----------\n");
-	//printf("Hello%%%%, %13.5s%c\n[% 4d%% ] %%.5R Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
-	//printf("----------ft_printf-------\n");
-	// s c d f d d		%.5s, %c, % 4d, %+3f, %d, %d
-	ft_printf("Hello%%%%, %+#13.598s%c\n[% 4d%% ] %%.5R Loading...\nPi number %+3f\nFahrenheit %d\n%dºC\n", world, c, pos, pi, fah, neg);
+	//printf("Hello, %16.5s%c\n[% 9d%% ] Loading...\nPi number %+14.4f\nFahrenheit %d -(%.2d°C)\nInvalid placeholder %%.5R\n", world, c, pos, pi, fah, neg);
+	/*
+		%13.5s, %c, % 244.41d, %+33f, %404.98d, %d
+
+		Hello%%, \n
+		[ %% ] %%22.5R Loading...\n
+		Pi number \n
+		Fahrnheit \n
+		 °C\n
+	*/
+	ft_printf("Hello, %16.5s%c\n[% 9d%% ] Loading...\nPi number %+14.4f\nFahrenheit %d -(%.2d°C)\nInvalid placeholder %%.5R\n", world, c, pos, pi, fah, neg);
 	return (0);
 }
