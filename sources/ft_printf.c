@@ -43,7 +43,7 @@ int					ft_printf(const char *format, ...)
 		{
 			check_syntax(placeholder_position, placeholder);
 			print_placeholder(placeholder);
-			placeholder = initialize_placeholder();
+			placeholder = initialize_placeholder();		// Могу ли я просто вызвать функцию без присвоения?
 		}
 		else
 			buffer.string[buffer.index++] = *format;
