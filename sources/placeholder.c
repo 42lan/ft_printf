@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 05:50:25 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/17 07:49:52 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/18 08:09:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		is_placeholder(const char **format)
 			return (1);
 		(*format)++;
 	}
-	return (0);
+	return (0);	// Нужно ли это ?
 }
 
 int		is_flag(const char c)
@@ -30,16 +30,23 @@ int		is_flag(const char c)
 	return (c == ' ' || c == '#' || c == '+' || c == '-' || c == '0');
 }
 
-int		is_width(const char **str)
+int		is_width(const char *str)
 {
-	while (**str && **str != '.') // while (*str && !is_precision(str))
+	while (*str && *str != '.') // while (*str && !is_precision(str)) OR while (*str != '.')
 	{
-		if (ft_isdigit(**str))
-			(*str)++;
+		if (ft_isdigit(*str))
+			str++;
 		else
 			return (0);
 	}
 	return (1);
+}
+
+int		is_precision(const char *str)
+{
+	if (*(str - 1) == '.')
+		return (1);
+	return (0);
 }
 
 
