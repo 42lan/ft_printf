@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 22:09:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/17 07:49:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/18 08:09:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,46 +18,30 @@
 
 int					check_syntax(const char *str, t_placeholder *placeholder)
 {
-	const char		*width_position;
-
-	while (!is_conversion_type(*str))			// Я здесь блокируюсь. Нужно быть на позиции +1
+	while (!is_conversion_type(*str))						// Я здесь блокируюсь. Нужно быть на позиции +1
 	{
-		width_position = str;		// Ахаха очень не красиво
-		if (is_flag(*str))
-		{
-			//printf("Flag detected [%c]\n", *str);
+		// if (is_parameter(*str))									// Mettre en place
+		if (is_flag(*str) && *(str - 1) != '.')						// Pas tres propre ca 
 			set_flag(*str, placeholder->specs->flags);
+		else if (is_width(str) && *(str - 1) != '.') // Pas tres propres la premiere expression
+		{
+			set_width(ft_atoi(str), placeholder->specs);
+			while (ft_isdigit(*str))
+				str++;
 		}
-		else if (*(str - 1) != '.' && is_width(&str))	// Pas tres propres la premiere expression
-			set_width(ft_atoi(width_position), placeholder->specs);
-		else if (*(str - 1) == '.')		// How to catch '.' more properly ?
+		else if (is_precision(str))									// How to catch '.' more properly ?
 		{
 			set_precision(ft_atoi(str), placeholder->specs);
 			while (ft_isdigit(*str))
 				str++;
-		}
-		/*
-		else if (is_precision(c)){}
-		else if (is_length(c)){}
-		*/
+			str--;
+		}	// else if (is_length(str))
+		else
+			return (0);
 		str++;
 	}
 	//ft_putchar(*str);
 	check_type(*str, placeholder);
-/*
-	//if (is_parameter(c)){}
-	if (is_flag(c))
-	{
-		set_flag(c, placeholder->specs->flags);
-		return (1);
-	}
-	else if (is_width(c)){}
-	else if (is_precision(c)){}
-	else if (is_length(c)){}
-	else if (is_conversion_type(c) > 0)
-		check_type(c, placeholder);
-			return (1);
-*/
 	return (0);
 }
 
