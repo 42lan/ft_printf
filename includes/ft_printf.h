@@ -84,7 +84,8 @@ void			initialize_flags(t_flags *flags);
 int				check_type(const char c, t_placeholder *placeholder);
 
 int				is_flag(const char c);
-int				is_width(const char **str);
+int				is_width(const char *str);
+int				is_precision(const char *str);
 
 void			set_flag(const char c, t_flags *flags);
 void			set_width(int width, t_spec *specs);
@@ -103,9 +104,9 @@ void			floating_point_conversion(t_placeholder *placeholder);
 void			print_placeholder(t_placeholder *placeholder);
 
 
+void			deallocate_placeholder(t_placeholder *placeholder);
 /*
 int				parsing(va_list arg, const char *restrict str);
-void			deallocate_placeholder(t_placeholder *placeholder);
 void			g_set_flag()
 {
 
