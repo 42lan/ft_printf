@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 05:20:28 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/17 07:49:49 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/18 08:08:58 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,30 @@ int					ft_printf(const char *format, ...)
 	va_start(arg, format);
 	while (*format)
 	{
-		//if (buffer.index == BUFF_SIZE - 1) // last line isn't print because < BUFF_SIZE. Need to be <= BUFF_SIZE?
-		//	print_buffer(&buffer);
-		while (*format == '%' && *(format + 1) == '%')
+		if (buffer.index == BUFF_SIZE - 1) // Для того чтобы не было ошибки ->  zsh: abort      ./a.out
+			buffer = initialize_buffer();
+		/*
+		if (buffer.index == BUFF_SIZE - 1) // last line isn't print because < BUFF_SIZE. Need to be <= BUFF_SIZE?
+			print_buffer(&buffer);
+		*/
+		while (*format && *format == '%' && *(format + 1) == '%')	// zsh: abort      ./a.out
 		{
 			buffer.string[buffer.index++] = *format;
 			format = format + 2;
 		}
-		placeholder_position = format + 1;	// Не очень эффективно, так как каждый раз просто созраняю позицую
-		if (*format == '%' && is_placeholder(&format))//, placeholder))
+		if (*format == '%')	// Вот так уже лучше, но не красиво  |
+			placeholder_position = format + 1; //				 L > Не очень эффективно, так как каждый раз просто созраняю позицую
+		if (*format == '%' && is_placeholder(&format))
 		{
 			check_syntax(placeholder_position, placeholder);
 			print_placeholder(placeholder);
-			return (1);
+			placeholder = initialize_placeholder();
 		}
 		else
-		{
 			buffer.string[buffer.index++] = *format;
-			//ft_putchar(*format);
-		}
 		format++;
 	}
 	va_end(arg);
+	//deallocate_placeholder(placeholder);
 	return (done);
 }
