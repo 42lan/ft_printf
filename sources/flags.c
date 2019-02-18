@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 05:00:15 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/17 07:49:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/18 08:08:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** setting up the corresponding bit to 1
 */
 
-void		set_flag(const char c, t_flags *flags)
+void		set_flag(const char c, t_flags *flags)	// Может быть второй аргумент будет сразу флагом?
 {
 	if (c == ' ')
 		set_space(flags);
