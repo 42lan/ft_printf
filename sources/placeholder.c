@@ -12,15 +12,15 @@
 
 #include "ft_printf.h"
 
-int		is_placeholder(const char **format)
+int		is_placeholder(const char *format)
 {
-	if ((**format + 1) == '%')
+	if (*(format + 1) == '%')
 		return (0);
-	while (**format)
+	while (*format)
 	{
-		if (is_conversion_type(**format))
+		if (is_conversion_type(*format))
 			return (1);
-		(*format)++;
+		format++;
 	}
 	return (0);	// Нужно ли это ?
 }
