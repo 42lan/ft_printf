@@ -22,15 +22,6 @@ int			main(void)
 	float	pi = 3.141592;
 
 	//printf("Hello, %16.5s%c\n[% 9d%% ] Loading...\nPi number %+14.4f\nFahrenheit %d -(%.2d°C)\nInvalid placeholder %%.5R\n", world, c, pos, pi, fah, neg);
-	/*
-		%13.5s, %c, % 244.41d, %+33f, %404.98d, %d
-
-		Hello%%, \n
-		[ %% ] %%22.5R Loading...\n
-		Pi number \n
-		Fahrnheit \n
-		 °C\n
-	*/
 	ft_printf("Hello, %16.5s%c\n[% 9d%% ] Loading...\nPi number %+14.4f\nFahrenheit %d -(%.2d°C)\nInvalid placeholder %%.5R\n", world, c, pos, pi, fah, neg);
 	return (0);
 }
