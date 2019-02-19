@@ -12,6 +12,11 @@
 
 #include "ft_printf.h"
 
+int		is_flag(const char c)
+{
+	return (c == ' ' || c == '#' || c == '+' || c == '-' || c == '0');
+}
+
 /*
 ** Checking if passed character in argument is one of the flags and
 ** setting up the corresponding bit to 1
