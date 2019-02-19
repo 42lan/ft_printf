@@ -29,15 +29,13 @@ int					check_syntax(const char *str, t_placeholder *placeholder)
 			while (ft_isdigit(*str))
 				str++;
 		}
-		else if (is_precision(str))									// How to catch '.' more properly ?
+		else if (is_precision(str) && *(str - 1) == '.')
 		{
 			set_precision(ft_atoi(str), placeholder->specs);
 			while (ft_isdigit(*str))
 				str++;
 			str--;
 		}	// else if (is_length(str))
-		else
-			return (0);
 		str++;
 	}
 	//ft_putchar(*str);
