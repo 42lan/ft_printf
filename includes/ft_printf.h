@@ -74,7 +74,7 @@ int				ft_printf(const char *format, ...);
 t_buffer		initialize_buffer(void);
 void			print_buffer(t_buffer *buffer);
 int				check_syntax(const char *str, t_placeholder *placeholder);
-int				is_placeholder(const char **format);//, t_placeholder *placeholder);
+int				is_placeholder(const char *format);//, t_placeholder *placeholder);
 int				is_conversion_type(const char c);
 
 t_placeholder	*initialize_placeholder(void);
@@ -90,13 +90,6 @@ int				is_precision(const char *str);
 void			set_flag(const char c, t_flags *flags);
 void			set_width(int width, t_spec *specs);
 void			set_precision(int precision, t_spec *specs);
-
-
-void			set_space(t_flags *flags);
-void			set_hash(t_flags *flags);
-void			set_plus(t_flags *flags);
-void			set_minus(t_flags *flags);
-void			set_zero(t_flags *flags);
 
 void			integer_conversion(const char c, t_placeholder *placeholder);
 void			floating_point_conversion(t_placeholder *placeholder);
