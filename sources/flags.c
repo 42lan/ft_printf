@@ -20,42 +20,16 @@
 void		set_flag(const char c, t_flags *flags)	// Может быть второй аргумент будет сразу флагом?
 {
 	if (c == ' ')
-		set_space(flags);
+		flags->space = 1;
 	else if (c == '#')
-		set_hash(flags);
+		flags->hash = 1;
 	else if (c == '+')
-		set_plus(flags);
+		flags->plus = 1;
 	else if (c == '-')
-		set_minus(flags);
+		flags->minus = 1;
 	else if (c == '0')
-		set_zero(flags);
+		flags->zero = 1;
 }
-
-void		set_space(t_flags *flags)
-{
-	flags->space = 1;
-}
-
-void		set_hash(t_flags *flags)
-{
-	flags->hash = 1;
-}
-
-void		set_plus(t_flags *flags)
-{
-	flags->plus = 1;
-}
-
-void		set_minus(t_flags *flags)
-{
-	flags->minus = 1;
-}
-
-void		set_zero(t_flags *flags)
-{
-	flags->zero = 1;
-}
-
 
 /*
 ** Initialization of type pointer to t_placeholder structure
