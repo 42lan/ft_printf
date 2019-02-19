@@ -86,6 +86,7 @@ int				check_type(const char c, t_placeholder *placeholder);
 int				is_flag(const char c);
 int				is_width(const char *str);
 int				is_precision(const char *str);
+int				is_length(const char *str);
 
 void			set_flag(const char c, t_flags *flags);
 void			set_width(int width, t_spec *specs);
