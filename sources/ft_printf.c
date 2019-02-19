@@ -18,7 +18,6 @@ int					ft_printf(const char *format, ...)
 	va_list			arg;
 	t_buffer		buffer;
 	t_placeholder	*placeholder;
-	const char		*placeholder_position;
 
 	done = 0;
 	buffer = initialize_buffer();
@@ -32,18 +31,20 @@ int					ft_printf(const char *format, ...)
 		if (buffer.index == BUFF_SIZE - 1) // last line isn't print because < BUFF_SIZE. Need to be <= BUFF_SIZE?
 			print_buffer(&buffer);
 		*/
-		while (*format && *format == '%' && *(format + 1) == '%')	// zsh: abort      ./a.out
+		while (*format && *format == '%' && *(format + 1) == '%')
 		{
 			buffer.string[buffer.index++] = *format;
 			format = format + 2;
 		}
 		if (*format == '%')	// Вот так уже лучше, но не красиво  |
-			placeholder_position = format + 1; //				 L > Не очень эффективно, так как каждый раз просто созраняю позицую
-		if (*format == '%' && is_placeholder(&format))
 		{
-			check_syntax(placeholder_position, placeholder);
-			print_placeholder(placeholder);
-			placeholder = initialize_placeholder();		// Могу ли я просто вызвать функцию без присвоения?
+			//if (*format == '%' && is_placeholder(&format))
+			if (is_placeholder(format++))	// format++ для того чтобы пропустить % и начать анализ после этого знака
+			{
+				check_syntax(format, placeholder);
+				print_placeholder(placeholder);
+				placeholder = initialize_placeholder();		// Могу ли я просто вызвать функцию без присвоения?
+			}
 		}
 		else
 			buffer.string[buffer.index++] = *format;
