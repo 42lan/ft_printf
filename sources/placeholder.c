@@ -25,10 +25,6 @@ int		is_placeholder(const char *format)
 	return (0);	// Нужно ли это ?
 }
 
-int		is_flag(const char c)
-{
-	return (c == ' ' || c == '#' || c == '+' || c == '-' || c == '0');
-}
 
 int		is_width(const char *str)
 {
@@ -44,11 +40,33 @@ int		is_width(const char *str)
 
 int		is_precision(const char *str)
 {
-	if (*(str - 1) == '.')
-		return (1);
-	return (0);
+	while (*str && !is_conversion_type(*str))// && !is_length(str)) au lieu de && !is_conversion_type()
+	{
+		if (ft_isdigit(*str))
+			str++;
+		else
+			return (0);
+	}
+	return (1);
 }
 
+/*
+int		is_length(const char *str)
+{
+ // hh h l ll j z t L
+}
+*/
+
+
+void				set_width(int width, t_spec *specs)
+{
+	specs->width = width;
+}
+
+void				set_precision(int precision, t_spec *specs)
+{
+	specs->precision = precision;
+}
 
 void				print_placeholder(t_placeholder *placeholder)
 {
@@ -66,14 +84,4 @@ void				print_placeholder(t_placeholder *placeholder)
 	ft_putnbr(placeholder->specs->precision);
 	ft_putstr("][");
 	printf("%s]%c\n", placeholder->specs->length, placeholder->type);
-}
-
-void				set_width(int width, t_spec *specs)
-{
-	specs->width = width;
-}
-
-void				set_precision(int precision, t_spec *specs)
-{
-	specs->precision = precision;
 }
