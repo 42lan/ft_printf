@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/24 13:15:23 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/24 13:29:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct	s_spec
 	t_flags		*flags;
 	int			width;
 	int			precision;
-	char		*length;
+	char		*length;//бит маска вместо char*
 }				t_spec;
 
 /*
@@ -70,6 +70,7 @@ typedef struct	s_placeholder
 	char		type;
 }				t_placeholder;
 
+/*
 int				ft_printf(const char *format, ...);
 void			print_buffer(t_buffer *buffer);
 int				check_syntax(const char *str, t_placeholder *placeholder);
@@ -101,12 +102,6 @@ void			print_placeholder(t_placeholder *placeholder);
 
 
 void			deallocate_placeholder(t_placeholder *placeholder);
-/*
-int				parsing(va_list arg, const char *restrict str);
-void			g_set_flag()
-{
-
-}
 */
 
 
