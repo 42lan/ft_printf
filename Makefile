@@ -37,12 +37,14 @@ LIBDIR		= ./libft
 # List of source files
 SRCNAME		= main.c			\
 			ft_printf.c			\
+			initialization.c	\
 			buffer.c			\
-			flags.c				\
 			placeholder.c		\
+			flags.c				\
 			conversions.c		\
 			memory.c			\
-			syntax.c
+			syntax.c			\
+			length.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
