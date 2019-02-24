@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/18 08:07:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/23 16:07:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,13 @@ typedef struct	s_placeholder
 }				t_placeholder;
 
 int				ft_printf(const char *format, ...);
-t_buffer		initialize_buffer(void);
 void			print_buffer(t_buffer *buffer);
 int				check_syntax(const char *str, t_placeholder *placeholder);
 int				is_placeholder(const char *format);//, t_placeholder *placeholder);
 int				is_conversion_type(const char c);
 
+void			initialization(t_buffer *buffer, t_placeholder **placeholder);
+t_buffer		initialize_buffer(void);
 t_placeholder	*initialize_placeholder(void);
 void			initialize_specifiers(t_spec *specs);
 void			initialize_flags(t_flags *flags);
@@ -86,11 +87,12 @@ int				check_type(const char c, t_placeholder *placeholder);
 int				is_flag(const char c);
 int				is_width(const char *str);
 int				is_precision(const char *str);
-int				is_length(const char *str);
+int				is_length(const char **str);
 
 void			set_flag(const char c, t_flags *flags);
 void			set_width(int width, t_spec *specs);
 void			set_precision(int precision, t_spec *specs);
+void			set_length(int l, t_spec *specs);
 
 void			integer_conversion(const char c, t_placeholder *placeholder);
 void			floating_point_conversion(t_placeholder *placeholder);
