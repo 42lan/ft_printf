@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 22:09:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/18 08:09:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/24 13:15:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 int					check_syntax(const char *str, t_placeholder *placeholder)
 {
+	int				l;
+
 	while (!is_conversion_type(*str))						// Я здесь блокируюсь. Нужно быть на позиции +1
 	{
 		// if (is_parameter(*str))									// Mettre en place
@@ -35,7 +37,11 @@ int					check_syntax(const char *str, t_placeholder *placeholder)
 			while (ft_isdigit(*str))
 				str++;
 			str--;
-		}	// else if (is_length(str))
+		}
+		else if ((l = is_length(&str)) > 0)
+		{
+			set_length(l, placeholder->specs);
+		}
 		str++;
 	}
 	//ft_putchar(*str);
