@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 05:50:25 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/18 08:09:08 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/24 13:15:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int		is_placeholder(const char *format)
 {
-	if (*(format + 1) == '%')
-		return (0);
 	while (*format)
 	{
+		/*
+		if (!is_conversion_type(*format) && *(format + 1) == '%')
+			return (0);
+		*/
 		if (is_conversion_type(*format))
 			return (1);
 		format++;
@@ -50,23 +52,16 @@ int		is_precision(const char *str)
 	return (1);
 }
 
-/*
-int		is_length(const char *str)
+void				set_precision(int precision, t_spec *specs)
 {
- // hh h l ll j z t L
+	specs->precision = precision;
 }
-*/
-
 
 void				set_width(int width, t_spec *specs)
 {
 	specs->width = width;
 }
 
-void				set_precision(int precision, t_spec *specs)
-{
-	specs->precision = precision;
-}
 
 void				print_placeholder(t_placeholder *placeholder)
 {
