@@ -1,0 +1,149 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    printf_and_how_it_works.txt                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/02/20 09:53:38 by amalsago          #+#    #+#              #
+#    Updated: 2019/02/25 12:06:18 by amalsago         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+The format-string consist of:
+ordinary characters			- they are copied in order of ther appearance
+escape sequences			- 
+conversion specifications	- they begins with %
+
+
+Placeholder syntax:
+	%[parameter$][flags][width][.precision][length]type
+
+type
+	c		Character
+	s		String of character
+	p		Pointer address
+	d		Signed decimal integer
+	i		Signed decimal integer
+	o		Unsigned octal
+	u		Unsigned decimal integer
+	x		Unsigned hexadecimal integer (lowercase)
+	X		Unsigned hexadecimal integer (upperrcase)
+	f		Decimal floating point (lowercase)
+
+If % is followed by a character that has no meaning as a format field,
+the character is simply copied to stdout. For example %%
+
+[parameter]		POSIX extension and not in C99, so can be omitted.
+	n$			'n' is the number of the parameter to display. If any placeholder
+				specifies a parameter, all the rest of the placeholder MUST specify
+				a paramater number. Or behavior is undefined.
+
+[flags]			The flags can be zero or more (in any order)
+	'-'			Left-justify (instead default right)
+	'+'			For signed %d and %i conversions,print a plus sign. Owverrides ' ' flag
+	' '			Insert blank space for %d and %i conversions, instead plus sign
+				Ingored with when flag '+' is present
+	'0'			Left-pads the number with zeroes when [width] is specified
+				only for d, i, o, u, x, X, e, E, f, g and G conversions
+	'#'			For o, x and X preceeed with 0, 0x and 0X respectively.
+				For f force to write a decimal point even if no more digits follow.
+				Shouldn't be use with c, d, i, u, s and p conversion specifier.
+
+[width]			Minimum number of characters to print. If the number of characters
+				in the output is less than the specified [width], black are added on
+				the left or the rigth (depending if '-' flag is specified).
+				If the number of characters in the output value is greater that
+				specified [width] or [width] is not given, all the characters of the
+				value are printed
+				The [width] can ne an *, so an argument from argument list is used.
+				If format-string contains [parameter], [width] cat be indicated by
+				the sequence `*m$`, where m is a decimal integer in the range of
+				arguments.
+
+[.precision]	Specify the number of characters to print or the number of decimal places.
+				The precision can cause truncation of the output value or rounding of a
+				floating-point value.
+
+[length]		Modifies the length of the data type
+		'h'		Convert to short???
+		'hh'	Convert to char???
+		'l'		
+		'll'
+		'L'		Convert to long double???
+
+
+
+
+
+
+
+%s
+	'-'		
+	'+'				undefined behavior but print
+	' '				undefined behavior but print
+	'0'				undefined behavior but print
+	'#'				undefined behavior but print
+	[width]			
+	[precision]		if only '.' specified don't prints argument
+					prints chars until precision is reached
+
+
+%d %i				print an int argumentasaa signed decimal number
+	'-'
+	'+'	
+	' '	
+	'0'				print just number
+	'#'				undefined behavior but print
+	[width]
+	[precision]		if > than number of digits of integer, pad zero on left
+
+
+%o %u %x			pritnts unsigned octal, decimal, hexadecimal
+
+
+
+
+
+
+
+
+
+Specificators:
+
+
+3.	[width]
+4.	[.precision]
+5.	[length]
+
+
+
+%d, %i
+	'-'		left-alignement
+	'+'		add plus sign to positive number
+	' '		put space instead plus sign for positive number
+	'#'	
+
+%o
+	'
+
+
+1. Unsed argument
+printf("Hello ", "world");
+Warning: data argumet not used by format string
+
+2. Not enough arguments
+printf("Hello %s");
+Warning: more '%' conversions than data arguments
+
+
+
+
+
+
+
+
+
+
+
+
