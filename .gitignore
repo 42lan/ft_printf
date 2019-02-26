@@ -21,3 +21,6 @@
 .DS_Store/
 .vscode/
 objects/
+
+# Tag files
+tags
