@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 14:21:18 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/27 14:21:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:58:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void			width(const char **format, t_placeholder *placeholder)
 	int			nb;
 
 	nb = 0;
+	//ft_putendl(*format);
 	while (ft_isdigit(**format))
 	{
 		nb *= 10;
@@ -24,4 +25,5 @@ void			width(const char **format, t_placeholder *placeholder)
 		(*format)++;
 	}
 	placeholder->specs->width = nb;
+	(*format)--;
 }
