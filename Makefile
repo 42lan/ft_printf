@@ -40,7 +40,8 @@ SRCNAME		= main.c			\
 			  parsing.c			\
 			  initialization.c	\
 			  flags.c			\
-			  placeholder.c
+			  placeholder.c		\
+			  width.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
