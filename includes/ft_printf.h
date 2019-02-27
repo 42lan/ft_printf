@@ -93,13 +93,13 @@ void			flag_hash(const char **format, t_placeholder *placeholder);
 void			flag_plus(const char **format, t_placeholder *placeholder);
 void			flag_minus(const char **format, t_placeholder *placeholder);
 void			flag_zero(const char **format, t_placeholder *placeholder);
-
+void			width(const char **format, t_placeholder *placeholder);
 
 static Handler jump_table[] = {
 	flag_space, unknown,  unknown, flag_hash, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, flag_plus, unknown, flag_minus, unknown, unknown,
-	flag_zero, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
+	flag_zero, width,  width, width, width, width, width, width,
+	width, width,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
