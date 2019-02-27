@@ -16,7 +16,7 @@ int			main(void)
 {
 	//printf("\n%d\n", printf("Hello, %.5s%c", "World#$%^&*786ef", '!'));
 	//printf("\n%d\n", ft_printf("Hello, %-25%. %-10.5s%c", "World#$^&*786ef", '!'));
-	//printf("\n%d\n", printf("Hello, % d", 42));
-	printf("\n%d\n", ft_printf("Hello, % s\n"));
+	// printf("\n%d\n", printf("Hello, %010d", 42));
+	printf("\n%d\n", ft_printf("Hello, %010d", 42));
 	return (0);
 }
