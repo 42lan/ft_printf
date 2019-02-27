@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/27 13:51:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:58:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,12 @@ void			flag_plus(const char **format, t_placeholder *placeholder);
 void			flag_minus(const char **format, t_placeholder *placeholder);
 void			flag_zero(const char **format, t_placeholder *placeholder);
 void			width(const char **format, t_placeholder *placeholder);
+void			precision(const char **format, t_placeholder *placeholder);
+
 
 static Handler jump_table[] = {
 	flag_space, unknown,  unknown, flag_hash, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, flag_plus, unknown, flag_minus, unknown, unknown,
+	unknown, unknown,  unknown, flag_plus, unknown, flag_minus, precision, unknown,
 	flag_zero, width,  width, width, width, width, width, width,
 	width, width,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
