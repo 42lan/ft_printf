@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 05:20:28 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/27 13:51:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:58:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ int				ft_printf(const char *format, ...)
 			format++;
 		}
 		if (*format++ == '%')
+		{
 			parsing(&format, &ap, &buffer);
-		/*
+			return 1;
+		}/*
 		else
 			buffer.string[buffer.index++] = *format;
 		*/
