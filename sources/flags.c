@@ -40,31 +40,32 @@ void		set_flag(const char c, t_flags *flags)	// Может быть второй
 
 void			flag_space(const char **format, t_placeholder *placeholder)
 {
-	(*format)++;
+	(void)format;
 	placeholder->specs->flags->space = 1;
 }
 
 void			flag_hash(const char **format, t_placeholder *placeholder)
 {
-	(*format)++;
+	(void)format;
 	placeholder->specs->flags->hash = 1;
 }
 
 void			flag_plus(const char **format, t_placeholder *placeholder)
 {
-	(*format)++;
+	(void)format;
 	placeholder->specs->flags->plus = 1;
+	placeholder->specs->flags->space = 0;
 }
 
 void			flag_minus(const char **format, t_placeholder *placeholder)
 {
-	(*format)++;
+	(void)format;
 	placeholder->specs->flags->minus = 1;
 }
 
 void			flag_zero(const char **format, t_placeholder *placeholder)
 {
-	(*format)++;
+	(void)format;
 	placeholder->specs->flags->zero = 1;
 }
 
