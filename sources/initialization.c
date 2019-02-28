@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 16:22:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/28 10:34:13 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:46:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_placeholder		*initialize_placeholder(void)
 		return (NULL);
 	if (!(placeholder->specs = (t_spec *)ft_memalloc(sizeof(t_spec))))
 		return (NULL);
-	placeholder->type = 0;
+	placeholder->type = 0;		// Установить значение на 0 использующееся в parsing()
 	initialize_specifiers(placeholder->specs);
 	if (!(placeholder->specs->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
 		return (NULL);
