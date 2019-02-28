@@ -95,6 +95,7 @@ void			flag_minus(const char **format, t_placeholder *placeholder);
 void			flag_zero(const char **format, t_placeholder *placeholder);
 void			width(const char **format, t_placeholder *placeholder);
 void			precision(const char **format, t_placeholder *placeholder);
+void			type_f(const char **format, t_placeholder *placeholder);
 
 
 static Handler jump_table[] = {
@@ -106,7 +107,7 @@ static Handler jump_table[] = {
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
+	unknown, unknown,  unknown, unknown, unknown, unknown, type_f, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown
