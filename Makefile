@@ -42,7 +42,8 @@ SRCNAME		= main.c			\
 			  flags.c			\
 			  placeholder.c		\
 			  width.c			\
-			  precision.c
+			  precision.c		\
+			  types.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
