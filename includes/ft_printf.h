@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/27 16:58:13 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:45:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int				is_flag(const char c);
 void			set_flag(const char c, t_flags *flags);
 
 void			print_placeholder(t_placeholder *placeholder);
+void			print_buffer(t_buffer *buffer);
 
 
 /* A pointer to a handler function */
@@ -95,11 +96,15 @@ void			flag_minus(const char **format, t_placeholder *placeholder);
 void			flag_zero(const char **format, t_placeholder *placeholder);
 void			width(const char **format, t_placeholder *placeholder);
 void			precision(const char **format, t_placeholder *placeholder);
+void			type_c(const char **format, t_placeholder *placeholder);
+void			type_d(const char **format, t_placeholder *placeholder);
 void			type_f(const char **format, t_placeholder *placeholder);
+void			type_s(const char **format, t_placeholder *placeholder);
+void			percent(const char **format, t_placeholder *placeholder);
 
 
 static Handler jump_table[] = {
-	flag_space, unknown,  unknown, flag_hash, unknown, unknown, unknown, unknown,
+	flag_space, unknown,  unknown, flag_hash, unknown, percent, unknown, unknown,
 	unknown, unknown,  unknown, flag_plus, unknown, flag_minus, precision, unknown,
 	flag_zero, width,  width, width, width, width, width, width,
 	width, width,  unknown, unknown, unknown, unknown, unknown, unknown,
@@ -107,9 +112,9 @@ static Handler jump_table[] = {
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, unknown, unknown, unknown, type_f, unknown,
+	unknown, unknown,  unknown, type_c, type_d, unknown, type_f, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
+	unknown, unknown,  unknown, type_s, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown
 /*
       32 sp    33  !    34  "    35  #    36  $    37  %    38  &    39  '
@@ -128,7 +133,6 @@ static Handler jump_table[] = {
 };
 
 /*
-void			print_buffer(t_buffer *buffer);
 int				check_syntax(const char *str, t_placeholder *placeholder);
 int				is_placeholder(const char *format);//, t_placeholder *placeholder);
 int				is_conversion_type(const char c);
