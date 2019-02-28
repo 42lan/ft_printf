@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 05:00:15 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/27 13:51:44 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/02/28 10:34:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void			flag_zero(const char **format, t_placeholder *placeholder)
 {
 	(void)format;
 	placeholder->specs->flags->zero = 1;
+	(*format)++;
 }
 
 void			unknown(const char **format, t_placeholder *placeholder)
