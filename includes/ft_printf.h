@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/01 01:44:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/01 03:27:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,16 @@ void			flag_hash(const char **format, t_placeholder *placeholder);
 void			flag_plus(const char **format, t_placeholder *placeholder);
 void			flag_minus(const char **format, t_placeholder *placeholder);
 void			flag_zero(const char **format, t_placeholder *placeholder);
-
 void			get_int(const char **format, t_placeholder *placeholder);
 void			get_type(const char **format, t_placeholder *placeholder);
-/*
-void			type_c(const char **format, t_placeholder *placeholder);
-void			type_d(const char **format, t_placeholder *placeholder);
-void			type_f(const char **format, t_placeholder *placeholder);
-void			type_s(const char **format, t_placeholder *placeholder);
-void			percent(const char **format, t_placeholder *placeholder);
-*/
+/* ************************************************************************** */
 
 static Handler jump_table[] = {
 	flag_space, unknown,  unknown, flag_hash, unknown, get_type, unknown, unknown,
 	unknown, unknown,  unknown, flag_plus, unknown, flag_minus, get_int, unknown,
 	flag_zero, get_int,  get_int, get_int, get_int, get_int, get_int, get_int,
+/* ************************************************************************** */
+
 	get_int, get_int,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
