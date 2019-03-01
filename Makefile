@@ -41,7 +41,7 @@ SRCNAME		= main.c			\
 			  initialization.c	\
 			  flags.c			\
 			  placeholder.c		\
-			  precision.c		\
+			  get_.c		\
 			  types.c			\
 			  buffer.c
 
