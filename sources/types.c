@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 10:20:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/28 14:46:13 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/01 01:44:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ void			unknown(const char **format, t_placeholder *placeholder)
 	placeholder->type = **format;
 }
 
+void			get_type(const char **format, t_placeholder *placeholder)
+{
+	placeholder->type = **format;
+}
+
+/*
 void			type_d(const char **format, t_placeholder *placeholder)
 {
 	placeholder->type = **format;
@@ -41,3 +47,4 @@ void			percent(const char **format, t_placeholder *placeholder)
 {
 	placeholder->type = **format;
 }
+*/
