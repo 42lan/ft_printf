@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 04:48:44 by amalsago          #+#    #+#             */
-/*   Updated: 2019/02/28 14:46:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/01 03:27:12 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		print_buffer(t_buffer *buffer)
 {
-	write(1, buffer->string, buffer->index);	// Вывести на экран строку в количестве индекса
-	buffer->length += buffer->index;	// Заполнить счётчик количества символов
-	buffer->index = 0;
+	write(1, buffer->string, buffer->index); // Вывести на экран строку в количестве индекса
+	buffer->length += buffer->index; // Заполнить счётчик количества символов
+	buffer->index = 0; // Передвинуть индекс на 0
 }
