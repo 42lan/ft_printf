@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/01 03:27:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/02 14:41:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct	s_buffer
 {
 	int			index;
 	int			length;
-	char		string[BUFF_SIZE];
+	char		content[BUFF_SIZE];
 }				t_buffer;
 
 /*
@@ -67,7 +67,7 @@ typedef struct	s_spec
 typedef struct	s_placeholder
 {
 	t_spec		*specs;
-	char		type;
+	char		type; // не нужно
 }				t_placeholder;
 
 int				ft_printf(const char *format, ...);
@@ -96,24 +96,33 @@ void			flag_minus(const char **format, t_placeholder *placeholder);
 void			flag_zero(const char **format, t_placeholder *placeholder);
 void			get_int(const char **format, t_placeholder *placeholder);
 void			get_type(const char **format, t_placeholder *placeholder);
+void			type_c(const char **format, t_placeholder *placeholder);
+void			type_d(const char **format, t_placeholder *placeholder);
+void			type_f(const char **format, t_placeholder *placeholder);
+void			type_i(const char **format, t_placeholder *placeholder);
+void			type_o(const char **format, t_placeholder *placeholder);
+void			type_p(const char **format, t_placeholder *placeholder);
+void			type_s(const char **format, t_placeholder *placeholder);
+void			type_u(const char **format, t_placeholder *placeholder);
+void			type_x(const char **format, t_placeholder *placeholder);
+void			type_X(const char **format, t_placeholder *placeholder);
 /* ************************************************************************** */
 
-static Handler jump_table[] = {
-	flag_space, unknown,  unknown, flag_hash, unknown, get_type, unknown, unknown,
-	unknown, unknown,  unknown, flag_plus, unknown, flag_minus, get_int, unknown,
-	flag_zero, get_int,  get_int, get_int, get_int, get_int, get_int, get_int,
+static Handler	jump_table[] = {
+	flag_space,	unknown,	unknown, flag_hash,	unknown,	get_type,	unknown,	unknown,
+	unknown,	unknown,	unknown, flag_plus,	unknown,	flag_minus,	get_int,	unknown,
+	flag_zero,	get_int,	get_int, get_int,	get_int,	get_int,	get_int,	get_int,
+	get_int,	get_int,	unknown, unknown, 	unknown,	unknown, 	unknown,	unknown,
+	unknown,	unknown,	unknown, unknown, 	unknown,	unknown, 	unknown,	unknown,
+	unknown,	unknown,	unknown, unknown,	unknown,	unknown,	unknown,	unknown,
+	unknown,	unknown,	unknown, unknown,	unknown,	unknown,	unknown,	unknown,
+	type_X,		unknown,	unknown, unknown,	unknown,	unknown,	unknown,	unknown,
+	unknown,	unknown,	unknown, type_c,	type_d,		unknown,	type_f,		unknown,
+	unknown,	type_i,		unknown, unknown,	unknown,	unknown,	unknown,	type_o,
+	type_p,		unknown,	unknown, type_s,	unknown,	type_u,		unknown,	unknown,
+	type_x,		unknown,	unknown, unknown,	unknown,	unknown,	unknown
 /* ************************************************************************** */
-
-	get_int, get_int,  unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, get_type, get_type, unknown, get_type, unknown,
-	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, get_type, unknown, unknown, unknown, unknown,
-	unknown, unknown,  unknown, unknown, unknown, unknown, unknown, unknown
-/*
+/* 	csp diouxX f 
       32 sp    33  !    34  "    35  #    36  $    37  %    38  &    39  '
       40  (    41  )    42  *    43  +    44  ,    45  -    46  .    47  /
       48  0    49  1    50  2    51  3    52  4    53  5    54  6    55  7
