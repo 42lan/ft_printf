@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 16:22:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/01 03:27:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/02 14:41:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void			initialize_buffer(t_buffer *buffer)
 {
 	buffer->index = 0;
 	buffer->length = 0;
-	ft_bzero(buffer->string, BUFF_SIZE); // Ca allege? -> buffer.string[BUFF_SIZE] = '\0';
+	ft_bzero(buffer->content, BUFF_SIZE); // Ca allege? -> buffer.string[BUFF_SIZE] = '\0';
 }
 
 /*
@@ -35,9 +35,9 @@ t_placeholder		*initialize_placeholder(void)
 
 	if (!(placeholder = (t_placeholder *)ft_memalloc(sizeof(t_placeholder))))
 		return (NULL);
+	placeholder->type = 0; // Установить значение на 0 использующееся в parsing()
 	if (!(placeholder->specs = (t_spec *)ft_memalloc(sizeof(t_spec))))
 		return (NULL);
-	placeholder->type = 0; // Установить значение на 0 использующееся в parsing()
 	initialize_specifiers(placeholder->specs);
 	if (!(placeholder->specs->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
 		return (NULL);
