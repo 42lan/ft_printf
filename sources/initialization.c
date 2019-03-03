@@ -6,16 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 16:22:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/02 14:41:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/03 17:26:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 /*
-void			initialization(t_buffer *buffer, t_placeholder **placeholder)
+void			initialization(t_buffer *buffer, t_info **info)
 {
 	*buffer = initialize_buffer();
-	*placeholder = initialize_placeholder();
+	*info = initialize_info();
 }
 */
 void			initialize_buffer(t_buffer *buffer)
@@ -26,27 +26,27 @@ void			initialize_buffer(t_buffer *buffer)
 }
 
 /*
-** Allocation of memory for placeholder and it fields
+** Allocation of memory for info and it fields
 */
 
-t_placeholder		*initialize_placeholder(void)
+t_info		*initialize_info(void)
 {
-	t_placeholder	*placeholder;
+	t_info	*info;
 
-	if (!(placeholder = (t_placeholder *)ft_memalloc(sizeof(t_placeholder))))
+	if (!(info = (t_info *)ft_memalloc(sizeof(t_info))))
 		return (NULL);
-	placeholder->type = 0; // Установить значение на 0 использующееся в parsing()
-	if (!(placeholder->specs = (t_spec *)ft_memalloc(sizeof(t_spec))))
+	info->type = 0; // Установить значение на 0 использующееся в parsing()
+	if (!(info->specs = (t_spec *)ft_memalloc(sizeof(t_spec))))
 		return (NULL);
-	initialize_specifiers(placeholder->specs);
-	if (!(placeholder->specs->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
+	initialize_specifiers(info->specs);
+	if (!(info->specs->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
 		return (NULL);
-	initialize_flags(placeholder->specs->flags);
-	return (placeholder);
+	initialize_flags(info->specs->flags);
+	return (info);
 }
 
 /*
-** Initialization of type pointer to t_placeholder structure
+** Initialization of type pointer to t_info structure
 */
 
 void	initialize_specifiers(t_spec *specifiers)
