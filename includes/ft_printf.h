@@ -69,7 +69,7 @@ typedef struct	s_info
 	t_spec		*specs;
 	t_buffer	buffer;
 	va_list		ap;
-	char		type; // не нужно
+	char		type; // не нужно? НУЖНО Я ЖЕ ИСПОЛЬЗУЮ ЭТО ЧТОБЫ ВЫЙТИ ИЗ ЦИКЛА в parsing.c
 }				t_info;
 
 int				ft_printf(const char *format, ...);
