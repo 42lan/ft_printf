@@ -64,48 +64,50 @@ typedef struct	s_spec
 ** Structure of the syntax for a format placeholder
 */
 
-typedef struct	s_placeholder
+typedef struct	s_info
 {
 	t_spec		*specs;
+	t_buffer	buffer;
+	va_list		ap;
 	char		type; // не нужно
-}				t_placeholder;
+}				t_info;
 
 int				ft_printf(const char *format, ...);
 void			parsing(const char **format, va_list *ap, t_buffer *buffer);
 
 void			initialize_buffer(t_buffer *buffer);
-t_placeholder	*initialize_placeholder(void);
+t_info			*initialize_info(void);
 void			initialize_specifiers(t_spec *specs);
 void			initialize_flags(t_flags *flags);
 
 int				is_flag(const char c);
 void			set_flag(const char c, t_flags *flags);
 
-void			print_placeholder(t_placeholder *placeholder);
+void			print_info(t_info *info);
 void			print_buffer(t_buffer *buffer);
 
 
 /* A pointer to a handler function */
-typedef void	(*Handler)(const char **format, t_placeholder *placeholder);
+typedef void	(*Handler)(const char **format, t_info *info);
 
-void			unknown(const char **format, t_placeholder *placeholder);
-void			flag_space(const char **format, t_placeholder *placeholder);
-void			flag_hash(const char **format, t_placeholder *placeholder);
-void			flag_plus(const char **format, t_placeholder *placeholder);
-void			flag_minus(const char **format, t_placeholder *placeholder);
-void			flag_zero(const char **format, t_placeholder *placeholder);
-void			get_int(const char **format, t_placeholder *placeholder);
-void			get_type(const char **format, t_placeholder *placeholder);
-void			type_c(const char **format, t_placeholder *placeholder);
-void			type_d(const char **format, t_placeholder *placeholder);
-void			type_f(const char **format, t_placeholder *placeholder);
-void			type_i(const char **format, t_placeholder *placeholder);
-void			type_o(const char **format, t_placeholder *placeholder);
-void			type_p(const char **format, t_placeholder *placeholder);
-void			type_s(const char **format, t_placeholder *placeholder);
-void			type_u(const char **format, t_placeholder *placeholder);
-void			type_x(const char **format, t_placeholder *placeholder);
-void			type_X(const char **format, t_placeholder *placeholder);
+void			unknown(const char **format, t_info *info);
+void			flag_space(const char **format, t_info *info);
+void			flag_hash(const char **format, t_info *info);
+void			flag_plus(const char **format, t_info *info);
+void			flag_minus(const char **format, t_info *info);
+void			flag_zero(const char **format, t_info *info);
+void			get_int(const char **format, t_info *info);
+void			get_type(const char **format, t_info *info);
+void			type_c(const char **format, t_info *info);
+void			type_d(const char **format, t_info *info);
+void			type_f(const char **format, t_info *info);
+void			type_i(const char **format, t_info *info);
+void			type_o(const char **format, t_info *info);
+void			type_p(const char **format, t_info *info);
+void			type_s(const char **format, t_info *info);
+void			type_u(const char **format, t_info *info);
+void			type_x(const char **format, t_info *info);
+void			type_X(const char **format, t_info *info);
 /* ************************************************************************** */
 
 static Handler	jump_table[] = {
@@ -137,28 +139,5 @@ static Handler	jump_table[] = {
      120  x   121  y   122  z   123  {   124  |   125  }   126  ~   127 del
 */
 };
-
-/*
-int				check_syntax(const char *str, t_placeholder *placeholder);
-int				is_placeholder(const char *format);//, t_placeholder *placeholder);
-int				is_conversion_type(const char c);
-
-void			initialization(t_buffer *buffer, t_placeholder **placeholder);
-
-int				check_type(const char c, t_placeholder *placeholder);
-
-int				is_width(const char *str);
-int				is_precision(const char *str);
-int				is_length(const char **str);
-
-void			set_width(int width, t_spec *specs);
-void			set_precision(int precision, t_spec *specs);
-void			set_length(int l, t_spec *specs);
-
-void			integer_conversion(const char c, t_placeholder *placeholder);
-void			floating_point_conversion(t_placeholder *placeholder);
-
-void			deallocate_placeholder(t_placeholder *placeholder);
-*/
 
 #endif
