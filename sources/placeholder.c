@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 05:50:25 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/02 14:42:00 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/03 17:27:04 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,20 @@ void				set_width(int width, t_spec *specs)
 }
 */
 
-void				print_placeholder(t_placeholder *placeholder)
+void				print_info(t_info *info)
 {
 	ft_putstr("%[");
-	ft_putnbr(placeholder->specs->parameter);
+	ft_putnbr(info->specs->parameter);
 	ft_putstr("][");
-	ft_putnbr(placeholder->specs->flags->space);
-	ft_putnbr(placeholder->specs->flags->hash);
-	ft_putnbr(placeholder->specs->flags->plus);
-	ft_putnbr(placeholder->specs->flags->minus);
-	ft_putnbr(placeholder->specs->flags->zero);
+	ft_putnbr(info->specs->flags->space);
+	ft_putnbr(info->specs->flags->hash);
+	ft_putnbr(info->specs->flags->plus);
+	ft_putnbr(info->specs->flags->minus);
+	ft_putnbr(info->specs->flags->zero);
 	ft_putstr("][");
-	ft_putnbr(placeholder->specs->width);
+	ft_putnbr(info->specs->width);
 	ft_putstr("].[");
-	ft_putnbr(placeholder->specs->precision);
+	ft_putnbr(info->specs->precision);
 	ft_putstr("][");
-	printf("%c]%c\n", placeholder->specs->length, placeholder->type);
+	printf("%c]%c\n", info->specs->length, info->type);
 }
