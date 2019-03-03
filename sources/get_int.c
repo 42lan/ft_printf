@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 15:18:09 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/02 14:41:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/03 17:26:58 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			get_int(const char **format, t_placeholder *placeholder)
+void			get_int(const char **format, t_info *info)
 {
 	int			nb;
 	int			precision;
@@ -31,7 +31,7 @@ void			get_int(const char **format, t_placeholder *placeholder)
 		(*format)++;
 	}
 	if (precision == 0) // Если переменная precision равна 0 то установить целое число в поле width
-		placeholder->specs->width = nb;
+		info->specs->width = nb;
 	else // Иначе установить определенное число в поле точности
-		placeholder->specs->precision = nb;
+		info->specs->precision = nb;
 }
