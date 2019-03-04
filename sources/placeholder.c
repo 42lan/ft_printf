@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 05:50:25 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/04 16:49:03 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/04 19:13:03 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,28 @@ void				set_width(int width, t_spec *specs)
 }
 */
 
+void		print_bit_state(unsigned char c)
+{
+	printf("%i", (c & BIT_8) ? 1 : 0);
+	printf("%i", (c & BIT_7) ? 1 : 0);
+	printf("%i", (c & BIT_6) ? 1 : 0);
+	printf("%i", (c & BIT_5) ? 1 : 0);
+	printf("%i", (c & BIT_4) ? 1 : 0);
+	printf("%i", (c & BIT_3) ? 1 : 0);
+	printf("%i", (c & BIT_2) ? 1 : 0);
+	printf("%i", (c & BIT_1) ? 1 : 0);
+}
+
 void				print_info(t_info *info)
 {
-	ft_putstr("%[");
-	ft_putnbr(info->specs->parameter);
-	ft_putstr("][");
-	ft_putnbr(info->specs->flags->space);
+	ft_putstr("%[");ft_putnbr(info->specs->parameter);
+	ft_putstr("][");ft_putnbr(info->specs->flags->space);
 	ft_putnbr(info->specs->flags->hash);
 	ft_putnbr(info->specs->flags->plus);
 	ft_putnbr(info->specs->flags->minus);
 	ft_putnbr(info->specs->flags->zero);
-	ft_putstr("][");
-	ft_putnbr(info->specs->width);
-	ft_putstr("].[");
-	ft_putnbr(info->specs->precision);
-	ft_putstr("][");
-	printf("%c]%c\n", info->specs->length, info->type);
+	ft_putstr("][");ft_putnbr(info->specs->width);
+	ft_putstr("].[");ft_putnbr(info->specs->precision);
+	ft_putstr("][");print_bit_state(info->specs->length);
+	printf("]%c\n", info->type);
 }
