@@ -20,6 +20,14 @@
 # include "../libft/libft.h"
 
 # define BUFF_SIZE 32
+# define BIT_8 0x80
+# define BIT_7 0x40
+# define BIT_6 0x20
+# define BIT_5 0x10		// L
+# define BIT_4 0x08		// ll
+# define BIT_3 0x04		// l
+# define BIT_2 0x02		// hh
+# define BIT_1 0x01		// h
 
 /*
 ** Structure to store extracted data
@@ -57,7 +65,7 @@ typedef struct	s_spec
 	t_flags		*flags;
 	int			width;
 	int			precision;
-	char		length;	//битовая маска вместо char*
+	char		length;	//битовая маска вместо char* h hh l ll L
 }				t_spec;
 
 /*
@@ -69,10 +77,11 @@ typedef struct	s_info
 	t_spec		*specs;
 	char		type; // не нужно? НУЖНО Я ЖЕ ИСПОЛЬЗУЮ ЭТО ЧТОБЫ ВЫЙТИ ИЗ ЦИКЛА в parsing.c
 	va_list		ap;
+	t_buffer	buffer;
 }				t_info;
 
 int				ft_printf(const char *format, ...);
-void			parsing(const char **format, t_info *info, t_buffer *buffer);
+void			parsing(const char **format, t_info *info);
 
 void			initialize_buffer(t_buffer *buffer);
 t_info			*initialize_info(void);
@@ -96,6 +105,9 @@ void			flag_plus(const char **format, t_info *info);
 void			flag_minus(const char **format, t_info *info);
 void			flag_zero(const char **format, t_info *info);
 void			get_int(const char **format, t_info *info);
+void			length_h(const char **format, t_info *info);
+void			length_l(const char **format, t_info *info);
+void			length_L(const char **format, t_info *info);
 void			type_percent(const char **format, t_info *info);
 void			type_c(const char **format, t_info *info);
 void			type_d(const char **format, t_info *info);
@@ -115,11 +127,11 @@ static Handler	jump_table[] = {
 	flag_zero,	get_int,	get_int, get_int,	get_int,	get_int,		get_int,	get_int,
 	get_int,	get_int,	unknown, unknown, 	unknown,	unknown, 		unknown,	unknown,
 	unknown,	unknown,	unknown, unknown, 	unknown,	unknown, 		unknown,	unknown,
-	unknown,	unknown,	unknown, unknown,	unknown,	unknown,		unknown,	unknown,
+	unknown,	unknown,	unknown, unknown,	length_L,	unknown,		unknown,	unknown,
 	unknown,	unknown,	unknown, unknown,	unknown,	unknown,		unknown,	unknown,
 	type_X,		unknown,	unknown, unknown,	unknown,	unknown,		unknown,	unknown,
 	unknown,	unknown,	unknown, type_c,	type_d,		unknown,		type_f,		unknown,
-	unknown,	type_i,		unknown, unknown,	unknown,	unknown,		unknown,	type_o,
+	length_h,	type_i,		unknown, unknown,	length_l,	unknown,		unknown,	type_o,
 	type_p,		unknown,	unknown, type_s,	unknown,	type_u,			unknown,	unknown,
 	type_x,		unknown,	unknown, unknown,	unknown,	unknown,		unknown
 /* ************************************************************************** */
