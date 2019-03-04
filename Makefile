@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/02 14:41:10 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/04 19:13:15 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,9 +41,10 @@ SRCNAME		= main.c			\
 			  initialization.c	\
 			  flags.c			\
 			  placeholder.c		\
-			  get_int.c		\
+			  get_int.c			\
 			  types.c			\
-			  buffer.c
+			  buffer.c			\
+			  length.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
