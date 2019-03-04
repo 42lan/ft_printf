@@ -6,15 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 16:22:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/03 17:26:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/04 16:49:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 /*
-void			initialization(t_buffer *buffer, t_info **info)
+void			initialization(t_buffer *buffer, t_info *info)
 {
-	*buffer = initialize_buffer();
+	initialize_buffer(buffer);
 	*info = initialize_info();
 }
 */
@@ -35,13 +35,13 @@ t_info		*initialize_info(void)
 
 	if (!(info = (t_info *)ft_memalloc(sizeof(t_info))))
 		return (NULL);
-	info->type = 0; // Установить значение на 0 использующееся в parsing()
 	if (!(info->specs = (t_spec *)ft_memalloc(sizeof(t_spec))))
 		return (NULL);
 	initialize_specifiers(info->specs);
 	if (!(info->specs->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
 		return (NULL);
 	initialize_flags(info->specs->flags);
+	info->type = 0; // Установить значение на 0 использующееся в parsing()
 	return (info);
 }
 
@@ -52,6 +52,7 @@ t_info		*initialize_info(void)
 void	initialize_specifiers(t_spec *specifiers)
 {
 	specifiers->parameter = 0;
+	// initialize_flags() ???
 	specifiers->width = 0;
 	specifiers->precision = 0;
 	specifiers->length = 0;
