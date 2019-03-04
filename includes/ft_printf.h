@@ -67,13 +67,12 @@ typedef struct	s_spec
 typedef struct	s_info
 {
 	t_spec		*specs;
-	t_buffer	buffer;
-	va_list		ap;
 	char		type; // не нужно? НУЖНО Я ЖЕ ИСПОЛЬЗУЮ ЭТО ЧТОБЫ ВЫЙТИ ИЗ ЦИКЛА в parsing.c
+	va_list		ap;
 }				t_info;
 
 int				ft_printf(const char *format, ...);
-void			parsing(const char **format, va_list *ap, t_buffer *buffer);
+void			parsing(const char **format, t_info *info, t_buffer *buffer);
 
 void			initialize_buffer(t_buffer *buffer);
 t_info			*initialize_info(void);
@@ -97,7 +96,7 @@ void			flag_plus(const char **format, t_info *info);
 void			flag_minus(const char **format, t_info *info);
 void			flag_zero(const char **format, t_info *info);
 void			get_int(const char **format, t_info *info);
-void			get_type(const char **format, t_info *info);
+void			type_percent(const char **format, t_info *info);
 void			type_c(const char **format, t_info *info);
 void			type_d(const char **format, t_info *info);
 void			type_f(const char **format, t_info *info);
@@ -111,18 +110,18 @@ void			type_X(const char **format, t_info *info);
 /* ************************************************************************** */
 
 static Handler	jump_table[] = {
-	flag_space,	unknown,	unknown, flag_hash,	unknown,	get_type,	unknown,	unknown,
-	unknown,	unknown,	unknown, flag_plus,	unknown,	flag_minus,	get_int,	unknown,
-	flag_zero,	get_int,	get_int, get_int,	get_int,	get_int,	get_int,	get_int,
-	get_int,	get_int,	unknown, unknown, 	unknown,	unknown, 	unknown,	unknown,
-	unknown,	unknown,	unknown, unknown, 	unknown,	unknown, 	unknown,	unknown,
-	unknown,	unknown,	unknown, unknown,	unknown,	unknown,	unknown,	unknown,
-	unknown,	unknown,	unknown, unknown,	unknown,	unknown,	unknown,	unknown,
-	type_X,		unknown,	unknown, unknown,	unknown,	unknown,	unknown,	unknown,
-	unknown,	unknown,	unknown, type_c,	type_d,		unknown,	type_f,		unknown,
-	unknown,	type_i,		unknown, unknown,	unknown,	unknown,	unknown,	type_o,
-	type_p,		unknown,	unknown, type_s,	unknown,	type_u,		unknown,	unknown,
-	type_x,		unknown,	unknown, unknown,	unknown,	unknown,	unknown
+	flag_space,	unknown,	unknown, flag_hash,	unknown,	type_percent,	unknown,	unknown,
+	unknown,	unknown,	unknown, flag_plus,	unknown,	flag_minus,		get_int,	unknown,
+	flag_zero,	get_int,	get_int, get_int,	get_int,	get_int,		get_int,	get_int,
+	get_int,	get_int,	unknown, unknown, 	unknown,	unknown, 		unknown,	unknown,
+	unknown,	unknown,	unknown, unknown, 	unknown,	unknown, 		unknown,	unknown,
+	unknown,	unknown,	unknown, unknown,	unknown,	unknown,		unknown,	unknown,
+	unknown,	unknown,	unknown, unknown,	unknown,	unknown,		unknown,	unknown,
+	type_X,		unknown,	unknown, unknown,	unknown,	unknown,		unknown,	unknown,
+	unknown,	unknown,	unknown, type_c,	type_d,		unknown,		type_f,		unknown,
+	unknown,	type_i,		unknown, unknown,	unknown,	unknown,		unknown,	type_o,
+	type_p,		unknown,	unknown, type_s,	unknown,	type_u,			unknown,	unknown,
+	type_x,		unknown,	unknown, unknown,	unknown,	unknown,		unknown
 /* ************************************************************************** */
 /* 	csp diouxX f 
       32 sp    33  !    34  "    35  #    36  $    37  %    38  &    39  '
