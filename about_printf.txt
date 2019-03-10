@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/20 09:53:38 by amalsago          #+#    #+#              #
-#    Updated: 2019/02/25 12:06:18 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/10 12:39:37 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,8 +75,18 @@ the character is simply copied to stdout. For example %%
 
 
 
+___
+csp
+---
 
-
+%c
+	'-'		
+	'+'				undefined behavior but print
+	' '				undefined behavior but print
+	'0'				undefined behavior but print and adds 0 if width is specified
+	'#'				undefined behavior but print
+	[width]			
+	[precision]		undefined behavior but print
 
 %s
 	'-'		
@@ -86,46 +96,74 @@ the character is simply copied to stdout. For example %%
 	'#'				undefined behavior but print
 	[width]			
 	[precision]		if only '.' specified don't prints argument
-					prints chars until precision is reached
 
-
-%d %i				print an int argumentasaa signed decimal number
-	'-'
-	'+'	
-	' '	
-	'0'				print just number
+%p
+	'-'		
+	'+'				undefined behavior but print
+	' '				undefined behavior but print
+	'0'				undefined behavior but print
 	'#'				undefined behavior but print
-	[width]
-	[precision]		if > than number of digits of integer, pad zero on left
+	[width]			
+	[precision]		add at the left after 0x if precision is > thant number of digits
 
 
-%o %u %x			pritnts unsigned octal, decimal, hexadecimal
+______
+diouxX
+------
 
-
-
-
-
-
-
-
-
-Specificators:
-
-
-3.	[width]
-4.	[.precision]
-5.	[length]
-
-
-
-%d, %i
-	'-'		left-alignement
-	'+'		add plus sign to positive number
-	' '		put space instead plus sign for positive number
-	'#'	
+%d %i
+	'-'		
+	'+'				
+	' '				
+	'0'			
+	'#'				undefined behavior but print
+	[width]			
+	[precision]		add at the left if precision is > thant number of digits
 
 %o
-	'
+	'-'		
+	'+'				undefined behavior but print
+	' '				undefined behavior but print
+	'0'				
+	'#'				
+	[width]			add '0' at the left if width > nb of digits	
+	[precision]		add '0' at the left 
+					if [precision] is only '.' print just number
+%u
+	If number < 0 prints garbage value
+	'-'		
+	'+'				undefined behavior but print
+	' '				undefined behavior but print
+	'0'				undefined behavior but print
+	'#'				undefined behavior but print
+	[width]			
+	[precision]		add at the left after 0x if precision is > thant number of digits
+	
+	
+%x	
+	'-'		
+	'+'				undefined behavior but print
+	' '				undefined behavior but print
+	'0'				
+	'#'				
+	[width]			
+	[precision]		add at the left after 0x if precision is > thant number of digits
+
+
+___
+%f
+---
+	'-'		
+	'+'				
+	' '				
+	'0'				
+	'#'				writing just float
+	[width]			filling with `0` if [width] > of nb of digits of number
+	[precision]		if [precisin] is only '.' write only integr part and rounding
+
+
+
+
 
 
 1. Unsed argument
@@ -135,15 +173,3 @@ Warning: data argumet not used by format string
 2. Not enough arguments
 printf("Hello %s");
 Warning: more '%' conversions than data arguments
-
-
-
-
-
-
-
-
-
-
-
-
