@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 10:20:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/04 19:13:06 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/10 14:33:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ void			type_percent(const char **format, t_info *info)
 	info->type = **format;
 }
 
+void			asterisk(const char **format, t_info *info)
+{
+	ft_putendl("It is asterisk *");
+	info->type = **format;
+}
 void			type_c(const char **format, t_info *info)
 {
 	int			c;
