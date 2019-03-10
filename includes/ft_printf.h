@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/04 16:48:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/10 14:32:48 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,21 +119,23 @@ void			type_s(const char **format, t_info *info);
 void			type_u(const char **format, t_info *info);
 void			type_x(const char **format, t_info *info);
 void			type_X(const char **format, t_info *info);
+void			asterisk(const char **format, t_info *info);
+
 /* ************************************************************************** */
 
 static Handler	jump_table[] = {
-	flag_space,	unknown,	unknown, flag_hash,	unknown,	type_percent,	unknown,	unknown,
-	unknown,	unknown,	unknown, flag_plus,	unknown,	flag_minus,		get_int,	unknown,
-	flag_zero,	get_int,	get_int, get_int,	get_int,	get_int,		get_int,	get_int,
-	get_int,	get_int,	unknown, unknown, 	unknown,	unknown, 		unknown,	unknown,
-	unknown,	unknown,	unknown, unknown, 	unknown,	unknown, 		unknown,	unknown,
-	unknown,	unknown,	unknown, unknown,	length_L,	unknown,		unknown,	unknown,
-	unknown,	unknown,	unknown, unknown,	unknown,	unknown,		unknown,	unknown,
-	type_X,		unknown,	unknown, unknown,	unknown,	unknown,		unknown,	unknown,
-	unknown,	unknown,	unknown, type_c,	type_d,		unknown,		type_f,		unknown,
-	length_h,	type_i,		unknown, unknown,	length_l,	unknown,		unknown,	type_o,
-	type_p,		unknown,	unknown, type_s,	unknown,	type_u,			unknown,	unknown,
-	type_x,		unknown,	unknown, unknown,	unknown,	unknown,		unknown
+	flag_space,	unknown,	unknown, 	flag_hash,	unknown,	type_percent,	unknown,	unknown,
+	unknown,	unknown,	asterisk, 	flag_plus,	unknown,	flag_minus,		get_int,	unknown,
+	flag_zero,	get_int,	get_int, 	get_int,	get_int,	get_int,		get_int,	get_int,
+	get_int,	get_int,	unknown, 	unknown, 	unknown,	unknown, 		unknown,	unknown,
+	unknown,	unknown,	unknown, 	unknown, 	unknown,	unknown, 		unknown,	unknown,
+	unknown,	unknown,	unknown, 	unknown,	length_L,	unknown,		unknown,	unknown,
+	unknown,	unknown,	unknown, 	unknown,	unknown,	unknown,		unknown,	unknown,
+	type_X,		unknown,	unknown, 	unknown,	unknown,	unknown,		unknown,	unknown,
+	unknown,	unknown,	unknown, 	type_c,		type_d,		unknown,		type_f,		unknown,
+	length_h,	type_i,		unknown, 	unknown,	length_l,	unknown,		unknown,	type_o,
+	type_p,		unknown,	unknown, 	type_s,		unknown,	type_u,			unknown,	unknown,
+	type_x,		unknown,	unknown, 	unknown,	unknown,	unknown,		unknown
 /* ************************************************************************** */
 /* 	csp diouxX f 
       32 sp    33  !    34  "    35  #    36  $    37  %    38  &    39  '
