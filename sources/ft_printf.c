@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 05:20:28 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/04 19:12:57 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/10 14:32:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int					ft_printf(const char *format, ...)
 	// va_list			ap;
 	t_info			*info;
 
-	info = initialize_info();
+	if (!(info = initialize_info()))	// Si initialization echoue
+		return (-1);					// alors renvoyer une valeur nagative
 	va_start(info->ap, format);
 	while (*format)
 	{
