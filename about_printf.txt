@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/20 09:53:38 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/10 12:39:37 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/11 09:36:20 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,12 +41,14 @@ the character is simply copied to stdout. For example %%
 
 [flags]			The flags can be zero or more (in any order)
 	'-'			Left-justify (instead default right)
-	'+'			For signed %d and %i conversions,print a plus sign. Owverrides ' ' flag
+	'+'			For signed %d and %i conversions,print a plus sign.
 	' '			Insert blank space for %d and %i conversions, instead plus sign
-				Ingored with when flag '+' is present
+				Ingored when flag '+' is present
 	'0'			Left-pads the number with zeroes when [width] is specified
 				only for d, i, o, u, x, X, e, E, f, g and G conversions
-	'#'			For o, x and X preceeed with 0, 0x and 0X respectively.
+				Ignored if '-' is specified.
+				Ignored for (i, u, x, X, o, d) if only '.' or '.0' is specified
+	'#'			For o, x and X preceeed with 0, 0x and 0X respectively to any nonzero output
 				For f force to write a decimal point even if no more digits follow.
 				Shouldn't be use with c, d, i, u, s and p conversion specifier.
 
