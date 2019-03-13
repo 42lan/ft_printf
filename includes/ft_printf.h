@@ -75,7 +75,7 @@ typedef struct	s_spec
 typedef struct	s_info
 {
 	t_spec		*specs;
-	char		type; // не нужно? НУЖНО Я ЖЕ ИСПОЛЬЗУЮ ЭТО ЧТОБЫ ВЫЙТИ ИЗ ЦИКЛА в parsing.c
+	char		type; // не нужно? НУЖНО!!! Я ЖЕ ИСПОЛЬЗУЮ ЭТО ЧТОБЫ ВЫЙТИ ИЗ ЦИКЛА в parsing.c
 	va_list		ap;
 	t_buffer	buffer;
 }				t_info;
@@ -94,6 +94,10 @@ void			set_flag(const char c, t_flags *flags);
 void			print_info(t_info *info);
 void			print_buffer(t_buffer *buffer);
 
+int				buffer_full(t_buffer *buffer);
+void			fill_buffer(t_buffer *buffer, char c);
+
+void			specs_handle(t_info *info, int nb_digits);
 
 /* A pointer to a handler function */
 typedef void	(*Handler)(const char **format, t_info *info);
@@ -123,7 +127,7 @@ void			asterisk(const char **format, t_info *info);
 
 /* ************************************************************************** */
 
-static Handler	jump_table[] = {
+static Handler	g_jump_table[] = {
 	flag_space,	unknown,	unknown, 	flag_hash,	unknown,	type_percent,	unknown,	unknown,
 	unknown,	unknown,	asterisk, 	flag_plus,	unknown,	flag_minus,		get_int,	unknown,
 	flag_zero,	get_int,	get_int, 	get_int,	get_int,	get_int,		get_int,	get_int,
