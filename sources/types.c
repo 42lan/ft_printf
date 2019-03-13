@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 10:20:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/10 14:33:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/13 18:17:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,62 @@ void			unknown(const char **format, t_info *info)
 
 void			type_percent(const char **format, t_info *info)
 {
-	ft_putendl("type %");
 	info->type = **format;
 }
 
 void			asterisk(const char **format, t_info *info)
 {
-	ft_putendl("It is asterisk *");
 	info->type = **format;
 }
 void			type_c(const char **format, t_info *info)
 {
-	int			c;
-
 	info->type = **format;
-	c = va_arg(info->ap, int);
 }
 
 void			type_d(const char **format, t_info *info)
 {
-	int			c;
+	int			number;
+	char		*s;
 
 	info->type = **format;
-	c = va_arg(info->ap, int);
-	// ft_strcat(info->buffer.content, ft_itoa(c));
-	// ft_putendl(info->buffer.content);
+	number = va_arg(info->ap, int);
+	s = ft_itoa(number);
+	if (info->specs->width > (int)ft_nofdig(number))
+	{
+		if (info->specs->flags->minus == 1)
+		{
+			if (number > 0 && info->specs->flags->plus)
+				fill_buffer(&info->buffer, '+');
+			while (*s)
+				fill_buffer(&info->buffer, *s++);
+			specs_handle(info, number < 0 ? ft_nofdig(number) + 1 : ft_nofdig(number) + 1);
+		}
+		else
+		{
+			if (number > 0 && info->specs->flags->plus)
+				fill_buffer(&info->buffer, '+');
+			specs_handle(info, number < 0 ? ft_nofdig(number) + 1 : ft_nofdig(number) + 1);
+			while (*s)
+				fill_buffer(&info->buffer, *s++);
+		}
+	}
+	else
+	{
+		if (info->specs->flags->minus == 1)
+		{
+			if (number > 0 && info->specs->flags->plus)
+				fill_buffer(&info->buffer, '+');
+			while (*s)
+				fill_buffer(&info->buffer, *s++);
+		}
+		else
+		{
+			if (number > 0 && info->specs->flags->plus)
+				fill_buffer(&info->buffer, '+');
+			while (*s)
+				fill_buffer(&info->buffer, *s++);
+		}
+	}
 }
 
 void			type_f(const char **format, t_info *info)
@@ -53,10 +84,7 @@ void			type_f(const char **format, t_info *info)
 
 void			type_i(const char **format, t_info *info)
 {
-	int			c;
-
 	info->type = **format;
-	c = va_arg(info->ap, int);
 }
 
 void			type_o(const char **format, t_info *info)
@@ -71,11 +99,7 @@ void			type_p(const char **format, t_info *info)
 
 void			type_s(const char **format, t_info *info)
 {
-	char		*s;
-
 	info->type = **format;
-	s = va_arg(info->ap, char *);
-	ft_putendl(s);
 }
 
 void			type_u(const char **format, t_info *info)
