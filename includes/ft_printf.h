@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/10 14:32:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/13 21:24:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void			print_buffer(t_buffer *buffer);
 int				buffer_full(t_buffer *buffer);
 void			fill_buffer(t_buffer *buffer, char c);
 
-void			specs_handle(t_info *info, int nb_digits);
+void			specs_handle(t_info *info, int number, unsigned nb_digits);
 
 /* A pointer to a handler function */
 typedef void	(*Handler)(const char **format, t_info *info);
@@ -114,9 +114,9 @@ void			length_l(const char **format, t_info *info);
 void			length_L(const char **format, t_info *info);
 void			type_percent(const char **format, t_info *info);
 void			type_c(const char **format, t_info *info);
-void			type_d(const char **format, t_info *info);
+void			type_di(const char **format, t_info *info);
 void			type_f(const char **format, t_info *info);
-void			type_i(const char **format, t_info *info);
+// void			type_i(const char **format, t_info *info);
 void			type_o(const char **format, t_info *info);
 void			type_p(const char **format, t_info *info);
 void			type_s(const char **format, t_info *info);
@@ -136,8 +136,8 @@ static Handler	g_jump_table[] = {
 	unknown,	unknown,	unknown, 	unknown,	length_L,	unknown,		unknown,	unknown,
 	unknown,	unknown,	unknown, 	unknown,	unknown,	unknown,		unknown,	unknown,
 	type_X,		unknown,	unknown, 	unknown,	unknown,	unknown,		unknown,	unknown,
-	unknown,	unknown,	unknown, 	type_c,		type_d,		unknown,		type_f,		unknown,
-	length_h,	type_i,		unknown, 	unknown,	length_l,	unknown,		unknown,	type_o,
+	unknown,	unknown,	unknown, 	type_c,		type_di,	unknown,		type_f,		unknown,
+	length_h,	type_di,	unknown, 	unknown,	length_l,	unknown,		unknown,	type_o,
 	type_p,		unknown,	unknown, 	type_s,		unknown,	type_u,			unknown,	unknown,
 	type_x,		unknown,	unknown, 	unknown,	unknown,	unknown,		unknown
 /* ************************************************************************** */
