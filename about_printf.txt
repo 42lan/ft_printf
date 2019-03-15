@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/20 09:53:38 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/11 09:36:20 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/15 07:32:49 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,7 +120,7 @@ diouxX
 	'0'			
 	'#'				undefined behavior but print
 	[width]			
-	[precision]		add at the left if precision is > thant number of digits
+	[precision]		add '0' at the left if precision is > thant number of digits
 
 %o
 	'-'		
