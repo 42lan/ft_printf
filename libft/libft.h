@@ -75,7 +75,7 @@ char				**ft_strsplit(char const *s, char c);
 int					ft_isseparator(char c, char separator);
 int					ft_cntwords(char const *s, char c);
 char				*ft_itoa(int n);
-size_t				ft_nofdig(int n);
+size_t				ft_nblen(int n);
 void				ft_putchar(int c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
