@@ -88,7 +88,7 @@ SRCNAME		= ft_memset.c			\
 			  ft_lstmap.c			\
 			  ft_isspace.c			\
 			  ft_iswhitespace.c		\
-			  ft_nofdig.c			\
+			  ft_nblen.c			\
 			  ft_cntwords.c			\
 			  ft_isseparator.c		\
 			  ft_strnew2d.c			\
