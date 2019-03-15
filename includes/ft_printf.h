@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/13 21:24:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/15 09:50:02 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void			print_buffer(t_buffer *buffer);
 int				buffer_full(t_buffer *buffer);
 void			fill_buffer(t_buffer *buffer, char c);
 
-void			specs_handle(t_info *info, int number, unsigned nb_digits);
+void			width_handler(t_info *info, int number, int nb_len);
 
 /* A pointer to a handler function */
 typedef void	(*Handler)(const char **format, t_info *info);
