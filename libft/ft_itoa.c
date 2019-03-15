@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 08:59:03 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/22 19:37:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/15 07:29:30 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_itoa(int n)
 	char		*str;
 
 	nbr = n;
-	len = ft_nofdig(nbr);
+	len = ft_nblen(nbr);
 	if (!(str = ft_strnew(nbr < 0 ? ++len : len)))
 		return (NULL);
 	if (nbr == 0)
