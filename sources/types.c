@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 10:20:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/13 21:25:10 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/15 11:13:07 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,58 @@ void			type_c(const char **format, t_info *info)
 
 void			type_di(const char **format, t_info *info)
 {
-	int			number;
 	char		*s;
+	int			number;
+	int			nb_len;
+	int			precision;
 
 	info->type = **format;
 	number = va_arg(info->ap, int);
+	nb_len = (int)ft_nblen(number);
 	s = ft_itoa(number);
-	if (info->specs->width > (int)ft_nofdig(number))
+	precision = info->specs->precision;
+	if (info->specs->width > nb_len)
 	{
-		if (info->specs->flags->minus == 1)
+		if (info->specs->flags->minus)
 		{
-			if (number > 0 && info->specs->flags->plus)
-				fill_buffer(&info->buffer, '+');
+			if (number > 0)
+			{
+				if (info->specs->flags->plus)
+					fill_buffer(&info->buffer, '+');
+				if (info->specs->precision > nb_len)
+					while (precision-- - nb_len)
+						fill_buffer(&info->buffer, '0');
+			}
+			else
+			{
+				if (info->specs->precision > nb_len)
+				{
+					s = ft_itoa(-number);
+					fill_buffer(&info->buffer, '-');
+					while (precision-- - nb_len)
+						fill_buffer(&info->buffer, '0');
+				}
+			}
 			while (*s)
 				fill_buffer(&info->buffer, *s++);
-			specs_handle(info, number, number < 0 ? ft_nofdig(number) + 1 : ft_nofdig(number));
+			width_handler(info, number, number < 0 ? nb_len + 1 : nb_len);
 		}
 		else
 		{
-			specs_handle(info, number, number < 0 ? ft_nofdig(number) + 1 : ft_nofdig(number));
-			if (number > 0 && info->specs->flags->plus)
-				fill_buffer(&info->buffer, '+');
+			width_handler(info, number, number < 0 ? nb_len + 1 : nb_len);
+			if (number > 0)
+			{
+				if (info->specs->flags->plus)
+					fill_buffer(&info->buffer, '+');
+			}
+			else
+			{
+				s = ft_itoa(-number);
+				fill_buffer(&info->buffer, '-');
+			}
+			if (info->specs->precision > nb_len)
+				while (precision-- - nb_len)
+					fill_buffer(&info->buffer, '0');
 			while (*s)
 				fill_buffer(&info->buffer, *s++);
 		}
@@ -62,15 +93,42 @@ void			type_di(const char **format, t_info *info)
 	{
 		if (info->specs->flags->minus == 1)
 		{
-			if (number > 0 && info->specs->flags->plus)
-				fill_buffer(&info->buffer, '+');
+			if (number > 0)
+			{
+				if (info->specs->flags->plus)
+					fill_buffer(&info->buffer, '+');
+				if (info->specs->precision > nb_len)
+					while (precision-- - nb_len)
+						fill_buffer(&info->buffer, '0');
+			}
+			else
+			{
+				if (info->specs->precision > nb_len)
+				{
+					s = ft_itoa(-number);
+					fill_buffer(&info->buffer, '-');
+					while (precision-- - nb_len)
+						fill_buffer(&info->buffer, '0');
+				}
+			}
 			while (*s)
 				fill_buffer(&info->buffer, *s++);
 		}
 		else
 		{
-			if (number > 0 && info->specs->flags->plus)
-				fill_buffer(&info->buffer, '+');
+			if (number > 0)
+			{
+				if (info->specs->flags->plus)
+					fill_buffer(&info->buffer, '+');
+			}
+			else
+			{
+				s = ft_itoa(-number);
+				fill_buffer(&info->buffer, '-');
+			}
+			if (info->specs->precision > nb_len)
+				while (precision-- - nb_len)
+					fill_buffer(&info->buffer, '0');
 			while (*s)
 				fill_buffer(&info->buffer, *s++);
 		}
