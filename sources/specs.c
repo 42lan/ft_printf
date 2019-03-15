@@ -6,21 +6,29 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 13:40:28 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/13 21:24:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/15 10:42:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void        specs_handle(t_info *info, int number, unsigned nb_digits)
+void        width_handler(t_info *info, int number, int nb_len)
 {
     int		nb_spaces;
 
-	nb_spaces = info->specs->width - nb_digits;
-	// printf(">%d - %d = %d<\n", info->specs->width, nb_digits, info->specs->width - nb_digits);
-	if (number > 0 && info->specs->flags->plus)
-		nb_spaces--;
-	while (nb_spaces--)
+	if (info->specs->precision > nb_len)
+	{
+		if (number > 0)
+			nb_spaces = info->specs->width - info->specs->precision;
+		else
+			nb_spaces = info->specs->width - info->specs->precision - 1;
+	}
+	else
+		nb_spaces = info->specs->width - nb_len;
+	if (number > 0)
+		if (info->specs->flags->plus)
+			nb_spaces--;
+	while (nb_spaces-- > 0)
 	{
 		if (buffer_full(&info->buffer) == 0)
 			fill_buffer(&info->buffer, ' ');
