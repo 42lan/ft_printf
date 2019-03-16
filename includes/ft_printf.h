@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/16 12:11:26 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/16 18:31:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,7 @@ typedef struct	s_spec
 typedef struct	s_info
 {
 	t_spec		*specs;
-	char		type; // используется для того чтобы выйти из цикла в parsing()
-					  // вместо char-а я могу использовать unsigned type : 1;
-					  // Это позволит испольлзавть не 8 бит а только один
+	char		type; // не нужно? НУЖНО!!! Я ЖЕ ИСПОЛЬЗУЮ ЭТО ЧТОБЫ ВЫЙТИ ИЗ ЦИКЛА в parsing.c
 	va_list		ap;
 	t_buffer	buffer;
 }				t_info;
@@ -85,8 +83,8 @@ typedef struct	s_info
 int				ft_printf(const char *format, ...);
 void			parsing(const char **format, t_info *info);
 
-void			initialize_buffer(t_buffer *buffer);
 t_info			*initialize_info(void);
+void			initialize_buffer(t_buffer *buffer);
 void			initialize_specifiers(t_spec *specs);
 void			initialize_flags(t_flags *flags);
 
@@ -94,14 +92,12 @@ int				is_flag(const char c);
 void			set_flag(const char c, t_flags *flags);
 
 void			print_info(t_info *info);
-void			print_buffer(t_buffer *buffer);
 
 int				buffer_full(t_buffer *buffer);
 void			print_buffer(t_buffer *buffer);
 void			fill_buffer(t_buffer *buffer, char c);
 
 void			width_handler(t_info *info, int number, int nb_len);
-void			set_prefix(t_info *info);
 
 /* A pointer to a handler function */
 typedef void	(*Handler)(const char **format, t_info *info);
