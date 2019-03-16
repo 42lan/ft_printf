@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/15 09:50:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/16 10:56:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ typedef struct	s_flags
 
 typedef struct	s_spec
 {
-	int			parameter;
+	unsigned	parameter;
 	t_flags		*flags;
-	int			width;
-	int			precision;
+	unsigned	width;
+	unsigned	precision;
 	char		length;	//битовая маска вместо char* h hh l ll L
 }				t_spec;
 
@@ -75,7 +75,9 @@ typedef struct	s_spec
 typedef struct	s_info
 {
 	t_spec		*specs;
-	char		type; // не нужно? НУЖНО!!! Я ЖЕ ИСПОЛЬЗУЮ ЭТО ЧТОБЫ ВЫЙТИ ИЗ ЦИКЛА в parsing.c
+	char		type; // используется для того чтобы выйти из цикла в parsing()
+					  // вместо char-а я могу использовать unsigned type : 1;
+					  // Это позволит испольлзавть не 8 бит а только один
 	va_list		ap;
 	t_buffer	buffer;
 }				t_info;
@@ -98,6 +100,7 @@ int				buffer_full(t_buffer *buffer);
 void			fill_buffer(t_buffer *buffer, char c);
 
 void			width_handler(t_info *info, int number, int nb_len);
+void			set_prefix(t_info *info);
 
 /* A pointer to a handler function */
 typedef void	(*Handler)(const char **format, t_info *info);
