@@ -6,15 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 13:40:28 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/16 11:42:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/16 15:21:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			width_handler(t_info *info, int number, unsigned nb_len)
+void			width_handler(t_info *info, int number, int nb_len)
 {
-    unsigned	nb_spaces;
+    int			nb_spaces;
 
 	if (info->specs->precision > nb_len)
 	{
