@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/15 11:24:05 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/16 20:13:10 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ $(NAME): $(LFT) $(OBJ)
 	$(RANLIB) $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	$(MKDIR) $(OBJDIR)
+	-@$(MKDIR) $(OBJDIR)
 	$(CC) $(CPPFLAGS) -o $@ -c $<
 
 $(LFT):
