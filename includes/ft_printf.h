@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/16 11:40:07 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/16 12:11:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ typedef struct	s_flags
 
 typedef struct	s_spec
 {
-	unsigned	parameter;
+	int			parameter;
 	t_flags		*flags;
-	unsigned	width;
-	unsigned	precision;
+	int			width;
+	int			precision;
 	char		length;	//битовая маска вместо char* h hh l ll L
 }				t_spec;
 
@@ -100,7 +100,7 @@ int				buffer_full(t_buffer *buffer);
 void			print_buffer(t_buffer *buffer);
 void			fill_buffer(t_buffer *buffer, char c);
 
-void			width_handler(t_info *info, int number, unsigned nb_len);
+void			width_handler(t_info *info, int number, int nb_len);
 void			set_prefix(t_info *info);
 
 /* A pointer to a handler function */
