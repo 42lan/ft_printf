@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/15 01:10:35 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/15 11:24:05 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBNAME		= libft.a
 
 # **************************************************************************** #
 # System commands
-CC			= /usr/bin/clang -Wall -Wextra -Werror # -Wformat=0
+CC			= /usr/bin/clang -Wall -Wextra -Werror
 AR			= /usr/bin/ar -rc
 MAKE		= /usr/bin/make -C
 RANLIB		= /usr/bin/ranlib
@@ -61,6 +61,7 @@ LFT			= $(addprefix $(LIBDIR)/, $(LIBNAME))
 all: $(NAME) $(LFT)
 	$(CC) $(NAME) $(LFT) # Для того, чтобы создать исполняемый файл a.out
 # НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ 62
+
 $(NAME): $(LFT) $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 	$(RANLIB) $(NAME)
