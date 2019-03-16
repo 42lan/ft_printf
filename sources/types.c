@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 10:20:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/15 11:13:07 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/16 11:44:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,19 @@ void			type_di(const char **format, t_info *info)
 {
 	char		*s;
 	int			number;
-	int			nb_len;
-	int			precision;
+	unsigned	nb_len;
+	unsigned	precision;
 
 	info->type = **format;
 	number = va_arg(info->ap, int);
-	nb_len = (int)ft_nblen(number);
+	nb_len = ft_nblen(number);
 	s = ft_itoa(number);
 	precision = info->specs->precision;
+
+//	if (number < 0)
+//		set_prefix(info);
+
+
 	if (info->specs->width > nb_len)
 	{
 		if (info->specs->flags->minus)
