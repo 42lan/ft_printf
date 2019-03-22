@@ -6,18 +6,12 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 16:22:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/13 18:17:06 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/20 12:00:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
-void			initialization(t_buffer *buffer, t_info *info)
-{
-	initialize_buffer(buffer);
-	*info = initialize_info();
-}
-*/
+
 void			initialize_buffer(t_buffer *buffer)
 {
 	buffer->index = 0;
@@ -40,9 +34,8 @@ t_info		*initialize_info(void)
 	if (!(info->specs->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
 		return (NULL);
 	// initialize_specifiers(info->specs);	// Первый раз инициализирую в parsing() так как эта функция вызывается при каждом новом символе '%'
-											// Так что поэтому я комментирую
-	// initialize_flags(info->specs->flags);
-	// info->type = 0; // Установить значение на 0 использующееся в parsing()
+											// Так что поэтому я комментирую потому что мне это акажется лишней операцией в начале
+	info->type = 0; // Установить значение на 0 использующееся в parsing()
 	initialize_buffer(&info->buffer);
 	return (info);
 }
