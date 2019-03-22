@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/16 18:31:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/22 16:04:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@
 # define BIT_3 0x04		// l
 # define BIT_2 0x02		// hh
 # define BIT_1 0x01		// h
+
+typedef struct	s_data
+{
+	char		*str;
+	int			length;
+}				t_data;
 
 /*
 ** Structure to store extracted data
@@ -88,16 +94,19 @@ void			initialize_buffer(t_buffer *buffer);
 void			initialize_specifiers(t_spec *specs);
 void			initialize_flags(t_flags *flags);
 
-int				is_flag(const char c);
 void			set_flag(const char c, t_flags *flags);
 
 void			print_info(t_info *info);
 
 int				buffer_full(t_buffer *buffer);
 void			print_buffer(t_buffer *buffer);
-void			fill_buffer(t_buffer *buffer, char c);
+void			write_char(t_buffer *buffer, char c);
+void			write_str(t_buffer *buffer, char *str, int length);
 
-void			width_handler(t_info *info, int number, int nb_len);
+void			apply_specs(t_info *info, t_data *data);
+void			put_width(t_info *info, t_data *data);
+void			put_precision(t_info *info, t_data *data);
+void			put_prefix(t_info *info, t_data *data);
 
 /* A pointer to a handler function */
 typedef void	(*Handler)(const char **format, t_info *info);
@@ -116,7 +125,6 @@ void			type_percent(const char **format, t_info *info);
 void			type_c(const char **format, t_info *info);
 void			type_di(const char **format, t_info *info);
 void			type_f(const char **format, t_info *info);
-// void			type_i(const char **format, t_info *info);
 void			type_o(const char **format, t_info *info);
 void			type_p(const char **format, t_info *info);
 void			type_s(const char **format, t_info *info);
