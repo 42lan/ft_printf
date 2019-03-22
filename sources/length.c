@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 17:04:35 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/04 19:13:00 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/20 13:17:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void			length_h(const char **format, t_info *info)
 		(*format)++;
 	}
 	else // h
-	{
 		info->specs->length = BIT_1; // BIT_1 = h
-	}
 	(*format)++;
 }
 
@@ -34,9 +32,7 @@ void			length_l(const char **format, t_info *info)
 		(*format)++;
 	}
 	else // l
-	{
 		info->specs->length = BIT_3; // BIT_3 = l
-	}
 	(*format)++;
 }
 
