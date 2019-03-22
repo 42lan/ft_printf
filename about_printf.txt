@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/20 09:53:38 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/15 07:32:49 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/20 11:16:36 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ the character is simply copied to stdout. For example %%
 [.precision]	Specify the number of characters to print or the number of decimal places.
 				The precision can cause truncation of the output value or rounding of a
 				floating-point value.
+				only '.' disable flag '0'
 
 [length]		Modifies the length of the data type
 		'h'		Convert to short???
@@ -75,7 +76,19 @@ the character is simply copied to stdout. For example %%
 		'L'		Convert to long double???
 
 
+Char/String
+	c		Char
+	s		String
+	p		Poiner
 
+Number
+	SIGNED
+		di		Signed decimal
+		f		Decimal floating point
+	UNSIGNED
+		u		Unsigned decimal
+		o		Unsigned octal
+		xX		Unsigned hexadecimal
 
 ___
 csp
