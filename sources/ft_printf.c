@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 05:20:28 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/16 10:59:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/22 11:10:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int					ft_printf(const char *format, ...)
 			parsing(&format, info); // Запустить рабор (парсинг) строки
 		}
 		else
-			fill_buffer(&info->buffer, *format);	//info->buffer.content[info->buffer.index++] = *format; // Записать в буффер текущий символ
+			write_char(&info->buffer, *format); //info->buffer.content[info->buffer.index++] = *format; // Записать в буффер текущий символ
 		format++;
 	}
 	if (info->buffer.index != 0) // Если индекс буффера не равен нулю, то вывести оставшееся содержимое
