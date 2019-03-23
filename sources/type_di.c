@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/22 16:45:06 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/23 16:45:54 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,13 @@ void		type_di(const char **format, t_info *info)
 
 	info->type = **format;
 	number = va_arg(info->ap, int);
-	data.str = ft_itoa(number);
+	data.str = ft_itoa(ABS(number));
 	data.length = number < 0 ? ft_nblen(number) + 1 : ft_nblen(number);
+	if (number < 0)
+	{
+		data.negative = 1;
+		write_char(&info->buffer, '-');
+		data.length--;
+	}
 	apply_specs(info, &data);
 }
