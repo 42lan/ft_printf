@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/01/31 16:48:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/23 12:59:58 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <string.h>
 # include <stdlib.h>
 # include <limits.h>
+
+# define ABS(N) (N < 0 ? (-N) : N)
 
 typedef struct		s_list
 {
