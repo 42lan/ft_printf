@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/22 18:49:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/23 16:47:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ void		apply_specs(t_info *info, t_data *data)
 	}
 }
 
+void		put_prefix(t_info *info, t_data *data)
+{
+	if (info->specs->flags->plus == 1 && data->negative == 0)
+	{
+		info->specs->precision--;
+		write_char(&info->buffer, '+');
+	}
+	else if (info->specs->flags->space == 1)
+		write_char(&info->buffer, ' ');
+}
+
 void		put_width(t_info *info, t_data *data)
 {
 	int		width;
@@ -37,12 +48,7 @@ void		put_width(t_info *info, t_data *data)
 	if (info->specs->width < data->length)
 		width = 0;
 	else if (info->specs->precision > data->length)
-	{
-		if (info->specs->flags->plus)
-			width = info->specs->width - info->specs->precision - 1;
-		else
-			width = info->specs->width - info->specs->precision;
-	}
+		width = info->specs->width - info->specs->precision;
 	else
 	{
 		width = info->specs->width - data->length;
@@ -63,13 +69,4 @@ void		put_precision(t_info *info, t_data *data)
 	if (precision > 0)
 		while (precision-- > 0)
 			write_char(&info->buffer, '0');
-}
-
-void		put_prefix(t_info *info, t_data *data)
-{
-	(void)data;
-	if (info->specs->flags->plus == 1)
-		write_char(&info->buffer, '+');
-	else if (info->specs->flags->space == 1)
-		write_char(&info->buffer, ' ');
 }
