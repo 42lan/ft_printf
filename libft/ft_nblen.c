@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 10:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/15 02:20:38 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/25 10:06:57 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_nblen(int n)
 	len = 0;
 	if (n == 0)
 		return (1);
+	if (n < 0)
+		len++;
 	while (n != 0)
 	{
 		n /= 10;
