@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/23 16:47:38 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/25 11:36:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ void		apply_specs(t_info *info, t_data *data)
 void		put_prefix(t_info *info, t_data *data)
 {
 	if (info->specs->flags->plus == 1 && data->negative == 0)
-	{
-		info->specs->precision--;
 		write_char(&info->buffer, '+');
-	}
+	else if (data->negative == 1)
+		write_char(&info->buffer, '-');
 	else if (info->specs->flags->space == 1)
 		write_char(&info->buffer, ' ');
 }
@@ -50,11 +49,10 @@ void		put_width(t_info *info, t_data *data)
 	else if (info->specs->precision > data->length)
 		width = info->specs->width - info->specs->precision;
 	else
-	{
 		width = info->specs->width - data->length;
-		if (info->specs->flags->plus)
-			width--;
-	}
+	if ((info->specs->flags->plus == 1 || info->specs->flags->space == 1)
+			&& data->negative == 0)
+		width--;
 	while (width-- > 0)
 		write_char(&info->buffer, ' ');
 }
@@ -64,9 +62,8 @@ void		put_precision(t_info *info, t_data *data)
 	int		precision;
 
 	precision = info->specs->precision - data->length;
-	if (data->str[0] == '-')
+	if (data->negative == 1)
 		precision++;
-	if (precision > 0)
-		while (precision-- > 0)
-			write_char(&info->buffer, '0');
+	while (precision-- > 0)
+		write_char(&info->buffer, '0');
 }
