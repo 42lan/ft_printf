@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/25 16:01:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/27 17:50:54 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct	s_flags
 	unsigned	plus	: 1;
 	unsigned	minus	: 1;
 	unsigned	zero	: 1;
+	unsigned	point	: 1;
 }				t_flags;
 
 /*
