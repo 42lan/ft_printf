@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/26 18:35:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/27 19:36:21 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,22 @@ void		put_width(t_info *info, t_data *data)
 
 void		put_width_s(t_info *info, t_data *data)
 {
-	(void)info; (void)data;
 	int		width;
 
-	width = 0;
+	if (info->specs->width > data->length && info->specs->flags->point == 0)
+		width = info->specs->width - data->length;
+	else if (info->specs->width != 0 && (info->specs->flags->point == 0 || info->specs->precision == 0))
+		width = info->specs->width;
+	else if (info->specs->width != 0 && info->specs->precision < data->length)
+		width = info->specs->width - info->specs->precision;
+	else if (info->specs->width == 0 && info->specs->precision <= data->length)
+		width = 0;
+	else if (info->specs->width == 0 && info->specs->precision > data->length)
+		width = 0;
+	else
+		width = 0;
+	while (width-- > 0)
+		write_char(&info->buffer, ' ');
 }
 
 void		put_precision(t_info *info, t_data *data)
