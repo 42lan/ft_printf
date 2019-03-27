@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 16:22:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/20 12:00:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/27 15:16:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ void	initialize_flags(t_flags *flags)
 	flags->plus = 0;
 	flags->minus = 0;
 	flags->zero = 0;
+	flags->point = 0;
 }
