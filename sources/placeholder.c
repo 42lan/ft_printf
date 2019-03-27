@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 05:50:25 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/20 11:56:52 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/27 15:40:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ void				print_info(t_info *info)
 	ft_putstr("].[");ft_putnbr(info->specs->precision);
 	ft_putstr("][");print_bit_state(info->specs->length);
 	printf("]%c\n", info->type);
+	printf("{{{  %d  }}}\n", info->specs->flags->point);
 }
