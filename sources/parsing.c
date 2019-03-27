@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 09:25:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/16 11:00:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/27 15:44:46 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void				parsing(const char **format, t_info *info)
 		if (ft_isprint(**format)) // Является текущий символ символом между ' ' и '~' (32 - 126 ascii)
 			g_jump_table[**format - ' '](format, info); // Если да, то определить и вызвать отосящююся функцию передав строку и структуру плейсхолдера
 	}
-	// print_info(info);
+	//if (debug == 1)
+	//	print_info(info);
 }
