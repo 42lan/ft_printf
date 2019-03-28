@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/27 19:36:21 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/28 11:22:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,12 @@ void		put_width(t_info *info, t_data *data)
 		width = info->specs->width - data->length;
 	if ((info->specs->flags->plus == 1 || info->specs->flags->space == 1) && data->negative == 0)
 		width--;
-	while (width-- > 0)
-		write_char(&info->buffer, ' ');
+	if (info->specs->flags->zero == 1)
+		while (width-- > 0)
+			write_char(&info->buffer, '0');
+	else
+		while (width-- > 0)
+			write_char(&info->buffer, ' ');
 }
 
 void		put_width_s(t_info *info, t_data *data)
