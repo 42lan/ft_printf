@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/25 14:59:55 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/28 10:28:23 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRCNAME		= main.c			\
 			  type_di.c			\
 			  specs_handler.c	\
 			  set_specs.c		\
-			  digit.c
+			  digit.c			\
+			  type_percent.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
