@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/28 10:28:23 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/29 12:28:25 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,8 @@ SRCNAME		= main.c			\
 			  specs_handler.c	\
 			  set_specs.c		\
 			  digit.c			\
-			  type_percent.c
+			  type_percent.c	\
+			  unknown.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
@@ -66,10 +67,14 @@ LFT			= $(addprefix $(LIBDIR)/, $(LIBNAME))
 
 all: $(NAME) $(LFT)
 	$(CC) $(NAME) $(LFT) # Для того, чтобы создать исполняемый файл a.out
-# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ 62
+# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
+# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
+# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
+# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
+# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
 
 $(NAME): $(LFT) $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	$(AR) $(NAME) $(OBJ) ./libft/*.o
 	$(RANLIB) $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
