@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/02/03 13:39:26 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/31 12:47:05 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,16 +18,23 @@ NAME		= libft.a
 # **************************************************************************** #
 # System commands
 
-RM			= /bin/rm -f
-CC			= /usr/bin/clang
 AR			= /usr/bin/ar -rc
+CC			= /usr/bin/clang
+RM			= /bin/rm -rf
 RANLIB		= /usr/bin/ranlib
 NORMINETTE	= /usr/bin/norminette
+MKDIR		= /bin/mkdir -p
+
+# **************************************************************************** #
+# Directories of source and object files
+
+INCDIR		= -I ./include
+SRCDIR		= ./sources
+OBJDIR		= ./objects
 
 # **************************************************************************** #
 # List of source and header files
 
-HEADER		= libft.h
 SRCNAME		= ft_memset.c			\
 			  ft_bzero.c			\
 			  ft_memcpy.c			\
@@ -100,7 +107,8 @@ SRCNAME		= ft_memset.c			\
 # **************************************************************************** #
 # Automatic variables where are listed the names of source and object files
 
-OBJ			= $(SRCNAME:.c=.o) 
+SRC			= $(addprefix $(SRCDIR)/, $(SRCNAME))
+OBJ			= $(addprefix $(OBJDIR)/, $(SRCNAME:.c=.o))
 
 # **************************************************************************** #
 # Rules
@@ -108,18 +116,22 @@ OBJ			= $(SRCNAME:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(AR) $(NAME) $(OBJ) 
-	@$(RANLIB) $(NAME)
+	$(AR) $(NAME) $(OBJ)
+	$(RANLIB) $(NAME)
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	-@$(MKDIR) $(OBJDIR)
+	$(CC) $(INCDIR) -o $@ -c $<
 
 clean:
-	@$(RM) $(OBJ)
+	$(RM) $(OBJDIR)
 
 fclean: clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
 norm:
-	$(NORMINETTE) $(SRCNAME) $(HEADER)
+	$(NORMINETTE) $(INCDIR) $(SCR)
 
 .PHONY: all clean fclean re norm
