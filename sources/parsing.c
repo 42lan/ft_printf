@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 09:25:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/27 15:44:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 11:15:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void				parsing(const char **format, t_info *info)
 {
+	// if (**format == NULL)
+	// 	exit (0) ;
 	initialize_specifiers(info->specs);
 	info->type = 0;
 	while (**format && info->type == 0) // Пока читаю символы >>>ИИИ<<< пока не установлен тип плейсхолдера

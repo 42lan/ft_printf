@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/31 11:42:22 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/31 12:44:30 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,16 +47,13 @@ RM			= /bin/rm -rf
 
 # **************************************************************************** #
 # Directories of source and object files
+LIBDIR		= ./libft
+INCDIR		= ./includes
 SRCDIR		= ./sources
 OBJDIR		= ./objects
-INCDIR		= ./includes
-LIBDIR		= ./libft
 
 # **************************************************************************** #
 # List of source files
-# НУЖНО БУДЕТ УБРАТЬ main.c ИЗ $(SRCNAME)
-# НУЖНО БУДЕТ УБРАТЬ main.c ИЗ $(SRCNAME)
-# НУЖНО БУДЕТ УБРАТЬ main.c ИЗ $(SRCNAME)
 # НУЖНО БУДЕТ УБРАТЬ main.c ИЗ $(SRCNAME)
 SRCNAME		= main.c					\
 			  ft_printf.c				\
@@ -81,6 +78,7 @@ SRCNAME		= main.c					\
 SRC			= $(addprefix $(SRCDIR)/, $(SRCNAME))
 OBJ			= $(addprefix $(OBJDIR)/, $(SRCNAME:.c=.o))
 LFT			= $(addprefix $(LIBDIR)/, $(LIBNAME))
+LFTOBJ		= $(LIBDIR)/objects/*.o
 
 # **************************************************************************** #
 # Rules
@@ -90,13 +88,9 @@ LFT			= $(addprefix $(LIBDIR)/, $(LIBNAME))
 all: $(NAME) $(LFT)
 	$(CC) $(NAME) $(LFT) # Для того, чтобы создать исполняемый файл a.out
 # НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
-# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
-# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
-# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
-# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
 
 $(NAME): $(LFT) $(OBJ)
-	$(AR) $(NAME) $(OBJ) ./libft/*.o
+	$(AR) $(NAME) $(OBJ) $(LFTOBJ)
 	$(RANLIB) $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c

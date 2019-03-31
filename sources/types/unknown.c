@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   unknown.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/04 17:31:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/30 13:51:27 by amalsago         ###   ########.fr       */
+/*   Created: 2019/03/28 12:35:14 by amalsago          #+#    #+#             */
+/*   Updated: 2019/03/28 12:41:18 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "ft_printf.h"
 
-int			main(void)
+void			unknown(const char **format, t_info *info)
 {
-	 printf("\n[ PRINTF ]\t-> Return: %d\n",	   printf("%5.2s is a string", ""));
-	 printf("\n[ FT_PRINTF ]\t-> Return: %d\n", ft_printf("%5.2s is a string", ""));
-	return (0);
+	t_data		data;
+	char		unknown;
+
+	info->type = **format;
+	unknown = (char)va_arg(info->ap, int);
+	ft_putchar(unknown);
+	data.str = &unknown;
+	data.length = 1;
+	apply_specs(info, &data);
 }
