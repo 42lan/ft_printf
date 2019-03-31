@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 12:45:02 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/22 19:48:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:50:21 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (!*needle)

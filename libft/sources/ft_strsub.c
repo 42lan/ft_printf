@@ -6,16 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 11:26:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/17 11:52:38 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:41:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char		*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	size_t		i;
-	char		*new_str;
+	size_t	i;
+	char	*new_str;
 
 	if (s)
 	{

@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 12:43:25 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/20 14:16:20 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:42:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
 	int		i;
 	int		j;

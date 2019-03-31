@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 11:43:55 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/22 21:15:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:40:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char		*ft_strncpy(char *dst, const char *src, size_t len)
 {
 	size_t	i;
 

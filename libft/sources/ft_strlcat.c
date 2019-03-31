@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 12:01:47 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/22 19:45:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:39:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	dst_len;

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 18:32:10 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/22 19:46:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:49:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int				i;
+	int	i;
 
 	i = 0;
 	if (n == 0)

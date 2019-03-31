@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:42:20 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/22 19:42:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:44:49 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void		*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	size_t	i;
 

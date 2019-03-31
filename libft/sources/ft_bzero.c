@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 14:04:29 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/22 21:15:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:45:46 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void				ft_bzero(void *s, size_t n)
 {
 	unsigned char	*p_s;
 

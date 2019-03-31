@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 09:47:17 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/17 11:02:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:39:49 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+char		*ft_strmap(char const *s, char (*f)(char))
 {
 	int		i;
 	char	*new_str;

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 09:40:05 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/22 19:17:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:47:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (s && f)

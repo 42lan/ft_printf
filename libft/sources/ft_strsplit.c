@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 08:02:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/22 21:06:18 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:49:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_wordlen(char const *s, char c)
+static int			ft_wordlen(char const *s, char c)
 {
 	unsigned int	i;
 
@@ -22,7 +22,7 @@ static int		ft_wordlen(char const *s, char c)
 	return (i);
 }
 
-static char		*ft_storeword(char const *s, char c)
+static char			*ft_storeword(char const *s, char c)
 {
 	unsigned int	i;
 	char			*tmp;
@@ -39,7 +39,7 @@ static char		*ft_storeword(char const *s, char c)
 	return (tmp);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char				**ft_strsplit(char const *s, char c)
 {
 	unsigned int	words;
 	unsigned int	nofword;
