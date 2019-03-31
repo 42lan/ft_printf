@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/29 12:28:25 by amalsago         ###   ########.fr        #
+#    Updated: 2019/03/31 11:42:22 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,26 @@ LIBNAME		= libft.a
 
 # **************************************************************************** #
 # System commands
-CC			= /usr/bin/clang -Wall -Wextra -Werror
+#
+##
+###
+####
+#####
+######
+#######
+########
+#########
+#CC			= /usr/bin/clang -Wall -Wextra -Werror
+#########
+########
+#######
+######
+#####
+####
+###
+##
+#
+CC			= /usr/bin/clang
 AR			= /usr/bin/ar -rc
 MAKE		= /usr/bin/make -C
 RANLIB		= /usr/bin/ranlib
@@ -35,24 +54,27 @@ LIBDIR		= ./libft
 
 # **************************************************************************** #
 # List of source files
-SRCNAME		= main.c			\
-			  ft_printf.c		\
-			  parsing.c			\
-			  initialization.c	\
-			  flags.c			\
-			  placeholder.c		\
-			  get_number.c		\
-			  buffer.c			\
-			  length.c			\
-			  types.c			\
-			  type_c.c			\
-			  type_s.c			\
-			  type_di.c			\
-			  specs_handler.c	\
-			  set_specs.c		\
-			  digit.c			\
-			  type_percent.c	\
-			  unknown.c
+# НУЖНО БУДЕТ УБРАТЬ main.c ИЗ $(SRCNAME)
+# НУЖНО БУДЕТ УБРАТЬ main.c ИЗ $(SRCNAME)
+# НУЖНО БУДЕТ УБРАТЬ main.c ИЗ $(SRCNAME)
+# НУЖНО БУДЕТ УБРАТЬ main.c ИЗ $(SRCNAME)
+SRCNAME		= main.c					\
+			  ft_printf.c				\
+			  parsing.c					\
+			  buffer.c					\
+			  tools/placeholder.c		\
+			  tools/initialization.c	\
+			  tools/get_number.c		\
+			  specs/set_flags.c			\
+			  specs/set_length.c		\
+			  specs/set_specs.c			\
+			  specs/specs_handler.c		\
+			  types/types.c				\
+			  types/type_c.c			\
+			  types/type_s.c			\
+			  types/type_di.c			\
+			  types/type_percent.c		\
+			  types/unknown.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
@@ -78,7 +100,7 @@ $(NAME): $(LFT) $(OBJ)
 	$(RANLIB) $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	-@$(MKDIR) $(OBJDIR)
+	-@$(MKDIR) $(OBJDIR)/{types,tools,specs}
 	$(CC) $(CPPFLAGS) -o $@ -c $<
 
 $(LFT):
