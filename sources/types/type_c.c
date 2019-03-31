@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 10:26:29 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/28 10:26:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 16:31:12 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void			type_c(const char **format, t_info *info)
 	c = (char)va_arg(info->ap, int);
 	data.str = &c;
 	data.length = 1;
+	info->specs->flags->hash = 0;
 	apply_specs(info, &data);
 	// write_char(&info->buffer, c);
 }
