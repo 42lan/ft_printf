@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 14:37:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 16:31:34 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 16:55:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		type_s(const char **format, t_info *info)
+void			type_s(const char **format, t_info *info)
 {
 	t_data		data;
 	int			i;
