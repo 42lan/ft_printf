@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:55:38 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/03 12:44:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,9 @@ void			put_width(t_info *info, t_data *data);
 void			put_width_s(t_info *info, t_data *data);
 void			put_precision(t_info *info, t_data *data);
 void			put_prefix(t_info *info, t_data *data);
+
+char			*ft_uitoa(unsigned n);
+
 
 /* A pointer to a handler function */
 typedef void	(*Handler)(const char **format, t_info *info);
