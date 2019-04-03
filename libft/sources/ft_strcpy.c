@@ -6,15 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 11:14:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:47:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 16:57:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+char		*ft_strcpy(char *dst, const char *src)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (src[i] != '\0')

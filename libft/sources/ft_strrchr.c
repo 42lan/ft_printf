@@ -6,15 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 12:22:37 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:49:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 16:58:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char		*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		i;
 
 	i = ft_strlen(s);
 	while (i >= 0)

@@ -6,15 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 09:40:05 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:47:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 16:57:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void		ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	if (s && f)
