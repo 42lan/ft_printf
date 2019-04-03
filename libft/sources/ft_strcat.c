@@ -6,16 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:05:14 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:47:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 16:57:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char		*ft_strcat(char *s1, const char *s2)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 
 	i = 0;
 	len = ft_strlen(s1);
