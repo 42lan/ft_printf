@@ -6,16 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:18:21 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:45:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 16:56:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_cntwords(char const *s, char c)
+int			ft_cntwords(char const *s, char c)
 {
-	int	i;
-	int	words;
+	int		i;
+	int		words;
 
 	i = 0;
 	words = 0;
