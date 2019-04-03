@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 16:22:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/27 15:16:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/03/31 16:54:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			initialize_buffer(t_buffer *buffer)
+void		initialize_buffer(t_buffer *buffer)
 {
 	buffer->index = 0;
 	buffer->length = 0;
@@ -44,7 +44,7 @@ t_info		*initialize_info(void)
 ** Initialization of type pointer to t_info structure
 */
 
-void	initialize_specifiers(t_spec *specifiers)
+void		initialize_specifiers(t_spec *specifiers)
 {
 	specifiers->parameter = 0;
 	initialize_flags(specifiers->flags);
@@ -57,7 +57,7 @@ void	initialize_specifiers(t_spec *specifiers)
 ** Setting up all fields of t_flags structure to 0
 */
 
-void	initialize_flags(t_flags *flags)
+void		initialize_flags(t_flags *flags)
 {
 	flags->space = 0;
 	flags->hash = 0;
