@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/03 12:44:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/10 17:42:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h> /* ------------------------------------------------------ */
 /* -------------------------------------------------------------------------- */
 # include <stdarg.h>
+# include <limits.h>
 # include "../libft/include/libft.h"
 
 # define BUFF_SIZE 32
@@ -111,7 +112,7 @@ void			put_width_s(t_info *info, t_data *data);
 void			put_precision(t_info *info, t_data *data);
 void			put_prefix(t_info *info, t_data *data);
 
-char			*ft_uitoa(unsigned n);
+char			*ft_litoa(long int n);
 
 
 /* A pointer to a handler function */
