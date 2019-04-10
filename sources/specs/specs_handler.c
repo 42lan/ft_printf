@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 17:16:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/10 16:52:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,35 @@
 
 void		apply_specs(t_info *info, t_data *data)
 {
-	if (info->specs->flags->minus == 1)
+	if (info->specs->flags->minus != 1)
 	{
-		put_prefix(info, data);
+		if (info->specs->flags->plus == 1)
+		{
+			put_prefix(info, data);
+			put_width(info, data);
+		}
+		else
+		{
+			if (data->negative == 1 && info->specs->flags->zero)
+			{
+				put_prefix(info, data);
+				put_width(info, data);
+			}
+			else
+			{
+				put_width(info, data);
+				put_prefix(info, data);
+			}
+		}
 		put_precision(info, data);
 		write_str(&info->buffer, data->str, data->length);
-		put_width(info, data);
 	}
 	else
 	{
-		put_width(info, data);
 		put_prefix(info, data);
 		put_precision(info, data);
 		write_str(&info->buffer, data->str, data->length);
+		put_width(info, data);
 	}
 }
 
@@ -38,6 +54,19 @@ void		put_prefix(t_info *info, t_data *data)
 		write_char(&info->buffer, '-');
 	else if (info->specs->flags->space == 1)
 		write_char(&info->buffer, ' ');
+	else
+		return ;
+}
+
+void		put_precision(t_info *info, t_data *data)
+{
+	int		precision;
+
+	precision = info->specs->precision - data->length;
+	if (data->negative == 1)
+		precision++;
+	while (precision-- > 0)
+		write_char(&info->buffer, '0');
 }
 
 void		put_width(t_info *info, t_data *data)
@@ -52,7 +81,7 @@ void		put_width(t_info *info, t_data *data)
 		width = info->specs->width - data->length;
 	if ((info->specs->flags->plus == 1 || info->specs->flags->space == 1) && data->negative == 0)
 		width--;
-	if (info->specs->flags->zero == 1)
+	if (info->specs->flags->zero == 1 && info->specs->flags->minus == 0)
 		while (width-- > 0)
 			write_char(&info->buffer, '0');
 	else
@@ -78,15 +107,4 @@ void		put_width_s(t_info *info, t_data *data)
 		width = 0;
 	while (width-- > 0)
 		write_char(&info->buffer, ' ');
-}
-
-void		put_precision(t_info *info, t_data *data)
-{
-	int		precision;
-
-	precision = info->specs->precision - data->length;
-	if (data->negative == 1)
-		precision++;
-	while (precision-- > 0)
-		write_char(&info->buffer, '0');
 }
