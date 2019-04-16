@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 17:04:35 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 16:50:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/15 09:46:18 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	length_h(const char **format, t_info *info)
 {
-	info->specs->length = BIT_1; // BIT_1 = h
-	if (*(*format + 1) == 'h') // hh
+	info->specs->length = LENGTH_H;
+	if (*(*format + 1) == 'h')
 	{
-		info->specs->length = BIT_2;  // BIT_2 = hh
+		info->specs->length = LENGTH_HH;
 		(*format)++;
 	}
 	(*format)++;
@@ -25,10 +25,10 @@ void	length_h(const char **format, t_info *info)
 
 void	length_l(const char **format, t_info *info)
 {
-	info->specs->length = BIT_3; // BIT_3 = l
-	if (*(*format + 1) == 'l') // ll
+	info->specs->length = LENGTH_L;
+	if (*(*format + 1) == 'l')
 	{
-		info->specs->length = BIT_4; // BIT_4 = ll
+		info->specs->length = LENGTH_LL;
 		(*format)++;
 	}
 	(*format)++;
@@ -37,6 +37,6 @@ void	length_l(const char **format, t_info *info)
 void	length_L(const char **format, t_info *info)
 {
 	ft_putendl("Length -> L");
-	info->specs->length = BIT_5; // BIT_5 = L
+	info->specs->length = LENGTH_LLL;
 	(*format)++;
 }
