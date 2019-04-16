@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 10:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:46:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/15 16:59:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_nblen(int n)
+size_t		ft_nblen(intmax_t n)
 {
 	size_t	len;
 
