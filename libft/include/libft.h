@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/23 12:59:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/15 17:00:04 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char				**ft_strsplit(char const *s, char c);
 int					ft_isseparator(char c, char separator);
 int					ft_cntwords(char const *s, char c);
 char				*ft_itoa(int n);
-size_t				ft_nblen(int n);
+size_t				ft_nblen(intmax_t n);
 void				ft_putchar(int c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
