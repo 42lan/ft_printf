@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/10 17:44:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/15 16:49:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,32 @@
 ** was specified (which bit is setted to 1) it cast retrieved integer.
 */
 
-static void		get_number(int *number, t_info *info)
+static void		get_number(intmax_t *number, t_info *info)
 {
-	if (info->specs->length == 0)
-		*number = va_arg(info->ap, int);
-	else if(info->specs->length == BIT_1)
-		*number = (short int)va_arg(info->ap, int);
-	else if (info->specs->length == BIT_2)
-		*number = (signed char)va_arg(info->ap, int);
+	if(info->specs->length == 0)
+		*number = (int)va_arg(info->ap, int);
+	if(info->specs->length == LENGTH_H)
+		*number = (short int)va_arg(info->ap, short int);
+	else if (info->specs->length == LENGTH_HH)
+		*number = (signed char)va_arg(info->ap, signed char);
+	else if (info->specs->length == LENGTH_L)
+		*number = (long int)va_arg(info->ap, long int);
+	else if (info->specs->length == LENGTH_LL)
+		*number = (long long int)va_arg(info->ap, long long int);
 }
 
 void			type_di(const char **format, t_info *info)
 {
-	int			number;
+	intmax_t	number;
 	t_data		data;
 
 	info->type = **format;
 	get_number(&number, info);
 	info->specs->flags->hash = 0;
-	if (number == INT_MIN)
-		data.str = "2147483648";
+	if (info->specs->length == 0)
+		data.str = ft_itoa(ABS(number));
 	else
-	{
-		if (number > INT_MAX)
-			data.str = ft_litoa(ABS(number));
-		else
-			data.str = ft_itoa(ABS(number));
-	}
+		data.str = ft_litoa(ABS(number));
 	data.length = ft_nblen(number);
 	data.negative = 0;
 	if (number < 0)
