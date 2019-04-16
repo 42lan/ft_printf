@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/04/03 12:45:04 by amalsago         ###   ########.fr        #
+#    Updated: 2019/04/15 09:43:10 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,6 @@ SRCNAME		= main.c					\
 			  ft_printf.c				\
 			  parsing.c					\
 			  buffer.c					\
-			  tools/placeholder.c		\
 			  tools/initialization.c	\
 			  tools/ft_uitoa.c			\
 			  specs/set_flags.c			\
@@ -72,7 +71,8 @@ SRCNAME		= main.c					\
 			  types/type_di.c			\
 			  types/type_u.c			\
 			  types/type_percent.c		\
-			  types/unknown.c
+			  types/unknown.c			\
+			  ft_litoa.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
