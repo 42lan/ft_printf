@@ -6,13 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/31 19:01:18 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 19:16:57 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/16 16:03:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char				*ft_uitoa(unsigned n)
+#include "ft_printf.h"
+
+char				*ft_uitoa(uintmax_t n)
 {
-	unsigned long	nbr;
+	uintmax_t		nbr;
 	size_t			len;
 	char			*str;
 
@@ -22,11 +24,6 @@ char				*ft_uitoa(unsigned n)
 		return (NULL);
 	if (nbr == 0)
 		str[len - 1] = nbr + '0';
-	if (nbr < 0)
-	{
-		str[0] = '-';
-		nbr *= -1;
-	}
 	while (nbr != 0)
 	{
 		str[--len] = (nbr % 10) + '0';
