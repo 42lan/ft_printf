@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 08:59:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:46:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/12 16:09:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char			*ft_itoa(int n)
 		return (NULL);
 	if (nbr == 0)
 		str[len - 1] = nbr + '0';
-	if (nbr < 0)
+	else if (nbr < 0)
 	{
 		str[0] = '-';
 		nbr *= -1;
