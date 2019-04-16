@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/10 16:52:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:17:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,15 @@ void		apply_specs(t_info *info, t_data *data)
 {
 	if (info->specs->flags->minus != 1)
 	{
-		if (info->specs->flags->plus == 1)
+		if (info->specs->flags->zero == 1)
 		{
 			put_prefix(info, data);
 			put_width(info, data);
 		}
 		else
 		{
-			if (data->negative == 1 && info->specs->flags->zero)
-			{
-				put_prefix(info, data);
-				put_width(info, data);
-			}
-			else
-			{
-				put_width(info, data);
-				put_prefix(info, data);
-			}
+			put_width(info, data);
+			put_prefix(info, data);
 		}
 		put_precision(info, data);
 		write_str(&info->buffer, data->str, data->length);
@@ -48,10 +40,12 @@ void		apply_specs(t_info *info, t_data *data)
 
 void		put_prefix(t_info *info, t_data *data)
 {
+	if (info->type == 'u')
+		return ;
 	if (info->specs->flags->plus == 1 && data->negative == 0)
 		write_char(&info->buffer, '+');
-	else if (data->negative == 1)
-		write_char(&info->buffer, '-');
+	else if (data->negative == 1 && data->str[0] != '-')
+			write_char(&info->buffer, '-');
 	else if (info->specs->flags->space == 1)
 		write_char(&info->buffer, ' ');
 	else
