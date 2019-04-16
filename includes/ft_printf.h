@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/10 17:42:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/16 16:09:07 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,11 @@
 # include "../libft/include/libft.h"
 
 # define BUFF_SIZE 32
-# define BIT_8 0x80
-# define BIT_7 0x40
-# define BIT_6 0x20
-# define BIT_5 0x10		// L
-# define BIT_4 0x08		// ll
-# define BIT_3 0x04		// l
-# define BIT_2 0x02		// hh
-# define BIT_1 0x01		// h
+# define LENGTH_H	0x01		// h
+# define LENGTH_HH	0x02		// hh
+# define LENGTH_L	0x04		// l
+# define LENGTH_LL	0x08		// ll
+# define LENGTH_LLL 0x10		// L
 
 typedef struct	s_data
 {
@@ -99,8 +96,6 @@ void			initialize_flags(t_flags *flags);
 
 void			set_flag(const char c, t_flags *flags);
 
-void			print_info(t_info *info);
-
 int				buffer_full(t_buffer *buffer);
 void			print_buffer(t_buffer *buffer);
 void			write_char(t_buffer *buffer, char c);
@@ -112,7 +107,8 @@ void			put_width_s(t_info *info, t_data *data);
 void			put_precision(t_info *info, t_data *data);
 void			put_prefix(t_info *info, t_data *data);
 
-char			*ft_litoa(long int n);
+char			*ft_litoa(long long n);
+char			*ft_uitoa(uintmax_t n);
 
 
 /* A pointer to a handler function */
