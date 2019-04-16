@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 09:45:05 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:38:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/15 17:57:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ void			set_precision(const char **format, t_info *info)
 {
 	(*format)++;
 	info->specs->flags->point = 1;
+	info->specs->flags->zero = 0;
 	info->specs->precision = get_number(format);
 }
