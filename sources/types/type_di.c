@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/15 16:49:56 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/21 10:36:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ static void		get_number(intmax_t *number, t_info *info)
 		*number = (long int)va_arg(info->ap, long int);
 	else if (info->specs->length == LENGTH_LL)
 		*number = (long long int)va_arg(info->ap, long long int);
+	else if (info->specs->length == LENGTH_J)
+		*number = (intmax_t)va_arg(info->ap, intmax_t);
+	else if (info->specs->length == LENGTH_Z)
+		*number = (size_t)va_arg(info->ap, size_t);
+	else if (info->specs->length == LENGTH_T)
+		*number = (int)va_arg(info->ap, int);
 }
 
 void			type_di(const char **format, t_info *info)
