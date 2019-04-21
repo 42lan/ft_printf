@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/12 10:15:54 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/21 10:03:07 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ char			*ft_litoa(long long n)
 
 	nbr = n;
 	len = ft_lnblen(nbr);
-	/* VERIFIER SI N > LONG_MAX
-	if (n > 9223372036854775807)
+	if (n <= LLONG_MIN)
 	{
-		n = 
-		len++;
+		str = ft_strdup("-9223372036854775808");
+		return (str);
 	}
-	*/
 	if (!(str = ft_strnew(len)))
 		return (NULL);
 	if (nbr == 0)
