@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/15 17:00:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/17 19:50:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <limits.h>
 
 # define ABS(N) (N < 0 ? (-N) : N)
+# define BASE_LOWER "0123456789abcdefghijklmnopqrstuvwxyz"
+# define BASE_UPPER "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 typedef struct		s_list
 {
@@ -77,6 +79,8 @@ char				**ft_strsplit(char const *s, char c);
 int					ft_isseparator(char c, char separator);
 int					ft_cntwords(char const *s, char c);
 char				*ft_itoa(int n);
+char				*ft_sitoa_base(intmax_t number, unsigned base, int uppercase);
+char				*ft_uitoa_base(uintmax_t number, unsigned base, int uppercase);
 size_t				ft_nblen(intmax_t n);
 void				ft_putchar(int c);
 void				ft_putstr(char const *s);
