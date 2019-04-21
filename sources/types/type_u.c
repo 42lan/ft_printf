@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/31 16:11:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/16 17:21:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/21 16:48:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 ** was specified (which bit is setted to 1) it cast retrieved integer.
 */
 
-static void		get_ui(uintmax_t *number, t_info *info)
+static void		get_ui(intmax_t *number, t_info *info)
 {
-	if (info->specs->length == 0)
+	if (info->type == 'U')
+		*number = (intmax_t)va_arg(info->ap, intmax_t);
+	else if (info->specs->length == 0)
 		*number = (unsigned int)va_arg(info->ap, unsigned int);
-	if (info->specs->length == LENGTH_H)
+	else if (info->specs->length == LENGTH_H)
 		*number = (unsigned short int)va_arg(info->ap, unsigned short int);
 	else if (info->specs->length == LENGTH_HH)
 		*number = (unsigned char)va_arg(info->ap, unsigned char);
@@ -30,17 +32,23 @@ static void		get_ui(uintmax_t *number, t_info *info)
 		*number = (unsigned long int)va_arg(info->ap, unsigned long int);
 	else if (info->specs->length == LENGTH_LL)
 		*number = (unsigned long long int)va_arg(info->ap, unsigned long long int);
+	else if (info->specs->length == LENGTH_J)
+		*number = (uintmax_t)va_arg(info->ap, uintmax_t);
+	else if (info->specs->length == LENGTH_Z)
+		*number = (size_t)va_arg(info->ap, size_t);
+	else if (info->specs->length == LENGTH_T)
+		*number = (unsigned int)va_arg(info->ap, unsigned int);
 }
 
 void			type_u(const char **format, t_info *info)
 {
-	uintmax_t	number;
+	intmax_t	number;
 	t_data		data;
 
 	info->type = **format;
 	get_ui(&number, info);
 	info->specs->flags->hash = 0;
-	data.str = ft_uitoa(number);
+	data.str = ft_uitoa_base(number, 10, 0);
 	data.length = ft_nblen(number);
 	data.negative = 0;
 	apply_specs(info, &data);
