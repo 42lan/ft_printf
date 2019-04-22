@@ -6,29 +6,31 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/21 12:24:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/22 17:42:19 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-/* -------------------------------------------------------------------------- */
-# include <stdio.h> /* ------------------------------------------------------ */
-/* -------------------------------------------------------------------------- */
+/*
+** УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h
+** УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h
+*/
+# include <stdio.h>
 # include <stdarg.h>
 # include <limits.h>
 # include "../libft/include/libft.h"
 
 # define BUFF_SIZE 32
-# define LENGTH_H	0x01		// h
-# define LENGTH_HH	0x02		// hh
-# define LENGTH_L	0x04		// l
-# define LENGTH_LL	0x08		// ll
-# define LENGTH_J	0x10		// j
-# define LENGTH_Z	0x20		// z
-# define LENGTH_T	0x40		// t
-# define LENGTH_LLL 0x80		// L
+# define LENGTH_H	0x01
+# define LENGTH_HH	0x02
+# define LENGTH_L	0x04
+# define LENGTH_LL	0x08
+# define LENGTH_J	0x10
+# define LENGTH_Z	0x20
+# define LENGTH_T	0x40
+# define LENGTH_LLL 0x80
 
 typedef struct	s_data
 {
@@ -75,7 +77,7 @@ typedef struct	s_spec
 	t_flags		*flags;
 	int			width;
 	int			precision;
-	char		length;	//битовая маска вместо char* h hh l ll L
+	char		length;
 }				t_spec;
 
 /*
@@ -85,38 +87,35 @@ typedef struct	s_spec
 typedef struct	s_info
 {
 	t_spec		*specs;
-	char		type; // не нужно? НУЖНО!!! Я ЖЕ ИСПОЛЬЗУЮ ЭТО ЧТОБЫ ВЫЙТИ ИЗ ЦИКЛА в parsing.c
+	char		type;
 	va_list		ap;
 	t_buffer	buffer;
 }				t_info;
 
 int				ft_printf(const char *format, ...);
 void			parsing(const char **format, t_info *info);
-
 t_info			*initialize_info(void);
 void			initialize_buffer(t_buffer *buffer);
 void			initialize_specifiers(t_spec *specs);
 void			initialize_flags(t_flags *flags);
-
 void			set_flag(const char c, t_flags *flags);
-
 int				buffer_full(t_buffer *buffer);
 void			print_buffer(t_buffer *buffer);
 void			write_char(t_buffer *buffer, char c);
 void			write_str(t_buffer *buffer, char *str, int length);
-
 void			apply_specs(t_info *info, t_data *data);
 void			put_width(t_info *info, t_data *data);
 void			put_width_s(t_info *info, t_data *data);
 void			put_precision(t_info *info, t_data *data);
 void			put_prefix(t_info *info, t_data *data);
-
-char			*ft_litoa(long long n);
+char			*ft_litoa(intmax_t n);
 char			*ft_uitoa(uintmax_t n);
 
+/*
+** A pointer to a handler function
+*/
 
-/* A pointer to a handler function */
-typedef void	(*Handler)(const char **format, t_info *info);
+typedef void	(*handler)(const char **format, t_info *info);
 
 void			unknown(const char **format, t_info *info);
 void			flag_space(const char **format, t_info *info);
@@ -143,36 +142,19 @@ void			set_precision(const char **format, t_info *info);
 void			set_width(const char **format, t_info *info);
 void			digit(const char **format, t_info *info);
 
-/* ************************************************************************** */
-
-static Handler	g_jump_table[] = {
-	flag_space,	unknown,	unknown, 	flag_hash,	unknown,	type_percent,	unknown,		unknown,
-	unknown,	unknown,	asterisk, 	flag_plus,	unknown,	flag_minus,		set_precision,	unknown,
-	flag_zero,	digit,		digit,		digit,		digit,		digit,			digit,			digit,
-	digit,		digit,		unknown, 	unknown, 	unknown,	unknown, 		unknown,		unknown,
-	unknown,	unknown,	unknown, 	unknown, 	unknown,	unknown, 		unknown,		unknown,
-	unknown,	unknown,	unknown, 	unknown,	length_l,	unknown,		unknown,		unknown,
-	unknown,	unknown,	unknown, 	unknown,	unknown,	type_u,			unknown,		unknown,
-	type_x,		unknown,	unknown, 	unknown,	unknown,	unknown,		unknown,		unknown,
-	unknown,	unknown,	unknown, 	type_c,		type_di,	unknown,		type_f,			unknown,
-	length_h,	type_di,	length_j, 	unknown,	length_l,	unknown,		unknown,		type_o,
-	type_p,		unknown,	unknown, 	type_s,		length_t,	type_u,			unknown,		unknown,
-	type_x,		unknown,	length_z, 	unknown,	unknown,	unknown,		unknown
-/* ************************************************************************** */
-/* 	csp diouxX f 
-      32 sp    33  !    34  "    35  #    36  $    37  %    38  &    39  '
-      40  (    41  )    42  *    43  +    44  ,    45  -    46  .    47  /
-      48  0    49  1    50  2    51  3    52  4    53  5    54  6    55  7
-      56  8    57  9    58  :    59  ;    60  <    61  =    62  >    63  ?
-      64  @    65  A    66  B    67  C    68  D    69  E    70  F    71  G
-      72  H    73  I    74  J    75  K    76  L    77  M    78  N    79  O
-      80  P    81  Q    82  R    83  S    84  T    85  U    86  V    87  W
-      88  X    89  Y    90  Z    91  [    92  \    93  ]    94  ^    95  _
-      96  `    97  a    98  b    99  c   100  d   101  e   102  f   103  g
-     104  h   105  i   106  j   107  k   108  l   109  m   110  n   111  o
-     112  p   113  q   114  r   115  s   116  t   117  u   118  v   119  w
-     120  x   121  y   122  z   123  {   124  |   125  }   126  ~   127 del
-*/
+static handler	g_jump_table[] = {
+	flag_space, unknown, unknown, flag_hash, unknown, type_percent, unknown,
+	unknown, unknown, unknown, asterisk, flag_plus, unknown, flag_minus,
+	set_precision, unknown, flag_zero, digit, digit, digit, digit, digit,
+	digit, digit, digit, digit, unknown, unknown, unknown, unknown, unknown,
+	unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown,
+	unknown, unknown, unknown, unknown, unknown, length_l, unknown, unknown,
+	unknown, unknown, unknown, unknown, unknown, unknown, type_u, unknown,
+	unknown, type_x, unknown, unknown, unknown, unknown, unknown, unknown,
+	unknown, unknown, unknown, unknown, type_c, type_di, unknown, type_f,
+	unknown, length_h, type_di, length_j, unknown, length_l, unknown, unknown,
+	type_o, type_p, unknown, unknown, type_s, length_t, type_u, unknown,
+	unknown, type_x, unknown, length_z, unknown, unknown, unknown, unknown
 };
 
 #endif
