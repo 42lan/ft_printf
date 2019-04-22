@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 17:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/21 17:16:12 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/22 17:21:02 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char			*ft_uitoa_base(uintmax_t number, unsigned base, int uppercase)
 	size_t		length;
 
 	if (base < 2 || base > 36)
-		exit (0);
+		exit(0);
 	length = ft_uilen(number, base);
 	if (!(str = ft_strnew(length)))
 		return (NULL);
