@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/21 19:19:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/22 17:35:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		apply_specs(t_info *info, t_data *data)
 {
-	if (info->specs->flags->minus != 1)
+	if (info->specs->flags->minus == 0)
 	{
 		if (info->specs->flags->zero == 1)
 		{
@@ -52,7 +52,7 @@ void		put_prefix(t_info *info, t_data *data)
 	else if (info->specs->flags->plus == 1 && data->negative == 0)
 		write_char(&info->buffer, '+');
 	else if (data->negative == 1 && data->str[0] != '-')
-			write_char(&info->buffer, '-');
+		write_char(&info->buffer, '-');
 	else if (info->specs->flags->space == 1)
 		write_char(&info->buffer, ' ');
 	else
@@ -78,12 +78,13 @@ void		put_width(t_info *info, t_data *data)
 		width = 0;
 	else if (info->specs->precision > data->length)
 		width = info->specs->width - info->specs->precision;
+	else if (info->specs->flags->hash == 1)
+		width = info->specs->width - data->length - ft_strlen(data->prefix);
 	else
 		width = info->specs->width - data->length;
-	if ((info->specs->flags->plus == 1 || info->specs->flags->space == 1) && data->negative == 0)
+	if ((info->specs->flags->plus == 1 || info->specs->flags->space == 1)
+		&& data->negative == 0)
 		width--;
-	if (info->specs->flags->hash == 1)
-		width = info->specs->width - data->length;
 	if (info->specs->flags->zero == 1 && info->specs->flags->minus == 0)
 		while (width-- > 0)
 			write_char(&info->buffer, '0');
@@ -98,7 +99,8 @@ void		put_width_s(t_info *info, t_data *data)
 
 	if (info->specs->width > data->length && info->specs->flags->point == 0)
 		width = info->specs->width - data->length;
-	else if (info->specs->width != 0 && (info->specs->flags->point == 0 || info->specs->precision == 0))
+	else if (info->specs->width != 0 && (info->specs->flags->point == 0
+										|| info->specs->precision == 0))
 		width = info->specs->width;
 	else if (info->specs->width != 0 && info->specs->precision < data->length)
 		width = info->specs->width - info->specs->precision;
