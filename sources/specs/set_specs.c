@@ -6,10 +6,9 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 09:45:05 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/15 17:57:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/22 16:51:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ft_printf.h"
 
@@ -18,7 +17,7 @@ static int		get_number(const char **format)
 	int			number;
 
 	number = 0;
-	while (ft_isdigit(**format)) // Пока текущий символ это цифра то определить значение числа
+	while (ft_isdigit(**format))
 	{
 		number *= 10;
 		number = number + (**format - '0');
@@ -29,7 +28,7 @@ static int		get_number(const char **format)
 
 void			digit(const char **format, t_info *info)
 {
-	if (*(*format - 1) != '.') // Если это не precision, то это width
+	if (*(*format - 1) != '.')
 		set_width(format, info);
 }
 
