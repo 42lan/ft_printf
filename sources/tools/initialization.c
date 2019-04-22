@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 16:22:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 16:54:10 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/22 16:52:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		initialize_buffer(t_buffer *buffer)
 {
 	buffer->index = 0;
 	buffer->length = 0;
-	ft_bzero(buffer->content, BUFF_SIZE); // Ca allege? -> buffer.string[0] = '\0';
+	ft_bzero(buffer->content, BUFF_SIZE);
 }
 
 /*
@@ -33,9 +33,7 @@ t_info		*initialize_info(void)
 		return (NULL);
 	if (!(info->specs->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
 		return (NULL);
-	// initialize_specifiers(info->specs);	// Первый раз инициализирую в parsing() так как эта функция вызывается при каждом новом символе '%'
-											// Так что поэтому я комментирую потому что мне это акажется лишней операцией в начале
-	info->type = 0; // Установить значение на 0 использующееся в parsing()
+	info->type = 0;
 	initialize_buffer(&info->buffer);
 	return (info);
 }
