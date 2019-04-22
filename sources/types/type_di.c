@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/21 10:36:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/22 16:54:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 static void		get_number(intmax_t *number, t_info *info)
 {
-	if(info->specs->length == 0)
+	if (info->specs->length == 0)
 		*number = (int)va_arg(info->ap, int);
-	if(info->specs->length == LENGTH_H)
+	else if (info->specs->length == LENGTH_H)
 		*number = (short int)va_arg(info->ap, short int);
 	else if (info->specs->length == LENGTH_HH)
 		*number = (signed char)va_arg(info->ap, signed char);
