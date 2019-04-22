@@ -6,34 +6,42 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 05:20:28 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/23 14:54:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/22 16:44:49 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int					ft_printf(const char *format, ...)
+static void		free_mem(t_info *info)
 {
-	t_info			*info;
+	free(info->specs->flags);
+	free(info->specs);
+	free(info);
+}
+
+int				ft_printf(const char *format, ...)
+{
+	t_info		*info;
 
 	if (!format || !(info = initialize_info()))
 		return (-1);
 	va_start(info->ap, format);
 	while (*format)
 	{
-		if (buffer_full(&info->buffer) == 1) // If buffer is full, print it and reset
+		if (buffer_full(&info->buffer) == 1)
 			print_buffer(&info->buffer);
 		if (*format == '%')
 		{
-			format++; // Пропустить и передать в parsing() строку после символа %
-			parsing(&format, info); // Запустить рабор (парсинг) строки
+			format++;
+			parsing(&format, info);
 		}
 		else
-			write_char(&info->buffer, *format); //info->buffer.content[info->buffer.index++] = *format; // Записать в буффер текущий символ
+			write_char(&info->buffer, *format);
 		format++;
 	}
-	if (info->buffer.index != 0) // Если индекс буффера не равен нулю, то вывести оставшееся содержимое
+	if (info->buffer.index != 0)
 		print_buffer(&info->buffer);
 	va_end(info->ap);
+	free_mem(info);
 	return (info->buffer.length);
 }
