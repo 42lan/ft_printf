@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:54:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/21 13:41:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/22 17:34:12 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static void		get_ui(intmax_t *number, t_info *info)
 	else if (info->specs->length == LENGTH_L)
 		*number = (unsigned long int)va_arg(info->ap, unsigned long int);
 	else if (info->specs->length == LENGTH_LL)
-		*number = (unsigned long long int)va_arg(info->ap, unsigned long long int);
+		*number = (unsigned long long int)
+					va_arg(info->ap, unsigned long long int);
 	else if (info->specs->length == LENGTH_J)
 		*number = (uintmax_t)va_arg(info->ap, uintmax_t);
 	else if (info->specs->length == LENGTH_Z)
@@ -48,4 +49,5 @@ void			type_o(const char **format, t_info *info)
 		data.prefix = '0';
 	}
 	apply_specs(info, &data);
+	free(data.str);
 }
