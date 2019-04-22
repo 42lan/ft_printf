@@ -6,55 +6,53 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/21 10:03:07 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/22 17:31:54 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t		ft_lnblen(long long n)
+static size_t	ft_lnblen(intmax_t number)
 {
-	size_t	len;
+	size_t		length;
 
-	len = 0;
-	if (n == 0)
+	length = 0;
+	if (number == 0)
 		return (1);
-	if (n < 0)
-		len++;
-	while (n != 0)
+	if (number < 0)
+		length++;
+	while (number != 0)
 	{
-		n /= 10;
-		len++;
+		number /= 10;
+		length++;
 	}
-	return (len);
+	return (length);
 }
 
-char			*ft_litoa(long long n)
+char			*ft_litoa(intmax_t number)
 {
-	intmax_t	nbr;
 	size_t		len;
 	char		*str;
 
-	nbr = n;
-	len = ft_lnblen(nbr);
-	if (n <= LLONG_MIN)
+	len = ft_lnblen(number);
+	if (number <= LLONG_MIN)
 	{
 		str = ft_strdup("-9223372036854775808");
 		return (str);
 	}
 	if (!(str = ft_strnew(len)))
 		return (NULL);
-	if (nbr == 0)
-		str[len - 1] = nbr + '0';
-	if (nbr < 0)
+	if (number == 0)
+		str[len - 1] = number + '0';
+	if (number < 0)
 	{
 		str[0] = '-';
-		nbr *= -1;
+		number *= -1;
 	}
-	while (nbr != 0)
+	while (number != 0)
 	{
-		str[--len] = (nbr % 10) + '0';
-		nbr /= 10;
+		str[--len] = (number % 10) + '0';
+		number /= 10;
 	}
 	return (str);
 }
