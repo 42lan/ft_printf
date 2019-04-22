@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/04/21 10:56:26 by amalsago         ###   ########.fr        #
+#    Updated: 2019/04/22 17:33:31 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,6 +114,6 @@ fclean: clean
 re: fclean all
 
 norm:
-	$(NORMINETTE) $(SRCDIR) $(INCDIR) $(LIBDIR)
+	$(NORMINETTE) $(SRCDIR) $(INCDIR) $(LIBDIR)/sources
 
 .PHONY: all clean fclean re norm
