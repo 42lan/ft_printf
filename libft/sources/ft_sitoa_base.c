@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 00:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/17 19:37:27 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/22 17:51:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char			*ft_sitoa_base(intmax_t number, unsigned base, int uppercase)
 	size_t		length;
 
 	if (base < 2 || base > 36)
-		exit (0);
+		exit(0);
 	length = ft_silen(number, base);
 	if (!(str = ft_strnew(length)))
 		return (NULL);
