@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:40:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/23 18:59:23 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/23 19:36:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,16 @@ void			type_x(const char **format, t_info *info)
 	get_ui(&number, info);
 	if (info->type == 'x')
 	{
-		data.str = ft_uitoa_base(number, 16, 0);
+		if (number == 0)
+		{
+			if (info->specs->flags->point == 1 && info->specs->precision == 0)
+				data.str = ft_strdup("");
+			else
+				data.str = ft_strdup("0");
+			info->specs->flags->hash = 0;
+		}
+		else
+			data.str = ft_uitoa_base(number, 16, 0);
 		if (info->specs->flags->hash == 1)
 			data.prefix = "0x";
 	}
