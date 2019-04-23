@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:54:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/22 17:34:12 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/23 12:00:44 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			type_o(const char **format, t_info *info)
 	if (info->specs->flags->hash == 1)
 	{
 		info->specs->width--;
-		data.prefix = '0';
+		data.prefix = "0";
 	}
 	apply_specs(info, &data);
 	free(data.str);
