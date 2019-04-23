@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 12:35:14 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/09 09:27:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/23 12:01:19 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void			unknown(const char **format, t_info *info)
 
 	info->type = **format;
 	va_arg(info->ap, int);
-	data.str = *format;
+	data.str = (char *)*format;
 	data.length = 1;
 	data.negative = 0;
 	info->specs->flags->hash = 0;
