@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:40:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/22 17:36:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/23 18:59:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void			type_x(const char **format, t_info *info)
 		if (info->specs->flags->hash == 1)
 			data.prefix = "0X";
 	}
-	data.length = ft_nblen(number);
+	data.length = ft_strlen(data.str);
 	data.negative = 0;
 	apply_specs(info, &data);
 	free(data.str);
