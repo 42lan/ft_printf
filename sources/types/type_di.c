@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/22 16:54:39 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/24 12:09:20 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,14 @@ void			type_di(const char **format, t_info *info)
 	data.negative = 0;
 	if (number < 0)
 		data.negative = 1;
+	if (info->specs->flags->point == 1 && info->specs->precision == 0
+		&& number == 0)
+	{
+		if (info->specs->width != 0)
+			data.str = " ";
+		else
+			data.str = "";
+		data.length = 1;
+	}
 	apply_specs(info, &data);
 }
