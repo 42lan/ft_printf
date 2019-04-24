@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/22 17:35:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/24 18:34:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,12 @@ void		put_prefix(t_info *info, t_data *data)
 	else if (data->negative == 1 && data->str[0] != '-')
 		write_char(&info->buffer, '-');
 	else if (info->specs->flags->space == 1)
-		write_char(&info->buffer, ' ');
+	{
+		if (data->str[0] == '\0')
+			info->buffer.length++;
+		else
+			write_char(&info->buffer, ' ');
+	}
 	else
 		return ;
 }
@@ -66,7 +71,7 @@ void		put_precision(t_info *info, t_data *data)
 	precision = info->specs->precision - data->length;
 	if (data->negative == 1)
 		precision++;
-	while (precision-- > 0)
+	while (precision-- > 0 && data->str[0] != '\0')
 		write_char(&info->buffer, '0');
 }
 
@@ -99,6 +104,8 @@ void		put_width_s(t_info *info, t_data *data)
 
 	if (info->specs->width > data->length && info->specs->flags->point == 0)
 		width = info->specs->width - data->length;
+	else if (data->length == 0)
+		width = info->specs->width;
 	else if (info->specs->width != 0 && (info->specs->flags->point == 0
 										|| info->specs->precision == 0))
 		width = info->specs->width;
