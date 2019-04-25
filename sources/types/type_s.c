@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 14:37:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/24 17:33:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/25 16:10:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void			type_s(const char **format, t_info *info)
 		return ;
 	}
 	data.length = ft_strlen(data.str);
-	if (data.str == "")
+	if (data.str[0] == 0)
 	{
 		data.length = 0;
 		put_width_s(info, &data);
