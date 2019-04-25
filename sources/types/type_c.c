@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 10:26:29 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/24 17:41:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/25 15:14:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			type_c(const char **format, t_info *info)
 	c = (char)va_arg(info->ap, int);
 	if (c == NULL)
 	{
-		data.str = "";
+		data.str = "\0";
 		info->buffer.length++;
 	}
 	else if (c == 0)
