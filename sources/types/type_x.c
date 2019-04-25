@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:40:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/23 19:36:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/25 17:54:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static void		get_ui(intmax_t *number, t_info *info)
 	if (info->specs->length == 0)
 		*number = (unsigned int)va_arg(info->ap, unsigned int);
 	else if (info->specs->length == LENGTH_H)
-		*number = (unsigned short int)va_arg(info->ap, unsigned short int);
+		*number = (unsigned short int)va_arg(info->ap, int);
 	else if (info->specs->length == LENGTH_HH)
-		*number = (unsigned char)va_arg(info->ap, unsigned char);
+		*number = (unsigned char)va_arg(info->ap, int);
 	else if (info->specs->length == LENGTH_L)
 		*number = (unsigned long int)va_arg(info->ap, unsigned long int);
 	else if (info->specs->length == LENGTH_LL)
@@ -40,29 +40,20 @@ void			type_x(const char **format, t_info *info)
 
 	info->type = **format;
 	get_ui(&number, info);
-	if (info->type == 'x')
+	data.negative = 0;
+	if (number == 0)
 	{
-		if (number == 0)
-		{
-			if (info->specs->flags->point == 1 && info->specs->precision == 0)
-				data.str = ft_strdup("");
-			else
-				data.str = ft_strdup("0");
-			info->specs->flags->hash = 0;
-		}
+		if (info->specs->flags->point == 1 && info->specs->precision == 0)
+			data.str = ft_strdup("");
 		else
-			data.str = ft_uitoa_base(number, 16, 0);
-		if (info->specs->flags->hash == 1)
-			data.prefix = "0x";
+			data.str = ft_strdup("0");
+		info->specs->flags->hash = 0;
 	}
 	else
-	{
-		data.str = ft_uitoa_base(number, 16, 1);
-		if (info->specs->flags->hash == 1)
-			data.prefix = "0X";
-	}
+		data.str = ft_uitoa_base(number, 16, ft_isupper(info->type));
+	if (info->specs->flags->hash == 1)
+		data.prefix = ft_isupper(info->type) ? "0X" : "0x";
 	data.length = ft_strlen(data.str);
-	data.negative = 0;
 	apply_specs(info, &data);
 	free(data.str);
 }
