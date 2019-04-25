@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/04/22 17:33:31 by amalsago         ###   ########.fr        #
+#    Updated: 2019/04/25 19:09:41 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ LIBNAME		= libft.a
 ########
 #########
 #CC			= /usr/bin/clang -Wall -Wextra -Werror
+CC			= /usr/bin/clang
 #########
 ########
 #######
@@ -37,7 +38,6 @@ LIBNAME		= libft.a
 ###
 ##
 #
-CC			= /usr/bin/clang
 AR			= /usr/bin/ar -rc
 MAKE		= /usr/bin/make -C
 RANLIB		= /usr/bin/ranlib
@@ -64,7 +64,7 @@ SRCNAME		= main.c					\
 			  specs/set_flags.c			\
 			  specs/set_length.c		\
 			  specs/set_specs.c			\
-			  specs/specs_handler.c		\
+			  specs/apply_specs.c		\
 			  types/types.c				\
 			  types/type_c.c			\
 			  types/type_s.c			\
