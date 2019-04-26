@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/25 19:45:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/26 11:05:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,12 @@ void		put_width(t_info *info, t_data *data)
 		width = info->specs->width - data->length - ft_strlen(data->prefix);
 	else
 		width = info->specs->width - data->length;
-	if ((info->specs->flags->plus == 1 || info->specs->flags->space == 1) && data->negative == 0)
+	if ((info->specs->flags->plus == 1 || info->specs->flags->space == 1)
+		&& data->negative == 0)
 		width--;
 	while (width-- > 0)
-		(info->specs->flags->zero == 1 && info->specs->flags->minus == 0) ? write_char(&info->buffer, '0') : write_char(&info->buffer, ' ');
+		(info->specs->flags->zero == 1 && info->specs->flags->minus == 0)
+		? write_char(&info->buffer, '0') : write_char(&info->buffer, ' ');
 }
 
 void		put_width_s(t_info *info, t_data *data)
@@ -94,7 +96,8 @@ void		put_width_s(t_info *info, t_data *data)
 		width = info->specs->width - data->length;
 	else if (data->length == 0)
 		width = info->specs->width;
-	else if (info->specs->width != 0 && (info->specs->flags->point == 0 || info->specs->precision == 0))
+	else if (info->specs->width != 0 &&
+			(info->specs->flags->point == 0 || info->specs->precision == 0))
 		width = info->specs->width;
 	else if (info->specs->width != 0 && info->specs->precision < data->length)
 		width = info->specs->width - info->specs->precision;
