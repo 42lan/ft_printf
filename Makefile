@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/04/25 19:09:41 by amalsago         ###   ########.fr        #
+#    Updated: 2019/04/27 16:49:19 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ SRCNAME		= main.c					\
 			  types/type_u.c			\
 			  types/type_x.c			\
 			  types/type_o.c			\
+			  types/type_p.c			\
 			  types/type_percent.c		\
 			  types/unknown.c			\
 			  ft_litoa.c
