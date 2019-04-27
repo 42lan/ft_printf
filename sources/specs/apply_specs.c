@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/26 11:05:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/27 19:03:28 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		put_prefix(t_info *info, t_data *data)
 {
 	if (info->type == 'u')
 		return ;
-	else if (info->specs->flags->hash == 1)
+	else if (info->specs->flags->hash == 1 || info->type == 'p')
 		write_str(&info->buffer, data->prefix, ft_strlen(data->prefix));
 	else if (info->specs->flags->plus == 1 && data->negative == 0)
 		write_char(&info->buffer, '+');
