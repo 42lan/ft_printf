@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/27 19:03:28 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/28 12:53:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,14 @@ void		put_width(t_info *info, t_data *data)
 {
 	int		width;
 
-	if (info->specs->width < data->length)
+	if (info->type == 'p')
+	{
+		if (info->specs->precision >= data->length)
+			width = info->specs->width - info->specs->precision - ft_strlen(data->prefix);
+		else
+			width = info->specs->width - data->length - ft_strlen(data->prefix);
+	}
+	else if (info->specs->width < data->length)
 		width = 0;
 	else if (info->specs->precision > data->length)
 		width = info->specs->width - info->specs->precision;
