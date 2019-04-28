@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/25 20:51:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/28 12:57:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ static t_handler	g_jump_table[] = {
 	digit, digit, digit, digit, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown, unknown, unknown, unknown, length_l, unknown, unknown,
-	unknown, unknown, unknown, unknown, unknown, unknown, type_u, unknown,
+	type_o, unknown, unknown, unknown, unknown, unknown, type_u, unknown,
 	unknown, type_x, unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, unknown, unknown, unknown, type_c, type_di, unknown, type_f,
 	unknown, length_h, type_di, length_j, unknown, length_l, unknown, unknown,
