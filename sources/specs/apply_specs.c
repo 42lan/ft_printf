@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/28 12:53:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/01 20:08:43 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ void		put_precision(t_info *info, t_data *data)
 	int		precision;
 
 	precision = info->specs->precision - data->length;
-	if (data->negative == 1)
-		precision++;
 	while (precision-- > 0 && data->str[0] != '\0')
 		write_char(&info->buffer, '0');
 }
@@ -74,10 +72,13 @@ void		put_width(t_info *info, t_data *data)
 
 	if (info->type == 'p')
 	{
-		if (info->specs->precision >= data->length)
-			width = info->specs->width - info->specs->precision - ft_strlen(data->prefix);
-		else
-			width = info->specs->width - data->length - ft_strlen(data->prefix);
+		width = info->specs->width - ft_strlen(data->prefix);
+		width -= (info->specs->precision >= data->length)
+				? info->specs->precision : data->length;
+		//if (info->specs->precision >= data->length)
+		//	width = info->specs->width - info->specs->precision - ft_strlen(data->prefix);
+		//else
+		//	width = info->specs->width - data->length - ft_strlen(data->prefix);
 	}
 	else if (info->specs->width < data->length)
 		width = 0;
