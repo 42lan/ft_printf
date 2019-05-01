@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/01 14:12:52 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/01 15:40:09 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,6 @@ SRCNAME		= main.c					\
 			  types/type_p.c			\
 			  types/type_percent.c		\
 			  types/unknown.c			\
-			  ft_litoa.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
