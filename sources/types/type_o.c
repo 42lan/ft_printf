@@ -6,15 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:54:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/28 12:55:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/29 20:16:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		get_ui(intmax_t *number, t_info *info)
+static void		get_ui(uintmax_t *number, t_info *info)
 {
-	if (info->specs->length == 0)
+	if (info->type == 'O')
+		*number = (uintmax_t)va_arg(info->ap, uintmax_t);
+	else if (info->specs->length == 0)
 		*number = (unsigned int)va_arg(info->ap, unsigned int);
 	else if (info->specs->length == LENGTH_H)
 		*number = (unsigned short int)va_arg(info->ap, int);
@@ -33,9 +35,12 @@ static void		get_ui(intmax_t *number, t_info *info)
 		*number = (unsigned int)va_arg(info->ap, unsigned int);
 }
 
-static void		specs_handler(t_info *info, t_data *data, intmax_t *number)
+static void		specs_handler(t_info *info, t_data *data, uintmax_t *number)
 {
-	if (info->specs->flags->hash == 1)
+	if (info->specs->flags->hash == 1 && *number == 0
+		&& info->specs->precision != 0)
+		data->prefix = ft_strdup("");
+	else if (info->specs->flags->hash == 1)
 		data->prefix = "0";
 	if (info->specs->flags->point == 1 && info->specs->precision == 0
 		&& *number == 0)
@@ -43,19 +48,15 @@ static void		specs_handler(t_info *info, t_data *data, intmax_t *number)
 		if (info->specs->width == 0)
 			data->str = ft_strdup("");
 		else
-		{
-			if (info->specs->flags->hash == 1)
-				data->str = ft_strdup("0");
-			else
-				data->str = ft_strdup(" ");
-		}
+			data->str = (info->specs->flags->hash == 1)
+						? ft_strdup("0") : ft_strdup(" ");
 		data->length = 1;
 	}
 }
 
 void			type_o(const char **format, t_info *info)
 {
-	intmax_t	number;
+	uintmax_t	number;
 	t_data		data;
 
 	info->type = **format;
@@ -63,6 +64,8 @@ void			type_o(const char **format, t_info *info)
 	data.str = ft_uitoa_base(number, 8, 0);
 	data.length = ft_strlen(data.str);
 	data.negative = 0;
+	info->specs->flags->space = 0;
+	info->specs->flags->plus = 0;
 	specs_handler(info, &data, &number);
 	apply_specs(info, &data);
 	free(data.str);
