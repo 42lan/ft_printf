@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/25 18:47:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/01 20:09:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,23 @@ static void		get_number(intmax_t *number, t_info *info)
 		*number = (int)va_arg(info->ap, int);
 }
 
+static void		specs_handler(t_info *info, t_data *data, intmax_t *number)
+{
+	info->specs->flags->hash = 0;
+	if (*number == 0)
+	{
+		info->specs->flags->zero = 0;
+		if (*number == 0)
+		{
+			if (info->specs->flags->point == 1 && info->specs->precision == 0)
+			{
+				data->str = (info->specs->width != 0) ? " " : "";
+				data->length = 1;
+			}
+		}
+	}
+}
+
 void			type_di(const char **format, t_info *info)
 {
 	intmax_t	number;
@@ -45,23 +62,16 @@ void			type_di(const char **format, t_info *info)
 
 	info->type = **format;
 	get_number(&number, info);
-	info->specs->flags->hash = 0;
-	if (info->specs->length == 0)
-		data.str = ft_itoa(ABS(number));
-	else
-		data.str = ft_litoa(ABS(number));
-	data.length = ft_nblen(number);
+	data.str = (info->specs->length == 0)
+				? ft_itoa(ABS(number)) : ft_litoa(ABS(number));
+	data.length = ft_strlen(data.str);
 	data.negative = 0;
 	if (number < 0)
-		data.negative = 1;
-	if (info->specs->flags->point == 1 && info->specs->precision == 0
-		&& number == 0)
 	{
-		if (info->specs->width != 0)
-			data.str = " ";
-		else
-			data.str = "";
-		data.length = 1;
+		data.negative = 1;
+		info->specs->width--;
+		info->specs->flags->zero = 0;
 	}
+	specs_handler(info, &data, &number);
 	apply_specs(info, &data);
 }
