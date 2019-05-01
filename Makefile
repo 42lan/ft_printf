@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/04/27 16:49:19 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/01 14:12:52 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,6 @@ SRCNAME		= main.c					\
 			  parsing.c					\
 			  buffer.c					\
 			  tools/initialization.c	\
-			  tools/ft_uitoa.c			\
 			  specs/set_flags.c			\
 			  specs/set_length.c		\
 			  specs/set_specs.c			\
