@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/28 12:57:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/01 14:11:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,6 @@ void				put_width(t_info *info, t_data *data);
 void				put_width_s(t_info *info, t_data *data);
 void				put_precision(t_info *info, t_data *data);
 void				put_prefix(t_info *info, t_data *data);
-char				*ft_litoa(intmax_t n);
-char				*ft_uitoa(uintmax_t n);
 
 /*
 ** A pointer to a handler function
