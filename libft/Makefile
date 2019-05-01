@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/04/17 17:43:42 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/01 13:39:59 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,17 +93,18 @@ SRCNAME		= ft_memset.c			\
 			  ft_lstadd.c			\
 			  ft_lstiter.c			\
 			  ft_lstmap.c			\
+			  ft_isupper.c			\
+			  ft_islower.c			\
 			  ft_isspace.c			\
 			  ft_iswhitespace.c		\
-			  ft_nblen.c			\
-			  ft_cntwords.c			\
 			  ft_isseparator.c		\
-			  ft_strnew2d.c			\
+			  ft_cntwords.c			\
+			  ft_nblen.c			\
 			  ft_swap.c				\
-			  ft_islower.c			\
-			  ft_isupper.c			\
+			  ft_strnew2d.c			\
 			  ft_sitoa_base.c		\
-			  ft_uitoa_base.c
+			  ft_uitoa_base.c		\
+			  ft_litoa.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of source and object files
@@ -133,6 +134,6 @@ fclean: clean
 re: fclean all
 
 norm:
-	$(NORMINETTE) $(INCDIR) $(SCR)
+	$(NORMINETTE) $(INCDIR) $(SRC)
 
 .PHONY: all clean fclean re norm

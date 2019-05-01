@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 08:02:34 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:49:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/29 10:32:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,11 @@ static char			*ft_storeword(char const *s, char c)
 	unsigned int	i;
 	char			*tmp;
 
-	i = 0;
+	i = -1;
 	if (!(tmp = ft_strnew(ft_wordlen(s, c))))
 		return (NULL);
-	i = 0;
-	while (s[i] != '\0' && !(ft_isseparator(s[i], c)))
-	{
+	while (s[++i] != '\0' && !(ft_isseparator(s[i], c)))
 		tmp[i] = s[i];
-		i++;
-	}
 	return (tmp);
 }
 

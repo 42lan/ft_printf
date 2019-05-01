@@ -1,47 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
+/*   ft_litoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 17:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/29 19:19:40 by amalsago         ###   ########.fr       */
+/*   Created: 2018/04/10 18:39:03 by amalsago          #+#    #+#             */
+/*   Updated: 2019/05/01 14:12:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_uilen(uintmax_t number, int base)
+static size_t	ft_lnblen(intmax_t number)
 {
 	size_t		length;
 
 	length = 0;
 	if (number == 0)
 		return (1);
+	if (number < 0)
+		length++;
 	while (number != 0)
 	{
-		number /= base;
-		++length;
+		number /= 10;
+		length++;
 	}
 	return (length);
 }
 
-char			*ft_uitoa_base(uintmax_t number, int base, int uppercase)
+char			*ft_litoa(intmax_t number)
 {
+	size_t		len;
 	char		*str;
-	size_t		length;
 
-	if (base < 2 || base > 36)
-		exit(0);
-	length = ft_uilen(number, base);
-	if (!(str = ft_strnew(length)))
-		return (NULL);
-	while (length != 0)
+	len = ft_lnblen(number);
+	if (number <= LLONG_MIN)
 	{
-		str[--length] = (uppercase == 0)
-						? BASE_LOWER[number % base] : BASE_UPPER[number % base];
-		number /= base;
+		str = ft_strdup("-9223372036854775808");
+		return (str);
+	}
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	if (number == 0)
+		str[len - 1] = number + '0';
+	if (number < 0)
+	{
+		str[0] = '-';
+		number *= -1;
+	}
+	while (number != 0)
+	{
+		str[--len] = (number % 10) + '0';
+		number /= 10;
 	}
 	return (str);
 }

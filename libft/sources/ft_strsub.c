@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 11:26:34 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:41:56 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/29 10:33:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@ char		*ft_strsub(char const *s, unsigned int start, size_t len)
 		if (!(new_str = ft_strnew(len)))
 			return (NULL);
 		while (i < len)
-		{
-			new_str[i] = s[start];
-			start++;
-			i++;
-		}
+			new_str[i++] = s[start++];
 		return (new_str);
 	}
 	return (NULL);

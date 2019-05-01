@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/22 17:18:23 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/01 13:39:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,11 @@ int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
-int					ft_isspace(int c);
-int					ft_iswhitespace(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);
-char				**ft_strnew2d(size_t size);
 void				ft_strdel(char **as);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
@@ -76,14 +73,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
-int					ft_isseparator(char c, char separator);
-int					ft_cntwords(char const *s, char c);
 char				*ft_itoa(int n);
-char				*ft_sitoa_base(intmax_t number, unsigned base,
-					int uppercase);
-char				*ft_uitoa_base(uintmax_t number, unsigned base,
-					int uppercase);
-size_t				ft_nblen(intmax_t n);
 void				ft_putchar(int c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
@@ -98,8 +88,17 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-void				ft_swap(void *a, void *b, size_t size);
 int					ft_isupper(int c);
 int					ft_islower(int c);
+int					ft_isspace(int c);
+int					ft_iswhitespace(int c);
+int					ft_isseparator(char c, char separator);
+int					ft_cntwords(char const *s, char c);
+size_t				ft_nblen(intmax_t n);
+void				ft_swap(void *a, void *b, size_t size);
+char				**ft_strnew2d(size_t size);
+char				*ft_sitoa_base(intmax_t number, int base, int uppercase);
+char				*ft_uitoa_base(uintmax_t number, int base, int uppercase);
+char				*ft_litoa(intmax_t number);
 
 #endif

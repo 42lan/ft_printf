@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 09:10:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:40:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/29 10:26:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@ char		*ft_strncat(char *s1, const char *s2, size_t n)
 	while (s1[i] != '\0')
 		i++;
 	while (s2[j] != '\0' && j < n)
-	{
-		s1[i] = s2[j];
-		i++;
-		j++;
-	}
+		s1[i++] = s2[j++];
 	s1[i] = '\0';
 	return (s1);
 }

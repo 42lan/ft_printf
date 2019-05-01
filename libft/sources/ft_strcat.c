@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:05:14 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 16:57:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/29 10:17:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@ char		*ft_strcat(char *s1, const char *s2)
 	i = 0;
 	len = ft_strlen(s1);
 	while (s2[i] != '\0')
-	{
-		s1[len] = s2[i];
-		len++;
-		i++;
-	}
+		s1[len++] = s2[i++];
 	s1[len] = '\0';
 	return (s1);
 }

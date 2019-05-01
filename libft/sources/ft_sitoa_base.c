@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 00:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/25 17:11:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/29 19:18:30 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_silen(intmax_t number, unsigned base)
+static size_t	ft_silen(intmax_t number, int base)
 {
 	size_t		length;
 
@@ -39,7 +39,7 @@ static void		check_sign(char **str, intmax_t *number, size_t *length)
 	}
 }
 
-char			*ft_sitoa_base(intmax_t number, unsigned base, int uppercase)
+char			*ft_sitoa_base(intmax_t number, int base, int uppercase)
 {
 	char		*str;
 	size_t		length;

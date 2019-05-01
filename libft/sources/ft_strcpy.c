@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 11:14:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 16:57:34 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/04/29 10:17:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@ char		*ft_strcpy(char *dst, const char *src)
 {
 	int		i;
 
-	i = 0;
-	while (src[i] != '\0')
-	{
+	i = -1;
+	while (src[++i] != '\0')
 		dst[i] = src[i];
-		i++;
-	}
 	dst[i] = '\0';
 	return (dst);
 }
