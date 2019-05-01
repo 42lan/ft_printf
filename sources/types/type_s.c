@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 14:37:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/26 19:30:08 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/01 20:25:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void			type_s(const char **format, t_info *info)
 	info->type = **format;
 	info->specs->flags->hash = 0;
 	data.str = va_arg(info->ap, char *);
-	data.length = ft_strlen(data.str);
 	if (data.str == NULL || data.str[0] == 0)
 	{
 		if (data.str == NULL)
@@ -57,6 +56,7 @@ void			type_s(const char **format, t_info *info)
 		}
 		return ;
 	}
+	data.length = ft_strlen(data.str);
 	if (info->specs->width <= data.length && info->specs->flags->point == 0)
 		write_str(&info->buffer, data.str, data.length);
 	else if (info->specs->width > data.length && info->specs->flags->point == 0)
@@ -77,7 +77,8 @@ void			type_s(const char **format, t_info *info)
 		{
 			if (info->specs->flags->minus == 1)
 			{
-				write_str(&info->buffer, data.str, data.length - (data.length - info->specs->precision));
+				write_str(&info->buffer, data.str,
+						data.length - (data.length - info->specs->precision));
 				put_width_s(info, &data);
 				return ;
 			}
@@ -87,6 +88,9 @@ void			type_s(const char **format, t_info *info)
 			data.length -= (data.length - info->specs->precision);
 			write_order(info, &data);
 		}
+		//data.length = (info->specs->flags->minus == 0)
+		//				? info->specs->precision : data.length;
+		//write_order(info, &data);
 		if (info->specs->flags->minus == 0)
 		{
 			put_width_s(info, &data);
