@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/03 10:05:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/03 12:39:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,5 @@ void			type_di(const char **format, t_info *info)
 	}
 	specs_handler(info, &data, &number);
 	apply_specs(info, &data);
+	free(data.str);
 }
