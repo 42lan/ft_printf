@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/01 20:08:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/03 12:25:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,6 @@ void		put_width(t_info *info, t_data *data)
 		width = info->specs->width - ft_strlen(data->prefix);
 		width -= (info->specs->precision >= data->length)
 				? info->specs->precision : data->length;
-		//if (info->specs->precision >= data->length)
-		//	width = info->specs->width - info->specs->precision - ft_strlen(data->prefix);
-		//else
-		//	width = info->specs->width - data->length - ft_strlen(data->prefix);
 	}
 	else if (info->specs->width < data->length)
 		width = 0;
@@ -92,7 +88,8 @@ void		put_width(t_info *info, t_data *data)
 		&& data->negative == 0)
 		width--;
 	while (width-- > 0)
-		(info->specs->flags->zero == 1 && info->specs->flags->minus == 0)
+		(info->specs->flags->zero == 1 && info->specs->flags->minus == 0
+		&& data->length > 1)
 		? write_char(&info->buffer, '0') : write_char(&info->buffer, ' ');
 }
 
@@ -112,5 +109,6 @@ void		put_width_s(t_info *info, t_data *data)
 	else
 		width = 0;
 	while (width-- > 0)
-		write_char(&info->buffer, ' ');
+		(info->specs->flags->zero == 0) ?
+		write_char(&info->buffer, ' ') : write_char(&info->buffer, '0');
 }
