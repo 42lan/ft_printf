@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 14:37:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/01 20:25:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/03 10:37:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,6 @@ void			type_s(const char **format, t_info *info)
 			data.length -= (data.length - info->specs->precision);
 			write_order(info, &data);
 		}
-		//data.length = (info->specs->flags->minus == 0)
-		//				? info->specs->precision : data.length;
-		//write_order(info, &data);
 		if (info->specs->flags->minus == 0)
 		{
 			put_width_s(info, &data);
