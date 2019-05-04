@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/04 11:05:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/04 12:13:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 
 static void		get_number(intmax_t *number, t_info *info)
 {
-	if (info->specs->length == 0)
+	if (ft_isupper(info->type))
+		*number = (intmax_t)va_arg(info->ap, intmax_t);
+	else if (info->specs->length == 0)
 		*number = (int)va_arg(info->ap, int);
 	else if (info->specs->length == LENGTH_H)
 		*number = (short int)va_arg(info->ap, int);
@@ -44,14 +46,8 @@ static void		specs_handler(t_info *info, t_data *data, intmax_t *number)
 	if (*number == 0)
 	{
 		info->specs->flags->zero = 0;
-		if (*number == 0)
-		{
-			if (info->specs->flags->point == 1 && info->specs->precision == 0)
-			{
-				data->str[0] = (info->specs->width != 0) ? ' ' : '\0';
-				data->length = 1;
-			}
-		}
+		if (info->specs->flags->point == 1 && info->specs->precision == 0)
+			data->str[0] = (info->specs->width != 0) ? ' ' : '\0';
 	}
 }
 
@@ -62,7 +58,7 @@ void			type_di(const char **format, t_info *info)
 
 	info->type = **format;
 	get_number(&number, info);
-	data.str = (info->specs->length == 0)
+	data.str = (ft_islower(info->type) && info->specs->length == 0)
 				? ft_itoa(ABS(number)) : ft_litoa(ABS(number));
 	data.length = ft_strlen(data.str);
 	data.negative = 0;
