@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:54:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/29 20:16:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/04 11:53:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ static void		get_ui(uintmax_t *number, t_info *info)
 
 static void		specs_handler(t_info *info, t_data *data, uintmax_t *number)
 {
+	info->specs->flags->space = 0;
+	info->specs->flags->plus = 0;
 	if (info->specs->flags->hash == 1 && *number == 0
 		&& info->specs->precision != 0)
-		data->prefix = ft_strdup("");
+		data->prefix[0] = '\0';
 	else if (info->specs->flags->hash == 1)
 		data->prefix = "0";
 	if (info->specs->flags->point == 1 && info->specs->precision == 0
@@ -64,8 +66,6 @@ void			type_o(const char **format, t_info *info)
 	data.str = ft_uitoa_base(number, 8, 0);
 	data.length = ft_strlen(data.str);
 	data.negative = 0;
-	info->specs->flags->space = 0;
-	info->specs->flags->plus = 0;
 	specs_handler(info, &data, &number);
 	apply_specs(info, &data);
 	free(data.str);
