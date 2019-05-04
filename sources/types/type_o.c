@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:54:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/04 11:53:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/04 16:06:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		get_ui(uintmax_t *number, t_info *info)
 {
-	if (info->type == 'O')
+	if (ft_isupper(info->type))
 		*number = (uintmax_t)va_arg(info->ap, uintmax_t);
 	else if (info->specs->length == 0)
 		*number = (unsigned int)va_arg(info->ap, unsigned int);
@@ -39,19 +39,16 @@ static void		specs_handler(t_info *info, t_data *data, uintmax_t *number)
 {
 	info->specs->flags->space = 0;
 	info->specs->flags->plus = 0;
-	if (info->specs->flags->hash == 1 && *number == 0
-		&& info->specs->precision != 0)
-		data->prefix[0] = '\0';
-	else if (info->specs->flags->hash == 1)
-		data->prefix = "0";
-	if (info->specs->flags->point == 1 && info->specs->precision == 0
-		&& *number == 0)
+	if (info->specs->flags->hash == 1)
+		data->prefix = (*number == 0 && info->specs->precision != 0)
+						? "\0" : "0";
+	if (*number == 0
+		&& info->specs->flags->point == 1 && info->specs->precision == 0)
 	{
 		if (info->specs->width == 0)
-			data->str = ft_strdup("");
+			data->str[0] = '\0';
 		else
-			data->str = (info->specs->flags->hash == 1)
-						? ft_strdup("0") : ft_strdup(" ");
+			data->str[0] = (info->specs->flags->hash == 1) ? '0' : ' ';
 		data->length = 1;
 	}
 }
