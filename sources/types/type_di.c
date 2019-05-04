@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/03 12:39:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/04 11:05:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void		specs_handler(t_info *info, t_data *data, intmax_t *number)
 		{
 			if (info->specs->flags->point == 1 && info->specs->precision == 0)
 			{
-				data->str = (info->specs->width != 0) ? " " : "";
+				data->str[0] = (info->specs->width != 0) ? ' ' : '\0';
 				data->length = 1;
 			}
 		}
