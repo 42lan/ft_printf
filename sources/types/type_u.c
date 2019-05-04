@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/31 16:11:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/28 17:41:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/04 16:08:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 static void		get_ui(intmax_t *number, t_info *info)
 {
-	if (info->type == 'U')
+	if (ft_isupper(info->type))
 		*number = (intmax_t)va_arg(info->ap, intmax_t);
 	else if (info->specs->length == 0)
 		*number = (unsigned int)va_arg(info->ap, unsigned int);
@@ -47,8 +47,8 @@ void			type_u(const char **format, t_info *info)
 	t_data		data;
 
 	info->type = **format;
-	get_ui(&number, info);
 	info->specs->flags->hash = 0;
+	get_ui(&number, info);
 	data.str = ft_uitoa_base(number, 10, 0);
 	data.length = ft_strlen(data.str);
 	data.negative = 0;
