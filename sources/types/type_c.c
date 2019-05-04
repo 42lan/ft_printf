@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 10:26:29 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/01 20:02:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/04 11:34:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ void			type_c(const char **format, t_info *info)
 	if (c == 0)
 	{
 		while (info->specs->width-- > 1)
-			write_char(&info->buffer, ' ');
+			(info->specs->flags->zero == 0)
+			? write_char(&info->buffer, ' ')
+			: write_char(&info->buffer, '0');
 		write_char(&info->buffer, c);
 		return ;
 	}
-	data.str = &c;
+	data.str = (ft_isprint(c) == 1) ? &c : '\0';
 	data.length = 1;
 	data.negative = 0;
 	specs_handler(info, &data, c);
