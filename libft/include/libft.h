@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/06 09:05:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/06 10:11:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,7 @@ size_t				ft_uilen(uintmax_t number, int base);
 char				*ft_litoa(intmax_t number);
 char				*ft_itoa_static(intmax_t n);
 char				*ft_litoa_static(intmax_t n);
+char				*ft_sitoa_base_static(intmax_t number, int base, int uppercase);
+char				*ft_uitoa_base_static(uintmax_t number, int base, int uppercase);
 
 #endif

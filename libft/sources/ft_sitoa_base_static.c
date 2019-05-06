@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sitoa_base.c                                    :+:      :+:    :+:   */
+/*   ft_sitoa_base_static.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 00:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/06 15:52:17 by amalsago         ###   ########.fr       */
+/*   Created: 2019/05/06 10:51:14 by amalsago          #+#    #+#             */
+/*   Updated: 2019/05/06 15:53:18 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,16 @@ static void			check_sign(intmax_t *number, int base, char *str)
 	}
 }
 
-char				*ft_sitoa_base(intmax_t number, int base, int uppercase)
+char				*ft_sitoa_base_static(intmax_t number, int base, int uppercase)
 {
-	static char		*str;
+	static char		str[13];
 	size_t			length;
 
 	if (base < 2 || base > 36)
 		return (NULL);
 	length = (number < 0 && base != 10) ? ft_silen(number, base) - 1
 										: ft_silen(number, base);
-	if (!(str = ft_strnew(length)))
-		return (NULL);
+	str[length] = '\0';
 	check_sign(&number, base, str);
 	if (number == 0)
 		str[0] = '0';
