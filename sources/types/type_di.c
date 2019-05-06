@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/04 12:13:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/06 10:06:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void			type_di(const char **format, t_info *info)
 	info->type = **format;
 	get_number(&number, info);
 	data.str = (ft_islower(info->type) && info->specs->length == 0)
-				? ft_itoa(ABS(number)) : ft_litoa(ABS(number));
+				? ft_itoa_static(ABS(number)) : ft_litoa_static(ABS(number));
 	data.length = ft_strlen(data.str);
 	data.negative = 0;
 	if (number < 0)
@@ -69,5 +69,4 @@ void			type_di(const char **format, t_info *info)
 	}
 	specs_handler(info, &data, &number);
 	apply_specs(info, &data);
-	free(data.str);
 }
