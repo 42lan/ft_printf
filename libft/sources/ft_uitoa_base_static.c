@@ -6,13 +6,14 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 10:09:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/06 10:15:57 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/06 17:42:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char				*ft_uitoa_base_static(uintmax_t number, int base, int uppercase)
+char				*ft_uitoa_base_static(uintmax_t number, int base,
+					int uppercase)
 {
 	static char		str[12];
 	size_t			length;
