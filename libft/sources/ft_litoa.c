@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/10 18:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/05 19:07:25 by amalsago         ###   ########.fr       */
+/*   Created: 2019/05/05 19:00:58 by amalsago          #+#    #+#             */
+/*   Updated: 2019/05/06 08:58:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char			*ft_litoa(intmax_t number)
 		return (NULL);
 	if (number == 0)
 		str[len - 1] = number + '0';
-	if (number < 0)
+	else if (number < 0)
 	{
 		str[0] = '-';
 		number *= -1;
