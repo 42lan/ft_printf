@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:40:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/04 16:48:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/06 10:45:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,12 @@ void			type_x(const char **format, t_info *info)
 	{
 		info->specs->flags->hash = 0;
 		data.str = (info->specs->flags->point == 1
-					&& info->specs->precision == 0)
-					? ft_strdup("") : ft_strdup("0");
+					&& info->specs->precision == 0) ? "\0" : "0";
 	}
 	else
-		data.str = ft_uitoa_base(number, 16, ft_isupper(info->type));
+		data.str = ft_uitoa_base_static(number, 16, ft_isupper(info->type));
 	if (info->specs->flags->hash == 1)
 		data.prefix = ft_isupper(info->type) ? "0X" : "0x";
 	data.length = ft_strlen(data.str);
 	apply_specs(info, &data);
-	free(data.str);
 }
