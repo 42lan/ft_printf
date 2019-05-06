@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/05 17:45:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/05 18:59:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/06 11:15:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char				*ft_itoa_static(intmax_t nbr)
 {
-	static char		str[11];
+	static char		str[12];
 	size_t			len;
 
 	len = ft_silen(nbr, 10);
