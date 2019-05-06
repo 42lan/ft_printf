@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:48:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/04 15:57:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/06 10:39:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ void			type_p(const char **format, t_info *info)
 	info->specs->flags->hash = 0;
 	info->specs->flags->plus = 0;
 	number = (void *)va_arg(info->ap, void *);
-	data.str = ft_uitoa_base((uintmax_t)number, 16, ft_isupper(info->type));
+	data.str = ft_uitoa_base_static((uintmax_t)number, 16, ft_isupper(info->type));
 	data.length = ft_strlen(data.str);
 	data.prefix = "0x";
 	data.negative = 0;
 	apply_specs(info, &data);
-	free(data.str);
 }
