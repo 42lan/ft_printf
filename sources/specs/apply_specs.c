@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/08 16:41:52 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/08 18:54:14 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,8 @@ void		put_prefix(t_info *info, t_data *data)
 	else if (data->negative == 1 && data->str[0] != '-')
 		write_char(&info->buffer, '-');
 	else if (info->space == 1)
-	{
-		if (data->str[0] == '\0')
-			info->buffer.length++;
-		else
-			write_char(&info->buffer, ' ');
-	}
+		(data->str[0] == '\0')
+			? info->buffer.length++ : write_char(&info->buffer, ' ');
 }
 
 void		put_precision(t_info *info, t_data *data)
@@ -97,11 +93,10 @@ void		put_width_s(t_info *info, t_data *data)
 
 	if (info->width > data->length && info->point == 0)
 		width = info->width - data->length;
-	else if (data->length == 0)
+	else if ((data->length == 0)
+			|| (info->width != 0 && (info->point == 0 || info->precision == 0)))
 		width = info->width;
-	else if (info->width != 0 && (info->point == 0 || info->precision == 0))
-		width = info->width;
-	else if (info->width != 0 && info->precision < data->length)
+	else if (info->width != 0 && info->precision <= data->length)
 		width = info->width - info->precision;
 	else
 		width = 0;
