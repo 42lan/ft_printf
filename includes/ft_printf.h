@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/03 12:58:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/08 15:36:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct		s_buffer
 ** This aproach allow to optimize usage of memory
 */
 
+/*
 typedef struct		s_flags
 {
 	unsigned		space	: 1;
@@ -66,11 +67,13 @@ typedef struct		s_flags
 	unsigned		zero	: 1;
 	unsigned		point	: 1;
 }					t_flags;
+*/
 
 /*
 ** Structure of the syntax for a format fields
 */
 
+/*
 typedef struct		s_spec
 {
 	int				parameter;
@@ -79,14 +82,23 @@ typedef struct		s_spec
 	int				precision;
 	char			length;
 }					t_spec;
-
+*/
 /*
 ** Structure of the syntax for a format placeholder
 */
 
 typedef struct		s_info
 {
-	t_spec			*specs;
+	int				parameter;
+	unsigned		space	: 1;
+	unsigned		hash	: 1;
+	unsigned		plus	: 1;
+	unsigned		minus	: 1;
+	unsigned		zero	: 1;
+	unsigned		point	: 1;
+	int				width;
+	int				precision;
+	char			length;
 	char			type;
 	va_list			ap;
 	t_buffer		buffer;
@@ -94,11 +106,11 @@ typedef struct		s_info
 
 int					ft_printf(const char *format, ...);
 void				parsing(const char **format, t_info *info);
-t_info				*initialize_info(void);
+void				initialize_info(t_info *info);
 void				initialize_buffer(t_buffer *buffer);
-void				initialize_specifiers(t_spec *specs);
-void				initialize_flags(t_flags *flags);
-void				set_flag(const char c, t_flags *flags);
+void				initialize_specifiers(t_info *info);
+void				initialize_flags(t_info *info);
+void				set_flag(const char c, t_info *info);
 int					buffer_full(t_buffer *buffer);
 void				print_buffer(t_buffer *buffer);
 void				write_char(t_buffer *buffer, char c);
