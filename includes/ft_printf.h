@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/08 15:36:39 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/08 16:37:58 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <limits.h>
 # include "../libft/include/libft.h"
 
-# define BUFF_SIZE 32
+# define BUFF_SIZE	32
 # define LENGTH_H	0x01
 # define LENGTH_HH	0x02
 # define LENGTH_L	0x04
@@ -32,6 +32,10 @@
 # define LENGTH_T	0x40
 # define LENGTH_LLL 0x80
 
+/*
+** Structure to store extracted data
+*/
+
 typedef struct		s_data
 {
 	char			*str;
@@ -40,52 +44,12 @@ typedef struct		s_data
 	char			*prefix;
 }					t_data;
 
-/*
-** Structure to store extracted data
-*/
-
 typedef struct		s_buffer
 {
 	int				index;
 	int				length;
 	char			content[BUFF_SIZE];
 }					t_buffer;
-
-/*
-** Bit field
-** Following group of fields will never exceed a limit. They can be only 0 or 1
-** This aproach allow to optimize usage of memory
-*/
-
-/*
-typedef struct		s_flags
-{
-	unsigned		space	: 1;
-	unsigned		hash	: 1;
-	unsigned		plus	: 1;
-	unsigned		minus	: 1;
-	unsigned		zero	: 1;
-	unsigned		point	: 1;
-}					t_flags;
-*/
-
-/*
-** Structure of the syntax for a format fields
-*/
-
-/*
-typedef struct		s_spec
-{
-	int				parameter;
-	t_flags			*flags;
-	int				width;
-	int				precision;
-	char			length;
-}					t_spec;
-*/
-/*
-** Structure of the syntax for a format placeholder
-*/
 
 typedef struct		s_info
 {
