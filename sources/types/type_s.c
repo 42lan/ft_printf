@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 14:37:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/03 12:47:50 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/06 18:05:20 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		write_order(t_info *info, t_data *data)
 {
-	if (info->specs->flags->minus == 0)
+	if (info->minus == 0)
 	{
 		put_width_s(info, data);
 		write_str(&info->buffer, data->str, data->length);
@@ -29,10 +29,10 @@ static void		write_order(t_info *info, t_data *data)
 static void		data_null(t_info *info, t_data *data)
 {
 	data->str = "(null)";
-	if (info->specs->flags->point == 1 && info->specs->precision == 0)
+	if (info->point == 1 && info->precision == 0)
 		data->length = 0;
-	else if (info->specs->precision > 0)
-		data->length = info->specs->precision;
+	else if (info->precision > 0)
+		data->length = info->precision;
 	else
 		data->length = ft_strlen(data->str);
 	write_order(info, data);
@@ -43,7 +43,7 @@ void			type_s(const char **format, t_info *info)
 	t_data		data;
 
 	info->type = **format;
-	info->specs->flags->hash = 0;
+	info->hash = 0;
 	data.str = va_arg(info->ap, char *);
 	if (data.str == NULL || data.str[0] == 0)
 	{
@@ -57,41 +57,41 @@ void			type_s(const char **format, t_info *info)
 		return ;
 	}
 	data.length = ft_strlen(data.str);
-	if (info->specs->width <= data.length && info->specs->flags->point == 0)
+	if (info->width <= data.length && info->point == 0)
 		write_str(&info->buffer, data.str, data.length);
-	else if (info->specs->width > data.length && info->specs->flags->point == 0)
+	else if (info->width > data.length && info->point == 0)
 		write_order(info, &data);
-	else if (info->specs->width == 0)
+	else if (info->width == 0)
 	{
-		if ((info->specs->flags->point == 1 && info->specs->precision == 0))
+		if ((info->point == 1 && info->precision == 0))
 			return ;
-		if (info->specs->precision <= data.length)
-			data.length -= (data.length - info->specs->precision);
+		if (info->precision <= data.length)
+			data.length -= (data.length - info->precision);
 		write_order(info, &data);
 	}
 	else
 	{
-		if (info->specs->flags->point == 0 || info->specs->precision == 0)
+		if (info->point == 0 || info->precision == 0)
 			put_width_s(info, &data);
-		if (info->specs->precision < data.length)
+		if (info->precision < data.length)
 		{
-			if (info->specs->flags->minus == 1)
+			if (info->minus == 1)
 			{
 				write_str(&info->buffer, data.str,
-						data.length - (data.length - info->specs->precision));
+						data.length - (data.length - info->precision));
 				put_width_s(info, &data);
 				return ;
 			}
 		}
 		else
 		{
-			data.length -= (data.length - info->specs->precision);
+			data.length -= (data.length - info->precision);
 			write_order(info, &data);
 		}
-		if (info->specs->flags->minus == 0)
+		if (info->minus == 0)
 		{
 			put_width_s(info, &data);
-			write_str(&info->buffer, data.str, info->specs->precision);
+			write_str(&info->buffer, data.str, info->precision);
 		}
 		else
 		{

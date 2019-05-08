@@ -6,61 +6,41 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 16:22:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/22 16:52:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/08 16:42:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		initialize_buffer(t_buffer *buffer)
+void	initialize_buffer(t_buffer *buffer)
 {
 	buffer->index = 0;
 	buffer->length = 0;
 	ft_bzero(buffer->content, BUFF_SIZE);
 }
 
-/*
-** Allocation of memory for info and it fields
-*/
-
-t_info		*initialize_info(void)
+void	initialize_info(t_info *info)
 {
-	t_info	*info;
-
-	if (!(info = (t_info *)ft_memalloc(sizeof(t_info))))
-		return (NULL);
-	if (!(info->specs = (t_spec *)ft_memalloc(sizeof(t_spec))))
-		return (NULL);
-	if (!(info->specs->flags = (t_flags *)ft_memalloc(sizeof(t_flags))))
-		return (NULL);
 	info->type = 0;
+	initialize_specifiers(info);
 	initialize_buffer(&info->buffer);
-	return (info);
 }
 
-/*
-** Initialization of type pointer to t_info structure
-*/
-
-void		initialize_specifiers(t_spec *specifiers)
+void	initialize_specifiers(t_info *info)
 {
-	specifiers->parameter = 0;
-	initialize_flags(specifiers->flags);
-	specifiers->width = 0;
-	specifiers->precision = 0;
-	specifiers->length = 0;
+	info->parameter = 0;
+	info->width = 0;
+	info->precision = 0;
+	info->length = 0;
+	initialize_flags(info);
 }
 
-/*
-** Setting up all fields of t_flags structure to 0
-*/
-
-void		initialize_flags(t_flags *flags)
+void	initialize_flags(t_info *info)
 {
-	flags->space = 0;
-	flags->hash = 0;
-	flags->plus = 0;
-	flags->minus = 0;
-	flags->zero = 0;
-	flags->point = 0;
+	info->space = 0;
+	info->hash = 0;
+	info->plus = 0;
+	info->minus = 0;
+	info->zero = 0;
+	info->point = 0;
 }

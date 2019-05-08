@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 09:45:05 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/28 17:54:44 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/08 12:35:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void			digit(const char **format, t_info *info)
 
 void			set_width(const char **format, t_info *info)
 {
-	info->specs->width = get_number(format);
+	info->width = get_number(format);
 }
 
 void			set_precision(const char **format, t_info *info)
 {
 	(*format)++;
-	info->specs->flags->point = 1;
-	info->specs->precision = get_number(format);
+	info->point = 1;
+	info->precision = get_number(format);
 }
