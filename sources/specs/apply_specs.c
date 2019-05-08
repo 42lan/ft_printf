@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/03 12:25:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/08 16:41:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void		apply_specs(t_info *info, t_data *data)
 {
-	if (info->specs->flags->minus == 0)
+	if (info->minus == 0)
 	{
-		if (info->specs->flags->zero == 1)
+		if (info->zero == 1)
 		{
 			put_prefix(info, data);
 			put_width(info, data);
@@ -42,13 +42,13 @@ void		put_prefix(t_info *info, t_data *data)
 {
 	if (info->type == 'u')
 		return ;
-	else if (info->specs->flags->hash == 1 || info->type == 'p')
+	else if (info->hash == 1 || info->type == 'p')
 		write_str(&info->buffer, data->prefix, ft_strlen(data->prefix));
-	else if (info->specs->flags->plus == 1 && data->negative == 0)
+	else if (info->plus == 1 && data->negative == 0)
 		write_char(&info->buffer, '+');
 	else if (data->negative == 1 && data->str[0] != '-')
 		write_char(&info->buffer, '-');
-	else if (info->specs->flags->space == 1)
+	else if (info->space == 1)
 	{
 		if (data->str[0] == '\0')
 			info->buffer.length++;
@@ -61,7 +61,7 @@ void		put_precision(t_info *info, t_data *data)
 {
 	int		precision;
 
-	precision = info->specs->precision - data->length;
+	precision = info->precision - data->length;
 	while (precision-- > 0 && data->str[0] != '\0')
 		write_char(&info->buffer, '0');
 }
@@ -72,24 +72,22 @@ void		put_width(t_info *info, t_data *data)
 
 	if (info->type == 'p')
 	{
-		width = info->specs->width - ft_strlen(data->prefix);
-		width -= (info->specs->precision >= data->length)
-				? info->specs->precision : data->length;
+		width = info->width - ft_strlen(data->prefix);
+		width -= (info->precision >= data->length)
+					? info->precision : data->length;
 	}
-	else if (info->specs->width < data->length)
+	else if (info->width < data->length)
 		width = 0;
-	else if (info->specs->precision > data->length)
-		width = info->specs->width - info->specs->precision;
-	else if (info->specs->flags->hash == 1)
-		width = info->specs->width - data->length - ft_strlen(data->prefix);
+	else if (info->precision > data->length)
+		width = info->width - info->precision;
+	else if (info->hash == 1)
+		width = info->width - data->length - ft_strlen(data->prefix);
 	else
-		width = info->specs->width - data->length;
-	if ((info->specs->flags->plus == 1 || info->specs->flags->space == 1)
-		&& data->negative == 0)
+		width = info->width - data->length;
+	if ((info->plus == 1 || info->space == 1) && data->negative == 0)
 		width--;
 	while (width-- > 0)
-		(info->specs->flags->zero == 1 && info->specs->flags->minus == 0
-		&& data->length > 1)
+		(info->zero == 1 && info->minus == 0 && data->length > 1)
 		? write_char(&info->buffer, '0') : write_char(&info->buffer, ' ');
 }
 
@@ -97,18 +95,16 @@ void		put_width_s(t_info *info, t_data *data)
 {
 	int		width;
 
-	if (info->specs->width > data->length && info->specs->flags->point == 0)
-		width = info->specs->width - data->length;
+	if (info->width > data->length && info->point == 0)
+		width = info->width - data->length;
 	else if (data->length == 0)
-		width = info->specs->width;
-	else if (info->specs->width != 0 &&
-			(info->specs->flags->point == 0 || info->specs->precision == 0))
-		width = info->specs->width;
-	else if (info->specs->width != 0 && info->specs->precision < data->length)
-		width = info->specs->width - info->specs->precision;
+		width = info->width;
+	else if (info->width != 0 && (info->point == 0 || info->precision == 0))
+		width = info->width;
+	else if (info->width != 0 && info->precision < data->length)
+		width = info->width - info->precision;
 	else
 		width = 0;
 	while (width-- > 0)
-		(info->specs->flags->zero == 0) ?
-		write_char(&info->buffer, ' ') : write_char(&info->buffer, '0');
+		write_char(&info->buffer, (info->zero == 0) ? ' ' : '0');
 }
