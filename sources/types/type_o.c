@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:54:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/08 16:26:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/08 18:45:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ static void		specs_handler(t_info *info, t_data *data, uintmax_t *number)
 	info->plus = 0;
 	if (info->hash == 1)
 		data->prefix = (*number == 0 && info->precision != 0) ? "\0" : "0";
-	if (*number == 0
-		&& info->point == 1 && info->precision == 0)
+	if (*number == 0 && info->point == 1 && info->precision == 0)
 	{
 		if (info->width == 0)
 			data->str[0] = '\0';
