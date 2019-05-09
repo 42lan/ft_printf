@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/09 13:37:27 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/09 15:16:27 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRCNAME		= ft_printf.c				\
 			  types/type_p.c			\
 			  types/type_percent.c		\
 			  types/unknown.c			\
+			  types/asterisk.c			\
 			  main.c
 
 # **************************************************************************** #
