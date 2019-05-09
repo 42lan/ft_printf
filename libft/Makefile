@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/06 12:03:51 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/09 13:38:33 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -130,7 +130,7 @@ $(NAME): $(OBJ)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	-@$(MKDIR) $(OBJDIR)
-	$(CC) -I $(INCDIR) -o $@ -c $<
+	$(CC) -I $(INCDIR) -c $< -o $@
 
 clean:
 	$(RM) $(OBJDIR)
