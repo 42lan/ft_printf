@@ -48,6 +48,7 @@ SRCNAME		= ft_printf.c				\
 			  specs/set_length.c		\
 			  specs/set_specs.c			\
 			  specs/apply_specs.c		\
+			  specs/asterisk.c			\
 			  types/types.c				\
 			  types/type_c.c			\
 			  types/type_s.c			\
@@ -58,7 +59,6 @@ SRCNAME		= ft_printf.c				\
 			  types/type_p.c			\
 			  types/type_percent.c		\
 			  types/unknown.c			\
-			  types/asterisk.c			\
 			  main.c
 
 # **************************************************************************** #
