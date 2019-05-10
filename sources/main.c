@@ -15,7 +15,7 @@
 
 int			main(void)
 {
-	printf("\t[ PRINTF ]\t-> Return: %d\n", printf("%#o", 0));
-	printf("\t[ FT_PRINTF ]\t-> Return: %d\n", ft_printf("%#o", 0));
+	printf("\t[ PRINTF ]\t-> Return: %d\n", printf("%*.*d.", 10, 5, 42));
+	printf("\t[ FT_PRINTF ]\t-> Return: %d\n", ft_printf("%*.*d.", 10, 5, 42));
 	return (0);
 }
