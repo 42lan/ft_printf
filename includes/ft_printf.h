@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/08 16:37:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/11 19:37:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,15 @@ void				flag_hash(const char **format, t_info *info);
 void				flag_plus(const char **format, t_info *info);
 void				flag_minus(const char **format, t_info *info);
 void				flag_zero(const char **format, t_info *info);
+void				set_precision(const char **format, t_info *info);
+void				set_width(const char **format, t_info *info);
+void				digit(const char **format, t_info *info);
 void				length_h(const char **format, t_info *info);
 void				length_l(const char **format, t_info *info);
 void				length_j(const char **format, t_info *info);
 void				length_z(const char **format, t_info *info);
 void				length_t(const char **format, t_info *info);
-void				type_percent(const char **format, t_info *info);
+void				type_b(const char **format, t_info *info);
 void				type_c(const char **format, t_info *info);
 void				type_di(const char **format, t_info *info);
 void				type_f(const char **format, t_info *info);
@@ -111,21 +114,19 @@ void				type_p(const char **format, t_info *info);
 void				type_s(const char **format, t_info *info);
 void				type_u(const char **format, t_info *info);
 void				type_x(const char **format, t_info *info);
-void				asterisk(const char **format, t_info *info);
-void				set_precision(const char **format, t_info *info);
-void				set_width(const char **format, t_info *info);
-void				digit(const char **format, t_info *info);
+void				percent(const char **format, t_info *info);
+void				wildcard(const char **format, t_info *info);
 
 static t_handler	g_jump_table[] = {
-	flag_space, unknown, unknown, flag_hash, unknown, type_percent, unknown,
-	unknown, unknown, unknown, asterisk, flag_plus, unknown, flag_minus,
+	flag_space, unknown, unknown, flag_hash, unknown, percent, unknown,
+	unknown, unknown, unknown, wildcard, flag_plus, unknown, flag_minus,
 	set_precision, unknown, flag_zero, digit, digit, digit, digit, digit,
 	digit, digit, digit, digit, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown, unknown, unknown, type_c, type_di, unknown, unknown,
+	unknown, unknown, unknown, type_b, type_c, type_di, unknown, unknown,
 	unknown, unknown, unknown, unknown, unknown, length_l, unknown, unknown,
 	type_o, unknown, unknown, unknown, unknown, unknown, type_u, unknown,
 	unknown, type_x, unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown, unknown, unknown, type_c, type_di, unknown, type_f,
+	unknown, unknown, unknown, type_b, type_c, type_di, unknown, type_f,
 	unknown, length_h, type_di, length_j, unknown, length_l, unknown, unknown,
 	type_o, type_p, unknown, unknown, type_s, length_t, type_u, unknown,
 	unknown, type_x, unknown, length_z, unknown, unknown, unknown, unknown
