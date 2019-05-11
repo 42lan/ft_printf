@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 12:35:14 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/08 16:45:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/11 18:15:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void			unknown(const char **format, t_info *info)
 {
-	t_data		data;
 	char		*types;
+	t_data		data;
 
-	types = "cspdiouxXf";
+	types = "cspdiouxXfBCDIOUX";
 	info->type = **format;
 	info->hash = 0;
 	va_arg(info->ap, int);
