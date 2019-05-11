@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/09 15:16:27 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/11 18:54:01 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ LIBNAME		= libft.a
 # **************************************************************************** #
 # System commands
 
-#CC			= /usr/bin/clang -Wall -Wextra -Werror
-CC			= /usr/bin/clang
+CC			= /usr/bin/clang -Wall -Wextra -Werror
 AR			= /usr/bin/ar -rc
 MAKE		= /usr/bin/make -C
 RANLIB		= /usr/bin/ranlib
@@ -48,18 +47,18 @@ SRCNAME		= ft_printf.c				\
 			  specs/set_length.c		\
 			  specs/set_specs.c			\
 			  specs/apply_specs.c		\
-			  specs/asterisk.c			\
-			  types/types.c				\
+			  specs/wildcard.c			\
+			  types/type_b.c			\
 			  types/type_c.c			\
-			  types/type_s.c			\
 			  types/type_di.c			\
-			  types/type_u.c			\
-			  types/type_x.c			\
+			  types/type_f.c			\
 			  types/type_o.c			\
 			  types/type_p.c			\
-			  types/type_percent.c		\
-			  types/unknown.c			\
-			  main.c
+			  types/type_s.c			\
+			  types/type_u.c			\
+			  types/type_x.c			\
+			  types/percent.c			\
+			  types/unknown.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
@@ -75,8 +74,6 @@ LFTOBJ		= $(LIBDIR)/objects/*.o
 # .SILENT:
 
 all: $(NAME) $(LFT)
-	$(CC) $(NAME) $(LFT) # Для того, чтобы создать исполняемый файл a.out
-# НЕ ЗАБЫТЬ УБРАТЬ ЛИНИЮ СВЕРХУ
 
 $(NAME): $(LFT) $(OBJ)
 	$(AR) $(NAME) $(OBJ) $(LFTOBJ)
