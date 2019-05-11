@@ -6,22 +6,22 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/31 16:11:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/06 18:05:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/11 16:58:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** get_number() receive  an addresse of a number and info structure.
+** get_ui() receive  an addresse of a number and info structure.
 ** It retrieve an integer from arguments then depending on what type of length
 ** was specified (which bit is setted to 1) it cast retrieved integer.
 */
 
-static void		get_ui(intmax_t *number, t_info *info)
+static void		get_ui(uintmax_t *number, t_info *info)
 {
 	if (ft_isupper(info->type))
-		*number = (intmax_t)va_arg(info->ap, intmax_t);
+		*number = (uintmax_t)va_arg(info->ap, uintmax_t);
 	else if (info->length == 0)
 		*number = (unsigned int)va_arg(info->ap, unsigned int);
 	else if (info->length == LENGTH_H)
@@ -43,7 +43,7 @@ static void		get_ui(intmax_t *number, t_info *info)
 
 void			type_u(const char **format, t_info *info)
 {
-	intmax_t	number;
+	uintmax_t	number;
 	t_data		data;
 
 	info->type = **format;
