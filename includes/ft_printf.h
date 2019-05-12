@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/11 19:37:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/12 12:50:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@
 # define BUFF_SIZE	32
 # define LENGTH_H	0x01
 # define LENGTH_HH	0x02
-# define LENGTH_L	0x04
-# define LENGTH_LL	0x08
-# define LENGTH_J	0x10
-# define LENGTH_Z	0x20
-# define LENGTH_T	0x40
-# define LENGTH_LLL 0x80
+# define LENGTH_L	0x03
+# define LENGTH_LL	0x04
+# define LENGTH_J	0x05
+# define LENGTH_Z	0x06
+# define LENGTH_T	0x07
+# define LENGTH_LLL 0x08
 
 /*
 ** Structure to store extracted data
@@ -118,18 +118,18 @@ void				percent(const char **format, t_info *info);
 void				wildcard(const char **format, t_info *info);
 
 static t_handler	g_jump_table[] = {
-	flag_space, unknown, unknown, flag_hash, unknown, percent, unknown,
-	unknown, unknown, unknown, wildcard, flag_plus, unknown, flag_minus,
-	set_precision, unknown, flag_zero, digit, digit, digit, digit, digit,
-	digit, digit, digit, digit, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown, unknown, type_b, type_c, type_di, unknown, unknown,
-	unknown, unknown, unknown, unknown, unknown, length_l, unknown, unknown,
-	type_o, unknown, unknown, unknown, unknown, unknown, type_u, unknown,
-	unknown, type_x, unknown, unknown, unknown, unknown, unknown, unknown,
-	unknown, unknown, unknown, type_b, type_c, type_di, unknown, type_f,
-	unknown, length_h, type_di, length_j, unknown, length_l, unknown, unknown,
-	type_o, type_p, unknown, unknown, type_s, length_t, type_u, unknown,
-	unknown, type_x, unknown, length_z, unknown, unknown, unknown, unknown
+	flag_space, unknown, unknown, flag_hash, unknown, percent, unknown,	unknown,
+	unknown, unknown, wildcard, flag_plus, unknown, flag_minus, set_precision,
+	unknown, flag_zero, digit, digit, digit, digit, digit, digit, digit, digit,
+	digit, unknown, unknown, unknown, unknown, unknown, unknown, unknown,
+	unknown, type_b, type_c, type_di, unknown, type_f, unknown, unknown,
+	unknown, unknown, unknown, length_l, unknown, unknown, type_o, unknown,
+	unknown, unknown, unknown, unknown, type_u, unknown, unknown, type_x,
+	unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown,
+	unknown, type_b, type_c, type_di, unknown, type_f, unknown, length_h,
+	type_di, length_j, unknown, length_l, unknown, unknown, type_o, type_p,
+	unknown, unknown, type_s, length_t, type_u, unknown, unknown, type_x,
+	unknown, length_z, unknown, unknown, unknown, unknown
 };
 
 #endif
