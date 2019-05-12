@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/06 17:42:32 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/12 18:36:43 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,6 @@ char				*ft_sitoa_base_static(intmax_t number, int base,
 					int uppercase);
 char				*ft_uitoa_base_static(uintmax_t number, int base,
 					int uppercase);
+char				*ft_ftoa_static(double number, unsigned int precision);
 
 #endif
