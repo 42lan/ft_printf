@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/09 13:38:33 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/12 15:57:49 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,7 +110,8 @@ SRCNAME		= ft_memset.c				\
 			  ft_itoa_static.c			\
 			  ft_litoa_static.c			\
 			  ft_sitoa_base_static.c	\
-			  ft_uitoa_base_static.c
+			  ft_uitoa_base_static.c	\
+			  ft_ftoa_static.c
 
 
 # **************************************************************************** #
