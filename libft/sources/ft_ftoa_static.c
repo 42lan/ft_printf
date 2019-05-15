@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 13:36:24 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/12 18:54:26 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/15 10:05:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char				*ft_ftoa_static(double number, unsigned int precision)
 	int				i;
 	int				i_part;
 	float			f_part;
-
 
 	i_part = (int)number;
 	f_part = number - (i_part);
