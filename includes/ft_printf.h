@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/12 12:50:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/15 10:03:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,13 +118,13 @@ void				percent(const char **format, t_info *info);
 void				wildcard(const char **format, t_info *info);
 
 static t_handler	g_jump_table[] = {
-	flag_space, unknown, unknown, flag_hash, unknown, percent, unknown,	unknown,
+	flag_space, unknown, unknown, flag_hash, unknown, percent, unknown, unknown,
 	unknown, unknown, wildcard, flag_plus, unknown, flag_minus, set_precision,
 	unknown, flag_zero, digit, digit, digit, digit, digit, digit, digit, digit,
 	digit, unknown, unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, type_b, type_c, type_di, unknown, type_f, unknown, unknown,
 	unknown, unknown, unknown, length_l, unknown, unknown, type_o, unknown,
-	unknown, unknown, unknown, unknown, type_u, unknown, unknown, type_x,
+	unknown, unknown, type_s, unknown, type_u, unknown, unknown, type_x,
 	unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown,
 	unknown, type_b, type_c, type_di, unknown, type_f, unknown, length_h,
 	type_di, length_j, unknown, length_l, unknown, unknown, type_o, type_p,
