@@ -6,18 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/15 10:03:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/15 14:05:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-/*
-** УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h
-** УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h УБРАТЬ stdio.h
-*/
-# include <stdio.h>
 # include <stdarg.h>
 # include <limits.h>
 # include "../libft/include/libft.h"
@@ -44,6 +39,10 @@ typedef struct		s_data
 	char			*prefix;
 }					t_data;
 
+/*
+** Structure to store data befor buffer is full
+*/
+
 typedef struct		s_buffer
 {
 	int				index;
@@ -53,7 +52,6 @@ typedef struct		s_buffer
 
 typedef struct		s_info
 {
-	int				parameter;
 	unsigned		space	: 1;
 	unsigned		hash	: 1;
 	unsigned		plus	: 1;
