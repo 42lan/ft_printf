@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/11 16:44:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/15 15:11:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,8 @@ static void		get_si(intmax_t *number, t_info *info)
 static void		specs_handler(t_info *info, t_data *data, intmax_t *number)
 {
 	info->hash = 0;
-	if (*number == 0)
-	{
-		info->zero = 0;
-		if (info->point == 1 && info->precision == 0)
-			data->str[0] = (info->width != 0) ? ' ' : '\0';
-	}
+	if (*number == 0 && info->point == 1 && info->precision == 0)
+		data->str[0] = (info->width != 0) ? ' ' : '\0';
 	else if (*number < 0)
 	{
 		data->negative = 1;
