@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 14:37:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/11 18:42:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/15 10:44:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ static void		write_order(t_info *info, t_data *data)
 	}
 }
 
-static int		data_null(t_info *info, t_data *data)
+static void		data_null(t_info *info, t_data *data)
 {
 	data->str = "(null)";
+	info->width = 0;
 	if (info->point == 1 && info->precision == 0)
 		data->length = 0;
 	else if (info->precision > 0)
@@ -36,7 +37,6 @@ static int		data_null(t_info *info, t_data *data)
 	else
 		data->length = ft_strlen(data->str);
 	write_order(info, data);
-	return (1);
 }
 
 void			type_s(const char **format, t_info *info)
@@ -46,8 +46,11 @@ void			type_s(const char **format, t_info *info)
 	info->type = **format;
 	info->hash = 0;
 	data.str = va_arg(info->ap, char *);
-	if (data.str == NULL && data_null(info, &data))
+	if (data.str == NULL)
+	{
+		data_null(info, &data);
 		return ;
+	}
 	data.length = ft_strlen(data.str);
 	if (info->point == 1)
 	{
