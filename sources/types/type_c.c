@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 10:26:29 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/08 16:40:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/15 10:51:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,16 @@ void			type_c(const char **format, t_info *info)
 	info->type = **format;
 	info->plus = 0;
 	info->hash = 0;
+	info->space = 0;
 	c = (char)va_arg(info->ap, int);
 	if (c == 0)
 	{
-		while (info->width-- > 1)
-			write_char(&info->buffer, (info->zero == 0) ? ' ' : '0');
+		if (info->zero == 0)
+			while (info->width-- > 1)
+				write_char(&info->buffer, ' ');
+		else
+			while (info->width-- > 1)
+				write_char(&info->buffer, '0');
 		write_char(&info->buffer, c);
 		return ;
 	}
