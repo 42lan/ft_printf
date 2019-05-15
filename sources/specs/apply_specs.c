@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/15 10:38:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/15 17:55:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,35 +66,32 @@ void		put_width(t_info *info, t_data *data)
 {
 	int		width;
 
-	if (info->type == 'p')
-	{
-		width = info->width - ft_strlen(data->prefix);
-		width -= (info->precision >= data->length)
-					? info->precision : data->length;
-	}
-	else if (info->width < data->length)
+	if (info->width < data->length)
 		width = 0;
 	else if (info->precision > data->length)
 		width = info->width - info->precision;
-	else if (info->hash == 1)
+	else if (info->hash == 1 || info->type == 'p')
 		width = info->width - data->length - ft_strlen(data->prefix);
 	else
 		width = info->width - data->length;
 	if ((info->plus == 1 || info->space == 1) && data->negative == 0)
 		width--;
-	while (width-- > 0)
-		(info->zero == 1 && info->minus == 0 && data->length > 1)
-		? write_char(&info->buffer, '0') : write_char(&info->buffer, ' ');
+	if (info->zero == 1 && info->minus == 0 && data->length > 1)
+		while (width-- > 0)
+			write_char(&info->buffer, '0');
+	else
+		while (width-- > 0)
+			write_char(&info->buffer, ' ');
 }
 
 void		put_width_s(t_info *info, t_data *data)
 {
 	int		width;
 
-	if (info->width > data->length && info->point == 0)
+	if (info->width >= data->length && info->point == 0)
 		width = info->width - data->length;
-	else if ((data->length == 0)
-			|| (info->width != 0 && (info->point == 0 || info->precision == 0)))
+	else if ((info->width != 0 && (info->point == 0 || info->precision == 0))
+			|| (data->length == 0))
 		width = info->width;
 	else if (info->width != 0 && info->precision <= data->length)
 		width = info->width - info->precision;
