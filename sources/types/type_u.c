@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/31 16:11:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/15 10:14:03 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/15 12:34:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,8 @@ void			type_u(const char **format, t_info *info)
 	info->hash = 0;
 	get_ui(&number, info);
 	data.str = ft_uitoa_base_static(number, 10, 0);
-	if (number == 0 && info->width == 0 && info->point == 1 && info->precision == 0)
-		data.length = 0;
-	else
-		data.length = ft_strlen(data.str);
+	data.length = (number == 0 && info->width == 0 && info->point == 1
+					&& info->precision == 0) ? 0 : ft_strlen(data.str);
 	data.negative = 0;
 	apply_specs(info, &data);
 }
