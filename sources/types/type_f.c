@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/11 19:37:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/12 18:58:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/16 12:29:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void				type_f(const char **format, t_info *info)
 	info->type = **format;
 	info->hash = 0;
 	info->plus = 0;
-	data.str = ft_ftoa_static(number, 7);
+	data.str = ft_ftoa_static(number, info->precision);
 	data.negative = 0;
 	data.length = ft_strlen(data.str);
 	apply_specs(info, &data);
