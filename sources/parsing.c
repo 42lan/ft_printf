@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 09:25:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/08 15:29:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/16 13:37:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void				parsing(const char **format, t_info *info)
 {
-	if (*(*format) == 0)
+	if (**format == 0)
 		return ;
 	initialize_specifiers(info);
 	info->type = 0;
