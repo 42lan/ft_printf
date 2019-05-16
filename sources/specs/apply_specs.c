@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/15 17:55:52 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/16 17:35:50 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void		put_width(t_info *info, t_data *data)
 		width = info->width - data->length;
 	if ((info->plus == 1 || info->space == 1) && data->negative == 0)
 		width--;
-	if (info->zero == 1 && info->minus == 0 && data->length > 1)
+	if (info->zero == 1 && info->minus == 0 && data->length > 0)
 		while (width-- > 0)
 			write_char(&info->buffer, '0');
 	else
@@ -86,21 +86,17 @@ void		put_width(t_info *info, t_data *data)
 
 void		put_width_s(t_info *info, t_data *data)
 {
-	int		width;
-
 	if (info->width >= data->length && info->point == 0)
-		width = info->width - data->length;
+		info->width -= data->length;
 	else if ((info->width != 0 && (info->point == 0 || info->precision == 0))
 			|| (data->length == 0))
-		width = info->width;
+		info->width = info->width;
 	else if (info->width != 0 && info->precision <= data->length)
-		width = info->width - info->precision;
-	else
-		width = 0;
+		info->width -= info->precision;
 	if (info->zero == 0)
-		while (width-- > 0)
+		while (info->width-- > 0)
 			write_char(&info->buffer, ' ');
 	else
-		while (width-- > 0)
+		while (info->width-- > 0)
 			write_char(&info->buffer, '0');
 }
