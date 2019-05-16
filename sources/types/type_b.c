@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/11 12:16:17 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/11 16:15:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/16 19:19:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		get_ui(intmax_t *number, t_info *info)
+static void		get_ui(uintmax_t *number, t_info *info)
 {
 	if (info->length == 0)
 		*number = (unsigned int)va_arg(info->ap, unsigned int);
@@ -35,7 +35,7 @@ static void		get_ui(intmax_t *number, t_info *info)
 
 void			type_b(const char **format, t_info *info)
 {
-	intmax_t	number;
+	uintmax_t	number;
 	t_data		data;
 
 	info->type = **format;
