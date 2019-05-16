@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 14:37:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/15 10:44:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/16 15:07:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void			type_s(const char **format, t_info *info)
 
 	info->type = **format;
 	info->hash = 0;
+	if (info->minus == 1)
+		info->zero = 0;
 	data.str = va_arg(info->ap, char *);
 	if (data.str == NULL)
 	{
@@ -56,13 +58,11 @@ void			type_s(const char **format, t_info *info)
 	{
 		if (info->precision == 0)
 			data.length = 0;
-		else if (data.str[0] == '\0')
-			data.length = data.length;
 		else if (info->precision < data.length
 				&& info->width != 0 && info->minus == 0)
 			data.length = info->precision;
 		else
-			data.length -= (data.length - info->precision);
+			data.length -= ABS((data.length - info->precision));
 	}
 	write_order(info, &data);
 }
