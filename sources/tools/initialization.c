@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 16:22:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/15 14:01:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/16 12:41:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	initialize_buffer(t_buffer *buffer)
 {
 	buffer->index = 0;
 	buffer->length = 0;
-	ft_bzero(buffer->content, BUFF_SIZE);
 }
 
 void	initialize_info(t_info *info)
