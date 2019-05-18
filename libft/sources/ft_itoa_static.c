@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/05 17:45:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/06 15:49:56 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/18 13:47:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char				*ft_itoa_static(intmax_t nbr)
+char				*ft_itoa_static(int nbr)
 {
 	static char		str[12];
 	size_t			length;
