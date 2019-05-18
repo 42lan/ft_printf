@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/15 14:05:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/18 18:53:21 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void				write_char(t_buffer *buffer, char c);
 void				write_str(t_buffer *buffer, char *str, int length);
 void				apply_specs(t_info *info, t_data *data);
 void				put_width(t_info *info, t_data *data);
-void				put_width_s(t_info *info, t_data *data);
 void				put_precision(t_info *info, t_data *data);
 void				put_prefix(t_info *info, t_data *data);
 
