@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/12 18:36:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/18 13:52:57 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,12 @@ int					ft_isseparator(char c, char separator);
 int					ft_cntwords(char const *s, char c);
 size_t				ft_nblen(intmax_t n);
 void				ft_swap(void *a, void *b, size_t size);
-char				**ft_strnew2d(size_t size);
 char				*ft_sitoa_base(intmax_t number, int base, int uppercase);
 size_t				ft_silen(intmax_t number, int base);
 char				*ft_uitoa_base(uintmax_t number, int base, int uppercase);
 size_t				ft_uilen(uintmax_t number, int base);
 char				*ft_litoa(intmax_t number);
-char				*ft_itoa_static(intmax_t n);
+char				*ft_itoa_static(int number);
 char				*ft_litoa_static(intmax_t n);
 char				*ft_sitoa_base_static(intmax_t number, int base,
 					int uppercase);
