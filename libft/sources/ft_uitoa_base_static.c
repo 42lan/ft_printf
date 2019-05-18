@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 10:09:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/06 17:42:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/18 15:59:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char				*ft_uitoa_base_static(uintmax_t number, int base,
 					int uppercase)
 {
-	static char		str[12];
+	static char		str[11];
 	size_t			length;
 
 	if (base < 2 || base > 36)
