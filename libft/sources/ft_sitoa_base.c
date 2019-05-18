@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 00:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/06 15:52:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/18 15:20:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void			check_sign(intmax_t *number, int base, char *str)
 
 char				*ft_sitoa_base(intmax_t number, int base, int uppercase)
 {
-	static char		*str;
+	char			*str;
 	size_t			length;
 
 	if (base < 2 || base > 36)
