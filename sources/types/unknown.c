@@ -6,24 +6,26 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 12:35:14 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/11 18:15:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/19 15:44:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static void		specs_handler(t_info *info)
+{
+	info->hash = 0;
+	if (ft_strchr("BbCcDdFfIiOoSsUuXx", info->type) == NULL)
+		info->space = 0;
+}
+
 void			unknown(const char **format, t_info *info)
 {
-	char		*types;
 	t_data		data;
 
-	types = "cspdiouxXfBCDIOUX";
 	info->type = **format;
-	info->hash = 0;
-	va_arg(info->ap, int);
+	specs_handler(info);
 	data.str = (char *)*format;
-	if (ft_strchr(types, **format) == NULL)
-		info->space = 0;
 	data.length = 1;
 	data.negative = 0;
 	apply_specs(info, &data);
