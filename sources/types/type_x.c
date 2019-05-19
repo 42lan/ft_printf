@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:40:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/11 18:15:03 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/19 15:23:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,25 @@ static void		get_ui(uintmax_t *number, t_info *info)
 		*number = (unsigned int)va_arg(info->ap, unsigned int);
 }
 
+static void		specs_handler(t_info *info, uintmax_t number)
+{
+	info->space = 0;
+	info->plus = 0;
+	if (number == 0)
+		info->hash = 0;
+}
+
 void			type_x(const char **format, t_info *info)
 {
 	uintmax_t	number;
 	t_data		data;
 
 	info->type = **format;
-	info->space = 0;
-	info->plus = 0;
 	get_ui(&number, info);
+	specs_handler(info, number);
 	data.negative = 0;
 	if (number == 0)
-	{
-		info->hash = 0;
 		data.str = (info->point == 1 && info->precision == 0) ? "\0" : "0";
-	}
 	else
 		data.str = ft_uitoa_base_static(number, 16, ft_isupper(info->type));
 	if (info->hash == 1)
