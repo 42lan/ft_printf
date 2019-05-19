@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 10:26:29 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/15 16:56:52 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/19 16:32:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,21 @@ static void		write_order(t_info *info, t_data *data)
 	}
 }
 
+static void		specs_handler(t_info *info)
+{
+	info->plus = 0;
+	info->hash = 0;
+	info->space = 0;
+	info->precision = 0;
+}
+
 void			type_c(const char **format, t_info *info)
 {
 	char		c;
 	t_data		data;
 
 	info->type = **format;
-	info->plus = 0;
-	info->hash = 0;
-	info->space = 0;
+	specs_handler(info);
 	c = (char)va_arg(info->ap, int);
 	data.str = &c;
 	if (c == 0)
