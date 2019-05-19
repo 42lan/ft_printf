@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 10:54:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/15 17:02:26 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/19 18:54:44 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,12 @@ static void		get_ui(uintmax_t *number, t_info *info)
 		*number = (unsigned int)va_arg(info->ap, unsigned int);
 }
 
-static void		specs_handler(t_info *info, t_data *data, uintmax_t *number)
+static void		specs_handler(t_info *info, uintmax_t number)
 {
-	info->space = 0;
 	info->plus = 0;
-	if (info->hash == 1)
-		data->prefix = (*number == 0 && info->precision != 0) ? "\0" : "0";
-	if (*number == 0 && info->point == 1 && info->precision == 0)
-	{
-		if (info->width == 0)
-			data->str[0] = '\0';
-		else
-			data->str[0] = (info->hash == 1) ? '0' : ' ';
-		data->length = 1;
-	}
+	info->space = 0;
+	if (number == 0 && info->point == 0)
+		info->hash = 0;
 }
 
 void			type_o(const char **format, t_info *info)
@@ -59,10 +51,19 @@ void			type_o(const char **format, t_info *info)
 	info->type = **format;
 	get_ui(&number, info);
 	data.str = ft_uitoa_base_static(number, 8, 0);
-	if (number == 0 && info->point == 0)
-		info->hash = 0;
 	data.length = ft_strlen(data.str);
 	data.negative = 0;
-	specs_handler(info, &data, &number);
+	if (data.length == 1 && info->hash == 1)
+		info->precision--;
+	if (number == 0 && info->point == 1 && info->precision == 0)
+	{
+		if (info->width == 0)
+			data.str = "\0";
+		else
+			data.str = (info->hash == 1) ? "0" : " ";
+	}
+	if (info->hash == 1)
+		data.prefix = (number == 0 && info->precision != 0) ? "\0" : "0";
+	specs_handler(info, number);
 	apply_specs(info, &data);
 }
