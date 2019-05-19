@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/20 09:53:38 by amalsago          #+#    #+#              #
-#    Updated: 2019/03/20 11:16:36 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/19 19:51:40 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,12 +105,15 @@ csp
 
 %s
 	'-'		
-	'+'				undefined behavior but print
-	' '				undefined behavior but print
-	'0'				undefined behavior but print
-	'#'				undefined behavior but print
+	'+'				Deactivate; undefined behavior but print
+	' '				Deactivate; undefined behavior but print
+	'0'				Deactivate; undefined behavior but print
+					If width > data.length padded with 0's on left instead spaces
+	'#'				Отключить; undefined behavior but print
 	[width]			
-	[precision]		if only '.' specified don't prints argument
+	[precision]		Максимальное число символов, которые будут выведены
+					Если [точность] > длина строки, вывести все символы строки
+					Если после '.' не указано значение, то не выводить строку
 
 %p
 	'-'		
@@ -188,3 +191,16 @@ Warning: data argumet not used by format string
 2. Not enough arguments
 printf("Hello %s");
 Warning: more '%' conversions than data arguments
+
+
+
+
+
+________________________________________________________________________________
+GCC OPTIMISATION OPTIONS DIFFERENCE
+
+LIBFT		FT_PRINTF	Size
+						110760
+			-Ofast		100064
+-Ofast					106024	
+-Ofast		-Ofast		95328
