@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/12 15:57:49 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/19 19:53:05 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,17 @@
 NAME		= libft.a
 
 # **************************************************************************** #
+# GNU Compiler Collection
+
+GCC			= /usr/bin/clang
+WOPT		= -Wall -Wextra -Werror
+OOPT		= -Ofast
+IOPT		= -I $(INCDIR)
+
+# **************************************************************************** #
 # System commands
 
 AR			= /usr/bin/ar -rc
-CC			= /usr/bin/clang -Wall -Wextra -Werror
 RM			= /bin/rm -rf
 RANLIB		= /usr/bin/ranlib
 NORMINETTE	= /usr/bin/norminette
@@ -131,7 +138,7 @@ $(NAME): $(OBJ)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	-@$(MKDIR) $(OBJDIR)
-	$(CC) -I $(INCDIR) -c $< -o $@
+	$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
 
 clean:
 	$(RM) $(OBJDIR)
