@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 23:37:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/18 18:53:21 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/19 19:03:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <limits.h>
 # include "../libft/include/libft.h"
 
-# define BUFF_SIZE	32
+# define BUFF_SIZE	1024
 # define LENGTH_H	0x01
 # define LENGTH_HH	0x02
 # define LENGTH_L	0x03
