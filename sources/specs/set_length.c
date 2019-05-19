@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 17:04:35 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/06 18:08:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/19 16:15:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 void	length_h(const char **format, t_info *info)
 {
-	info->length = LENGTH_H;
-	if (*(*format + 1) == 'h')
+	if (info->length == 0)
 	{
-		info->length = LENGTH_HH;
-		(*format)++;
+		info->length = LENGTH_H;
+		if (*(*format + 1) == 'h')
+		{
+			info->length = LENGTH_HH;
+			(*format)++;
+		}
 	}
 	(*format)++;
 }
