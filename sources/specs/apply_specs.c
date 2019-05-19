@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/18 18:49:32 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/19 16:32:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ void		put_prefix(t_info *info, t_data *data)
 	else if (data->negative == 1 && data->str[0] != '-')
 		write_char(&info->buffer, '-');
 	else if (info->space == 1)
-		(data->str[0] == '\0')
-			? info->buffer.length++ : write_char(&info->buffer, ' ');
+		write_char(&info->buffer, ' ');
 }
 
 void		put_precision(t_info *info, t_data *data)
