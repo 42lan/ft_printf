@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/11 18:54:01 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/19 19:53:16 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,19 @@
 # General
 
 NAME		= libftprintf.a
-CPPFLAGS	= -I $(INCDIR)
 LIBNAME		= libft.a
+
+# **************************************************************************** #
+# GNU Compiler Collection
+
+GCC			= /usr/bin/clang
+WOPT		= -Wall -Wextra -Werror
+OOPT		= -Ofast
+IOPT		= -I $(INCDIR)
 
 # **************************************************************************** #
 # System commands
 
-CC			= /usr/bin/clang -Wall -Wextra -Werror
 AR			= /usr/bin/ar -rc
 MAKE		= /usr/bin/make -C
 RANLIB		= /usr/bin/ranlib
@@ -81,7 +87,7 @@ $(NAME): $(LFT) $(OBJ)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	-@$(MKDIR) $(OBJDIR)/{types,tools,specs}
-	$(CC) $(CPPFLAGS) -c $< -o $@
+	$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
 
 $(LFT):
 	$(MAKE) $(LIBDIR)
