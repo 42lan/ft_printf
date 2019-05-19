@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:31:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/12 18:57:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/19 18:50:30 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int			main(void)
 {
-	printf("\t[ PR ]\t-> Return: %d\n", printf("{%0*f}", 15, -1.42));
-	printf("\t[ FT ]\t-> Return: %d\n", ft_printf("{%0*f}", 15, -1.42));
+	printf("\t[ PR ]\t-> Return: %d\n", printf("%#.3o", 1));
+	printf("\t[ FT ]\t-> Return: %d\n", ft_printf("%#.3o", 1));
 	return (0);
 }
