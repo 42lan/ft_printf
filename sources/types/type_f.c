@@ -6,19 +6,11 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/11 19:37:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/19 15:44:56 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/20 12:15:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void			get_f(long double *number, t_info *info)
-{
-	if (info->length == LENGTH_LLL)
-		*number = (long double)va_arg(info->ap, long double);
-	else
-		*number = (double)va_arg(info->ap, double);
-}
 
 static void			specs_handler(t_info *info)
 {
