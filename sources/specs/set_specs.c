@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 09:45:05 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/08 12:35:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/20 16:17:43 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static int		get_number(const char **format)
 	number = 0;
 	while (ft_isdigit(**format))
 	{
-		number *= 10;
-		number = number + (**format - '0');
+		number = (number * 10) + (**format - '0');
 		(*format)++;
 	}
 	return (number);
