@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/19 19:53:16 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/20 15:43:15 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBNAME		= libft.a
 
 GCC			= /usr/bin/clang
 WOPT		= -Wall -Wextra -Werror
-OOPT		= -Ofast
+OOPT		= -O2
 IOPT		= -I $(INCDIR)
 
 # **************************************************************************** #
@@ -38,33 +38,36 @@ RM			= /bin/rm -rf
 # Directories of source and object files
 
 LIBDIR		= ./libft
-INCDIR		= ./includes
 SRCDIR		= ./sources
 OBJDIR		= ./objects
+INCDIR		= ./includes
 
 # **************************************************************************** #
 # List of source files
 
 SRCNAME		= ft_printf.c				\
 			  parsing.c					\
-			  buffer.c					\
+			  tools/buffer.c			\
 			  tools/initialization.c	\
+			  tools/get_si.c			\
+			  tools/get_ui.c			\
+			  tools/get_f.c				\
+			  specs/wildcard.c			\
+			  specs/set_specs.c			\
 			  specs/set_flags.c			\
 			  specs/set_length.c		\
-			  specs/set_specs.c			\
 			  specs/apply_specs.c		\
-			  specs/wildcard.c			\
 			  types/type_b.c			\
 			  types/type_c.c			\
-			  types/type_di.c			\
+			  types/type_d.c			\
 			  types/type_f.c			\
 			  types/type_o.c			\
 			  types/type_p.c			\
 			  types/type_s.c			\
 			  types/type_u.c			\
 			  types/type_x.c			\
-			  types/percent.c			\
-			  types/unknown.c
+			  types/unknown.c			\
+			  types/percent.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
