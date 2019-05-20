@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 10:27:47 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/19 13:33:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/20 16:26:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void		specs_handler(t_info *info)
 {
-	info->plus = 0;
 	info->hash = 0;
+	info->plus = 0;
 	info->space = 0;
 	info->precision = 0;
 }
