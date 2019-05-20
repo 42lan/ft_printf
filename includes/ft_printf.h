@@ -73,9 +73,6 @@ void				get_si(intmax_t *number, t_info *info);
 void				get_ui(uintmax_t *number, t_info *info);
 void				get_f(long double *number, t_info *info);
 void				apply_specs(t_info *info, t_data *data);
-void				put_width(t_info *info, t_data *data);
-void				put_precision(t_info *info, t_data *data);
-void				put_prefix(t_info *info, t_data *data);
 
 /*
 ** A pointer to a handler function
