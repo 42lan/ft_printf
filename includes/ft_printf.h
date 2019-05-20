@@ -17,15 +17,15 @@
 # include <limits.h>
 # include "../libft/include/libft.h"
 
-# define BUFF_SIZE	1024
+# define BUFF_SIZE	4096
 # define LENGTH_H	0x01
 # define LENGTH_HH	0x02
-# define LENGTH_L	0x03
-# define LENGTH_LL	0x04
-# define LENGTH_J	0x05
-# define LENGTH_Z	0x06
-# define LENGTH_T	0x07
-# define LENGTH_LLL 0x08
+# define LENGTH_L	0x04
+# define LENGTH_LL	0x08
+# define LENGTH_J	0x10
+# define LENGTH_Z	0x20
+# define LENGTH_T	0x40
+# define LENGTH_LLL 0x80
 
 typedef struct		s_data
 {
