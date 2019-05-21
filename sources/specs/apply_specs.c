@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/21 17:14:56 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/21 18:34:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** put_prefix() writes an appropriate prefix for a given data.
+*/
 
 static void		put_prefix(t_info *info, t_data *data)
 {
@@ -26,6 +30,10 @@ static void		put_prefix(t_info *info, t_data *data)
 		write_char(&info->buffer, ' ');
 }
 
+/*
+** put_precision()
+*/
+
 static void		put_precision(t_info *info, t_data *data)
 {
 	int		precision;
@@ -34,6 +42,10 @@ static void		put_precision(t_info *info, t_data *data)
 	while (precision-- > 0 && data->str != NULL)
 		write_char(&info->buffer, '0');
 }
+
+/*
+** put_width() determine a minimum width that need to be outputted.
+*/
 
 static void		put_width(t_info *info, t_data *data)
 {
@@ -52,6 +64,10 @@ static void		put_width(t_info *info, t_data *data)
 		while (info->width-- > 0)
 			write_char(&info->buffer, ' ');
 }
+
+/*
+** apply_specs() determine the order of execution of functions defined above.
+*/
 
 void			apply_specs(t_info *info, t_data *data)
 {
