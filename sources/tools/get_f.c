@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 12:08:31 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/20 15:22:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/21 16:20:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void	get_f(long double *number, t_info *info)
 {
-	if (info->length == LENGTH_LLL)
+	if (info->length & LENGTH_LLL)
 		*number = (long double)va_arg(info->ap, long double);
 	else
 		*number = (double)va_arg(info->ap, double);
