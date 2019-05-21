@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 05:00:15 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/08 12:29:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/21 18:37:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** Below are the functions that sets (and unsets) corresponding (ignored) flag.
+*/
 
 void	flag_space(const char **format, t_info *info)
 {
