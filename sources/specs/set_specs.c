@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 09:45:05 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/21 18:42:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/21 18:58:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static int		get_number(const char **format)
 	}
 	return (number);
 }
-
 
 /*
 ** digit() while parsing the formated string if previous character was not
