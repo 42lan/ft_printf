@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 11:24:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/20 16:14:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/21 17:14:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ static void		put_width(t_info *info, t_data *data)
 		info->width = info->width - data->length - ft_strlen(data->prefix);
 	else
 		info->width -= data->length;
-	if ((info->plus == 1 || info->space == 1) && data->negative == 0)
-		info->width--;
 	if (info->zero == 1 && info->minus == 0 && data->length > 0)
 		while (info->width-- > 0)
 			write_char(&info->buffer, '0');
