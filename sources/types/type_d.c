@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 15:03:54 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/20 15:37:32 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/21 17:11:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ static void		specs_handler(t_info *info, t_data *data, intmax_t number)
 	if ((data->length == 1 && info->space == 0 && info->plus == 0)
 		|| info->hash == 1)
 		info->zero = 0;
-	info->hash = 0;
-	if (number < 0)
+	if ((((info->plus | info->space) & 1) && data->negative == 0)
+		|| number < 0)
 		info->width--;
+	info->hash = 0;
 }
 
 void			type_d(const char **format, t_info *info)
