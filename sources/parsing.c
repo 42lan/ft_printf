@@ -6,11 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 09:25:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/20 15:44:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/05/21 17:31:04 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** parsing() initialize specificators and calls for each printable character
+** a function pointer g_jump_table until the placeholder type is defined.
+*/
 
 void				parsing(const char **format, t_info *info)
 {
