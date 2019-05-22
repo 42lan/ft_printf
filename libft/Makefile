@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/20 11:50:11 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/22 12:48:47 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -128,17 +128,30 @@ SRC			= $(addprefix $(SRCDIR)/, $(SRCNAME))
 OBJ			= $(addprefix $(OBJDIR)/, $(SRCNAME:.c=.o))
 
 # **************************************************************************** #
+# Extra
+
+CLEAR       = "\033[K"
+EOC			= "\033[0;0m"
+GREEN		= "\033[0;32m"
+CR			= "\r"$(CLEAR)
+BASENAME	= `basename $(PWD)`
+
+# **************************************************************************** #
 # Rules
+
+.SILENT:
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 	$(RANLIB) $(NAME)
+	printf $(CR)$(GREEN)"✓ $(NAME) is created\n"$(EOC)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	-@$(MKDIR) $(OBJDIR)
 	$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
+	printf $(CR)"[ $(BASENAME)/%s ]"$(CLEAR) $@
 
 clean:
 	$(RM) $(OBJDIR)
