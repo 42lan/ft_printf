@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/20 15:43:15 by amalsago         ###   ########.fr        #
+#    Updated: 2019/05/22 12:49:25 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,19 +78,30 @@ LFT			= $(addprefix $(LIBDIR)/, $(LIBNAME))
 LFTOBJ		= $(LIBDIR)/objects/*.o
 
 # **************************************************************************** #
+# Extra
+
+CLEAR       = "\033[K"
+EOC			= "\033[0;0m"
+GREEN		= "\033[0;32m"
+CR			= "\r"$(CLEAR)
+BASENAME	= `basename $(PWD)`
+
+# **************************************************************************** #
 # Rules
 
-# .SILENT:
+.SILENT:
 
 all: $(NAME) $(LFT)
 
 $(NAME): $(LFT) $(OBJ)
 	$(AR) $(NAME) $(OBJ) $(LFTOBJ)
 	$(RANLIB) $(NAME)
+	printf $(CR)$(GREEN)"✓ $(NAME) is created\n"$(EOC)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	-@$(MKDIR) $(OBJDIR)/{types,tools,specs}
 	$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
+	printf $(CR)"[ $(BASENAME)/%s ]"$(CLEAR) $@
 
 $(LFT):
 	$(MAKE) $(LIBDIR)
