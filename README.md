@@ -13,7 +13,6 @@ I can use it in all my future projects, such as **ft_ls**..
 It was a chance for me to discover a feature of the C language – *variadic functions* – and to practice
 detailed management of the printing options.
 
-
 # Speed test
 On iMac (Late 2012) the average result is **121%**
 
@@ -31,3 +30,5 @@ macOS Sierra	10.12.6 (16G1918)
 Processor	3,1 GHz Intel Core i7
 Memory		16 GB 1867 MHz DDR3
 ```
+</br></br>
+![alt text](https://github.com/4slan/ft_printf/blob/master/docs/result.png)
