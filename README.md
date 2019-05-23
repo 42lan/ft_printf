@@ -1,5 +1,4 @@
 # ft_printf
-Implementation of my own printf function in C because I’m fed up alternating the **ft_putnbr()** and **ft_putstr()** when doing my printing.
 
 ### Introduction
 Regardless of the programming language considered, the **printf** function, (or its equiv-alents) is always highly useful.
